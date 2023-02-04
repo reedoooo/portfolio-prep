@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" id="html-id">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>E-Portfolio</title>
+
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="./js/login.js"></script>
+
+
+        <link rel="stylesheet" href="css/notes.css">
+
+    </head>
+    <body>
+        <section id="body-div">
+            <div class="left">
+
+            </div>
+            <header>
+
+            </header>
+
+            <main>
+                <aside class="left">
+                    <section id="nav-div">
+                        <section class="logo">
+                            <div class="logo-shape"></div>
+                            <div class="logo-text">Coding Progress</div>
+                        </section>
+                        <nav>
+                            <ul>
+                                <a href="login.html">
+                                    <li id="li1">Home</li>
+                                </a>
+                                <a href="index.html">
+                                    <li id="li2">Projects</li>
+                                </a>
+                                <a href="resume.html">
+                                    <li id="li3">Resume</li>
+                                </a>
+                                <a href="notes.html">
+                                    <li id="li4">Notes</li>
+                                </a>
+                                <a href="todoList.html">
+                                    <li id="li5">To-Do List</li>
+                                </a>
+                                <a href="links.html">
+                                    <li id="li6">Coding Resources</li>
+                                </a>
+                                <a href="boredbutton.html">
+                                    <li id="li7">Bored Button</li>
+                                </a>
+                                <a href="about.html">
+                                    <li id="li8">About Us</li>
+                                </a>
+                            </ul>
+                        </nav>
+                        <!-- <form id='addFolders'>
+                            <fieldset>
+                                <legend>Add a New Project Folder</legend>
+
+                                <section class='formDiv'>
+                                    <label for='folderName'>Folder Name: </label>
+                                    <input type='text' id="name" required>
+                                </section>
+
+                                <section class='formDiv'>
+                                    <label for='folderSRC'>URL: </label>
+                                    <input type='text' id="src" required>
+                                </section>
+
+                                <input id='addFolder' type="submit" value="Add Folder">
+                            </fieldset>
+                        </form>
+                        <form id='deleteFolders'>
+                            <fieldset>
+                                <legend>Delete Folders</legend>
+
+                                <section class='formDiv'>
+                                    <label for='folderName'>Folder Name: </label>
+                                    <input type='text' id="name" required>
+                                </section>
+
+                                <input id='deleteFolder' type="submit" value="Delete Folder">
+                            </fieldset>
+                        </form> -->
+                    </section>
+                </aside>
+                <section id="notesMainContainer">
+                    <!--must be no white space between opening and closing elements of '<section id=notesButtonScroll>' or else 'clearNoteButtonContainer func in notes.js will fail to work'-->
+                    <section id="notesButtonContainer">
+                        <h4>Notes</h4>
+                        <section id="notesButtonScroll"></section>
+                    </section>
+                    <form id="noteDisplay">
+                        <fieldset>
+                            <section id="noteTitleContainer">
+                                <!-- <label for="noteTitle">Title: </label> -->
+                                <input type="text" id="noteTitle" name="noteTitle" placeholder="Title.." required />
+                            </section>
+                            <textarea id="noteText" name="noteText" >
+                                <!-- text for/from each note will go here -->
+                            </textarea>
+                            <br>
+                            <button id="save" type="submit">Save</button>
+                        </fieldset>
+                    </form>
+                </section>
+            </main>
+        
+            <footer>
+
+            </footer>
+
+            <script src="./js/app.js" type="text/javascript"></script>
+            <script src="./js/notes.js" type="text/javascript"></script>
+        </section>
+    </body>
+</html>

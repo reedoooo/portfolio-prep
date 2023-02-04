@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" id="html-id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Todo list</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="css/main.css" /> -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/todoList.css">
+  <script type="text/javascript" src="./js/login.js"></script>
+
+</head>
+
+<body id="body-div">
+  <main>
+    <aside class="left">
+      <section id="nav-div">
+        <section class="logo">
+          <div class="logo-shape"></div>
+          <div class="logo-text" id="logo-id">Coding Progress</div>
+        </section>
+        <nav>
+          <ul>
+            <a href="login.html">
+                <li id="li1">Home</li>
+            </a>
+            <a href="index.html">
+                <li id="li2">Projects</li>
+            </a>
+            <a href="resume.html">
+                <li id="li3">Resume</li>
+            </a>
+            <a href="notes.html">
+                <li id="li4">Notes</li>
+            </a>
+            <a href="todoList.html">
+                <li id="li5">To-Do List</li>
+            </a>
+            <a href="links.html">
+                <li id="li6">Coding Resources</li>
+            </a>
+            <a href="boredbutton.html">
+                <li id="li7">Bored Button</li>
+            </a>
+            <a href="about.html">
+                <li id="li8">About Us</li>
+            </a>
+          </ul>
+        </nav>
+      </section>
+    </aside>
+
+    <section id="todoContainer">
+      <div class="all-tasks">
+        <h2 class="task-list-title">To-Do Lists</h2>
+        <ul id="all-tasks" class="task-list">
+        </ul>
+
+        <form id="newTaskForm" action="">
+          <input id="taskName" name="taskName" type="text" class="new list" placeholder="new list name"
+            aria-label="new list name" />
+          <button class="btn create" aria-label="create new list">+</button>
+        </form>
+      </div>
+
+      <div class="todo-list">
+        <div class="todo-header">
+          <h2 class="list-title">Tasks</h2>
+          <!-- <p class="task-count">3 tasks remaining</p> -->
+        </div>
+
+        <div class="todo-body">
+          <div id="todo-list" class="tasks">
+            <!-- <div class="task">
+              <input 
+                type="checkbox"
+                id="task-1"
+              />
+              <label for="task-1">
+                <span class="custom-checkbox"></span>
+                Create user stories
+              </label>
+            </div> -->
+          </div>
+
+          <div class="new-task-creator">
+            <form id="newTodoForm" action="">
+              <input id="todoName" name="todoName" type="text" class="new task" placeholder="new task name"
+                aria-label="new task name" />
+              <button type="submit" class="btn create" aria-label="create new task">+</button>
+            </form>
+          </div>
+
+          <div class="delete-stuff">
+            <button class="btn delete">Clear completed tasks</button>
+            <button class="btn delete">Delete list</button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</body>
+<script src="js/todoList.js" type="text/javascript"></script>
+
+</html>
