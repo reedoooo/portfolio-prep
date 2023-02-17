@@ -1,0 +1,55 @@
+#iframebox{
+   display: flex;
+   /* flex-direction: column; */
+   height: 82vh;
+   justify-content: space-around;
+   padding: 10px;
+   border-top: 1px solid white;
+   margin-top: 1rem;
+
+}
+
+iframe{
+   width: 68%;
+   height: 100%;
+}
+
+#boredButtonIframeBox{
+   display: flex;
+   height: 98vh;
+   /* width: 90vw; */
+   padding: 9px;
+   justify-content: space-around;
+ }
+
+ #boredButtonIframe{
+   width: 100%;
+ }
+
+ #textblob {
+   white-space: pre-wrap;
+   overflow-y: auto;
+   height: 100%;
+   width: 28%;
+   font-size: 0.9rem;
+   color: #C1EDCC;
+}
+
+#projectFileNavContainer {
+   border-top: .1rem solid ivory;
+   display: flex;
+   flex-direction: column;
+   /* overflow-y: scroll; */
+}
+
+#projectFileNavContainer button {
+   margin: 10px 5px;
+   padding: 5px 2.5px;
+}
+
+h4 {
+   color: #C1EDCC;
+   text-align: center;
+   font-weight: 500;
+   margin: 10px 5px;
+}

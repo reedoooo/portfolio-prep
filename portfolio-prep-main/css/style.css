@@ -1,0 +1,296 @@
+body {
+    background-color: #453F3C;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.left {
+    float: left;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0.3rem; */
+    padding: 0.5rem;
+    border-bottom: .1rem solid ivory;
+}
+
+.logo-shape {
+    width: 50px;
+    height: 50px;
+    background-color: #797270;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #C1EDCC;
+}
+
+.logo-div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #797270;
+    position: relative;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    height: 100vh;
+    border-right: .1rem solid ivory;
+    background-color: rgba(20, 19, 18, 0.5);
+}
+
+#nav-div {
+    display: flex;
+    flex-direction: column;
+    width:350px;
+    /* height:100vh; */
+    /* border-right: .1rem solid ivory; */
+    /* background-color:rgba(20, 19, 18, 0.5); */
+    margin-right: auto;
+    overflow-y: scroll;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+nav ul {
+    width: 100%;
+}
+
+nav ul li {
+    list-style-type: none;
+    justify-content: space-around;
+    padding: 3%;
+    text-align: center;
+    border-bottom: .1rem solid ivory;
+    color: #C1EDCC;
+}
+
+nav ul li:hover {
+    background-color: #797270;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.folderRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.folder {
+    width: 150px;
+    height: 105px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    background-color: #797270;
+    border-radius: 0 6px 6px 6px;
+    border: none;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
+    /* color:#C1EDCC; */
+    font-size: 1.25rem;
+}
+
+.folder:before {
+    content: '';
+    color: #C1EDCC;
+    text-align: center;
+    width: 50%;
+    height: 12px;
+    border-radius: 0 20px 0 0;
+    background-color: #797270;
+    position: absolute;
+    top: -12px;
+    left: 0px;
+}
+
+.folder:before:hover {
+    width: 55%;
+    height: 14px;
+    transition: 500ms ease-in-out;
+    border: thin solid white;
+}
+
+.folder:hover {
+    width: 160px;
+    height: 115px;
+    transition: 500ms ease-in-out;
+    border: thin solid white;
+}
+
+#addFolders,
+#deleteFolders,
+#submit-button1,
+#submit-button2,
+#addResume {
+    width: 90%;
+    margin: 5% auto;
+    background-color: #797270;
+    border-radius: 6px;
+    padding: 2%;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
+}
+
+#addFolders legend,
+#deleteFolders legend,
+#submit-button1 legend,
+#submit-button2 legend,
+#confirm-button legend,
+#addResume legend {
+    color: #C1EDCC;
+    font-size: .9rem;
+    margin-bottom: 2%;
+}
+
+#addFolders #formDiv1 #formDiv2 #formDiv3,
+#deleteFolders #formDiv4,
+#submit-button1 #formDiv7,
+#submit-button2 #formDiv5,
+#confirm-button #formDiv0,
+#addResume #formDiv6 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+#addFolders label,
+#deleteFolders label,
+#submit-button1 label,
+#submit-button2 label,
+#confirm-button label {
+    color: #C1EDCC;
+    width: 15%;
+}
+
+#addFolders input[type='text'],
+#deleteFolders input[type='text'],
+#submit-button1 input[type='text'],
+#submit-button2 input[type='text'],
+#confirm-button input[type='text']{
+    width: 60%;
+    padding: 1%;
+    border-radius: 6px;
+    border: none;
+    background-color: #453F3C;
+    color: #C1EDCC;
+    margin-bottom: 2px;
+}
+
+#addFolders input[type='submit'],
+#deleteFolders input[type='submit'],
+#submit-button1 input[type='submit'],
+#submit-button2 input[type='submit'],
+#confirm-button input[type='click'] {
+    width: 40%;
+    margin: 2% auto;
+    padding: 1%;
+    border-radius: 6px;
+    border: none;
+    background-color: #C1EDCC;
+    color: #453F3C;
+    cursor: pointer;
+}
+
+#formDiv1, #formDiv2, #formDiv3, #formDiv4 {
+    margin: 1%;
+    padding: 1%;
+}
+
+#title, #deployedPage, #folderSRC, #name {
+    float: right;
+}
+
+#legend-div3 {
+    width: 100%;
+}
+
+
+#light-dark-boxes {
+    width: 300px;
+    color: inherit;
+}
+
+#formDiv5 {
+  width: 300px;
+  color: inherit;
+}
+
+#flex-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#pdfViewer {
+    margin: 15px;
+}
+
+#resume-input {
+    margin: 15px;
+}
+
+#formDiv6 {
+  margin: 15px;
+}
+
+#addFolders input[type='file'] {
+    width: 81.5%;
+}
+
+#label-form4 {
+    flex-grow: 1;
+    margin:0px;
+}
+#name {
+    margin-left:-20px;
+}
+#addResume input[type='file']{
+    width: 65%;
+    margin: 2% auto;
+    border-radius: 6px;
+    border: none;
+    background-color: #C1EDCC;
+    color: #453F3C;
+    cursor: pointer;
+}
+#pdfFileInput {
+    padding: 3%;
+}
+
+input::file-selector-button {
+    width: 50%;
+    margin: 2% auto;
+    font:inherit;
+    padding: 1%;
+    border-radius: 6px;
+    border: none;
+    background-color: #ffe9f3;
+    color: #453F3C;
+    cursor: pointer;}
+
+#addResume label {
+    color: #C1EDCC;
+    width: 20%;
+}

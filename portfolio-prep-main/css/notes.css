@@ -1,0 +1,78 @@
+* {
+    color: #C1EDCC;
+}
+
+#notesMainContainer {
+    display: flex;
+    justify-content: space-around;
+    height: 95vh;
+    padding: 1rem;
+}
+
+#notesButtonContainer {
+    width: 25%;
+    margin: 1rem;
+    text-align: center;
+}
+
+h4 {
+    font-size: xx-large;
+    margin: 1.25rem;
+    /* color: #C1EDCC; */
+}
+
+#notesButtonScroll {
+    margin: 2.5rem 0 0 0;
+    overflow-y: auto;
+}
+
+#noteDisplay {
+    /* display: flex;
+    justify-content: center; */
+    width: 65%;
+    margin: 1rem;
+    
+}
+
+#noteTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+#noteTitle {
+    font-size: 2rem;
+    width: 100%;
+    background-color: rgb(44,40,39);
+    /* color: #C1EDCC; */
+}
+
+#noteText {
+    width: 96.25%;
+    height: 65vh;
+    margin: 1rem;
+    font-size: 1.05rem;
+    background-color: rgb(44,40,39);
+    /* color: #C1EDCC; */
+}
+
+#save {
+    margin: 1rem;
+    float: right;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    overflow-x: hidden; 
+    background-color: rgb(121,114,112);
+    /* color: #C1EDCC; */
+    border: none;
+    margin: 0.1rem;
+    border-radius: 6px;
+}
+
+#notesButtonScroll .title {
+    width: 85%;
+}

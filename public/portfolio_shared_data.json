@@ -1,0 +1,43 @@
+{
+    "basic_info": {
+      "name": "Reed Vogt",
+      "titles": [ "Software Developer" ],
+      "social": [
+        {
+          "name": "github",
+          "url": "https://github/reedoooo.com",
+          "class": "fab fa-github"
+        },
+        {
+          "name": "instagram",
+          "url": "https://www.instagram.com/reedthahuman",
+          "class": "fab fa-instagram"
+        }
+      ],
+      "image": "../src/img/headshot.png"
+    },
+    "skills": {
+      "icons": [
+        {
+          "name": "HTML 5",
+          "class": "devicon-html5-plain",
+          "level": "95"
+        },
+        {
+          "name": "CSS 3",
+          "class": "devicon-css3-plain",
+          "level": "95"
+        },
+        {
+          "name": "JavaScript",
+          "class": "devicon-javascript-plain",
+          "level": "70"
+        },
+        {
+          "name": "Bootstrap",
+          "class": "devicon-bootstrap-plain",
+          "level": "85"
+        }
+      ]
+    }
+  }
