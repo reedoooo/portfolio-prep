@@ -2,20 +2,14 @@
 @import '/src/scss/themes/theme-light.scss';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
 
-// /* SCSS Gradient */
-$gradient-top: linear-gradient(0deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-right: linear-gradient(90deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-bottom: linear-gradient(180deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-left: linear-gradient(270deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-top-right: linear-gradient(45deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-bottom-right: linear-gradient(135deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-top-left: linear-gradient(225deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-bottom-left: linear-gradient(315deg, hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-$gradient-radial: radial-gradient(hsl(231, 87%, 13%), hsl(231, 87%, 23%), hsl(231, 87%, 43%), hsl(231, 87%, 63%), hsl(42, 32%, 85%));
-// $gradient: linear-gradient(to bottom, #35478C, #3B528B, #3E7860, #E8DEB1);
 
-.backgroundColor {
-	background: linear-gradient(to bottom, #35478C, #3B528B, #3E7860, #E8DEB1);
+
+body {
+	background: linear-gradient(to top, #00172D, #00264D, #02386E, #00498D, #0052A2);
+}
+
+span {
+		color: #a3a3a3;
 }
 
 html {
@@ -50,8 +44,9 @@ header {
 	height: 520px;
 	min-height: 450px;
 	width: 100%;
-	background: linear-gradient(to bottom, #35478C, #3B528B, #3E7860, #E8DEB1);
-	background-repeat: no-repeat;
+	// background: linear-gradient(to bottom, #00172D, #00264D, #02386E, #00498D, #0052A2);
+	// background-repeat: no-repeat;
+	background-attachment: fixed;
 	text-align: center;
 	overflow: hidden;
 	padding-top: 150px;
@@ -96,11 +91,6 @@ header .nav {
 	}
 }
 
-.language-icon {
-	font-size: 50px;
-	cursor: pointer;
-}
-
 .project-date {
 	font-size: 16px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -121,18 +111,15 @@ header .nav {
 	border-radius: 8px;
 }
 
-.language {
-	font-size: 25px;
-	background-color: #e9d5a1;
-	padding-bottom: 10px;
-	padding-top: 80px;
+header {
+	color: #a3a3a3;
 }
 
 header h1 {
 	font-size: 400%;
 	text-align: center;
 	font-weight: 600 !important;
-	color: #353239;
+	color: #a3a3a3;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	margin: 0 auto 18px auto;
 	width: 100%;
@@ -242,7 +229,8 @@ header h1 {
 }
 
 .link-href {
-	color: black;
+		color: #a3a3a3;
+	// color: black;
 }
 
 .wave {
@@ -267,7 +255,9 @@ header h1 {
 	align-items: center;
 }
 
-#resume {background:linear-gradient(to top,#35478C,#3B528B,#3E7860,#E8DEB1);
+#resume {
+		background-color: transparent;
+	// background: linear-gradient(to top, #00172D, #00264D, #02386E, #00498D, #0052A2);
 	background-repeat: no-repeat;
 	padding-bottom: 5%;
 }
@@ -391,8 +381,9 @@ header h1 {
 }
 
 #portfolio {
-	background: linear-gradient(to top, #35478C, #3B528B, #3E7860, #E8DEB1);
-	background-repeat: no-repeat;
+	background-color: transparent;
+	// background: linear-gradient(to top, #00172D, #00264D, #02386E, #00498D, #0052A2);
+	// background-repeat: no-repeat;
 	padding-bottom: 5%;
 	height: 10
 }
@@ -430,7 +421,8 @@ header h1 {
 }
 
 #skills {
-	background: linear-gradient(to bottom, #35478C, #3B528B, #3E7860, #E8DEB1);
+		background-color: transparent;
+	// background: linear-gradient(to bottom, #00172D, #00264D, #02386E, #00498D, #0052A2);
 	min-height: 200px;
 	width: 100%;
 	overflow: hidden;
@@ -443,7 +435,7 @@ header h1 {
 	font: 18px/24px 'opensans-bold', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 3px;
-	color: #fff;
+	color: #a3a3a3;
 	text-align: center;
 }
 
@@ -455,8 +447,9 @@ header h1 {
 }
 
 footer {
-	background: linear-gradient(to bottom, #35478C, #3B528B, #3E7860, #E8DEB1);
-	background-repeat: no-repeat;
+		background-color: transparent;
+	// background: linear-gradient(to top, #00172D, #00264D, #02386E, #00498D, #0052A2);
+	// background-repeat: no-repeat;
 	min-height: 100px;
 	width: 100%;
 	overflow: hidden;
