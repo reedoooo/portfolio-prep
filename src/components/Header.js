@@ -31,7 +31,7 @@ class Header extends Component {
       this.titles = this.props.sharedData.titles; //...map(x => [ x.toUpperCase(), 1500 ] ).flat();
     }
 
-    const HeaderTitleTypeAnimation = React.memo( () => {
+    const HeaderTitleTypeAnimation = React.memo(() => {
       return this.titles
     }, (props, prevProp) => true);
 
@@ -103,11 +103,11 @@ class Header extends Component {
             />
           </Nav.Item>
         </Nav>
-        <div className="row aligner" style={{height: '100%'}}>
+        <div className="row aligner" style={{ height: '100%' }}>
           <div className="col-md-12">
             <div>
               <span className="iconify header-icon" data-icon="la:laptop-code" data-inline="false"></span>
-              <br/>
+              <br />
               <h1 className="mb-0">
                 {name}
               </h1>

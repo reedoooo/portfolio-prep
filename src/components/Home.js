@@ -5,63 +5,23 @@ import Experience from "./Experience";
 
 class Home extends Component {
   render() {
-    // let name = null;
+    const projects = this.props.resumeData.projects;
+    // const projects2 = this.props.resumeData.projects2;
+    const allProjects =
+    // this.props.location.pathname === "/projects2" ? projects :
+    projects;
+    const basicInfo = this.props.resumeData.basic_info;
+    const skills = this.props.sharedData.skills;
+    const experience = this.props.resumeData.experience;
+
     return (
       <div>
-        <Projects
-          resumeProjects={this.props.resumeData.projects
-            // (this.props.location.pathname === "/projects2" ? this.props.resumeData.projects2 : this.props.resumeData.projects)
-              // name ? this.props.resumeData.projects || this.props.location.pathname === "/"
-              // : this.props.resumeData.projects2 || this.props.location.pathname === "/projects2"
-          }
-          resumeBasicInfo={this.props.resumeData.basic_info}
-        />
-        <Skills
-          sharedSkills={this.props.sharedData.skills}
-          resumeBasicInfo={this.props.resumeData.basic_info}
-        />
-        <Experience
-          resumeExperience={this.props.resumeData.experience}
-          resumeBasicInfo={this.props.resumeData.basic_info}
-        />
+        <Projects resumeProjects={allProjects} resumeBasicInfo={basicInfo} />
+        <Skills sharedSkills={skills} resumeBasicInfo={basicInfo} />
+        <Experience resumeExperience={experience} resumeBasicInfo={basicInfo} />
       </div>
     );
   }
 }
 
 export default Home;
-
-// import React, { Component } from "react";
-// import Projects from "./Projects";
-// import Skills from "./Skills";
-// import Experience from "./Experience";
-
-// class Home extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <Projects
-//           resumeHomeProjects={
-//             if(to="/about") {
-//               this.props.resumeData.projects
-//               } else {
-//                   this.props.resumeData.projects2
-//               }
-//           }
-//           resumePageProjects={this.props.resumeData.projects}
-//           resumeBasicInfo={this.props.resumeData.basic_info}
-//         />
-//         <Skills
-//           sharedSkills={this.props.sharedData.skills}
-//           resumeBasicInfo={this.props.resumeData.basic_info}
-//         />
-//         <Experience
-//           resumeExperience={this.props.resumeData.experience}
-//           resumeBasicInfo={this.props.resumeData.basic_info}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-// export default Home;

@@ -1,18 +1,18 @@
-import React, { Component } from 'react'
-import Projects from "./Projects";
-
+import React, { Component } from 'react';
+import Projects from './Projects';
 
 class Projects2 extends Component {
-
   render() {
+    const projects = this.props.resumeData.projects;
+    // const projects2 = this.props.resumeData.projects2;
+    const allProjects = projects;
+    // projects2 || projects;
+    const basicInfo = this.props.resumeData.basic_info;
 
     return (
-      <div className='background'>
-        <div className='transparentbox'>
-          <Projects
-            resumeProjects={this.props.resumeData.projects2}
-            resumeBasicInfo={this.props.resumeData.basic_info}
-          />
+      <div className="background">
+        <div className="transparentbox">
+          <Projects resumeProjects={allProjects} resumeBasicInfo={basicInfo} />
         </div>
       </div>
     );
@@ -20,4 +20,3 @@ class Projects2 extends Component {
 }
 
 export default Projects2;
-
