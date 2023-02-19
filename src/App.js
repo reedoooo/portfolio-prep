@@ -10,14 +10,14 @@ import Home from "./components/Home";
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       resumeData: {},
       sharedData: {},
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.loadSharedData();
     this.loadResumeFromPath(`res_primaryLanguage.json`);
   }
@@ -27,61 +27,63 @@ class App extends Component {
       url: path,
       dataType: "json",
       cache: false,
-      success: function (data) {
+      success: (data) => {
         this.setState({ resumeData: data });
-      }.bind(this),
+      },
       error: function (xhr, status, err) {
         alert(err);
       },
     });
-  }
+  };
 
   loadSharedData = () => {
     $.ajax({
       url: `portfolio_shared_data.json`,
       dataType: "json",
       cache: false,
-      success: function (data) {
-        this.setState({ sharedData: data }, () => document.title = `${this.state.sharedData.basic_info.name}`);
-      }.bind(this),
+      success: (data) => {
+        this.setState({ sharedData: data }, () => {
+          document.title = `${this.state.sharedData.basic_info.name}`;
+        });
+      },
       error: function (xhr, status, err) {
         alert(err);
       },
     });
-  }
+  };
 
   render() {
+    const { resumeData, sharedData } = this.state;
+
     return (
       <Router>
-        <Header sharedData={this.state.sharedData.basic_info} />
+        <Header sharedData={sharedData.basic_info} />
         <Routes>
           <Route
-            exact path="/"
-            element={<Home
-              resumeData={this.state.resumeData}
-              sharedData={this.state.sharedData}
-            />}>
-          </Route>
+            exact
+            path="/"
+            element={<Home resumeData={resumeData} sharedData={sharedData} />}
+          />
           <Route
             path="/about"
-            element={<About
-              resumeBasicInfo={this.state.resumeData.basic_info}
-              sharedBasicInfo={this.state.sharedData.basic_info}
-            />}>
-          </Route>
+            element={
+              <About
+                resumeBasicInfo={resumeData.basic_info}
+                sharedBasicInfo={sharedData.basic_info}
+              />
+            }
+          />
           <Route
             path="/projects2"
-            element={<Projects2
-              resumeBasicInfo={this.state.resumeData.basic_info}
-              sharedBasicInfo={this.state.sharedData.basic_info}
-              resumeData={this.state.resumeData}
-              sharedData={this.state.sharedData}
-            />}>
-          </Route>
+            element={
+              <Projects2
+                resumeData={resumeData}
+                sharedData={sharedData}
+              />
+            }
+          />
         </Routes>
-        <Footer
-          sharedBasicInfo={this.state.sharedData.basic_info}
-        />
+        <Footer sharedBasicInfo={sharedData.basic_info} />
       </Router>
     );
   }

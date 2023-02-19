@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import SearchBar from "../utils/SearchBar";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 
 class Projects extends Component {
@@ -7,8 +8,16 @@ class Projects extends Component {
     this.state = {
       deps: {},
       detailsModalShow: false,
+      filteredProjects: []
     };
   }
+
+  filterProjects = (query) => {
+    const filtered = this.props.resumeProjects.filter((project) =>
+      project.title.toLowerCase().includes(query.toLowerCase())
+    );
+    this.setState({ filteredProjects: filtered });
+  };
 
   render() {
     let detailsModalShow = (data) => {
@@ -17,30 +26,35 @@ class Projects extends Component {
 
     let detailsModalClose = () => this.setState({ detailsModalShow: false });
 
+    let projects = [];
+
     if (this.props.resumeProjects && this.props.resumeBasicInfo) {
       var sectionName = this.props.resumeBasicInfo.section_name.projects;
-      var projects = this.props.resumeProjects.map(function (projects) {
+      projects = this.state.filteredProjects.length
+        ? this.state.filteredProjects
+        : this.props.resumeProjects;
 
+      projects = projects.map(function (project) {
         return (
           <div
             className="col-sm-12 col-md-6 col-lg-4"
-            key={projects.title}
+            key={project.title} // <-- use project.title instead of projects.title
             style={{ cursor: "pointer" }}
           >
             <span className="portfolio-item d-block">
-              <div className="foto" onClick={() => detailsModalShow(projects)}>
+              <div className="foto" onClick={() => detailsModalShow(project)}>
                 <div>
                   <img
-                    src={projects.images[0]}
+                    src={project.images[0]}
                     alt="projectImages"
                     height="230"
                     width="368"
                     style={{ marginBottom: 0, paddingBottom: 0, position: 'relative' }}
                   />
-                  <span className="project-date">{projects.startDate}</span>
+                  <span className="project-date">{project.startDate}</span>
                   <br />
                   <p className="project-title-settings mt-3">
-                    {projects.title}
+                    {project.title}
                   </p>
                 </div>
               </div>
@@ -56,6 +70,9 @@ class Projects extends Component {
           <h1 className="section-title" style={{ color: "black" }}>
             <span>{sectionName}</span>
           </h1>
+          {/* <div>
+            <SearchBar filterProjects={this.filterProjects} />
+          </div> */}
           <div className="col-md-12 mx-auto">
             <div className="row mx-auto">{projects}</div>
           </div>
