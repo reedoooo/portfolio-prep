@@ -4,9 +4,9 @@ import $ from "jquery";
 import "./App.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Projects2 from "./components/Projects2";
 import About from "./components/About";
 import Home from "./components/Home";
-import Projects2 from "./components/Projects2";
 
 class App extends Component {
   constructor(props) {
@@ -72,8 +72,10 @@ class App extends Component {
           <Route
             path="/projects2"
             element={<Projects2
-              resumeBasicInfo={this.state.resumeData}
-              sharedBasicInfo={this.state.sharedData}
+              resumeBasicInfo={this.state.resumeData.basic_info}
+              sharedBasicInfo={this.state.sharedData.basic_info}
+              resumeData={this.state.resumeData}
+              sharedData={this.state.sharedData}
             />}>
           </Route>
         </Routes>

@@ -197,6 +197,21 @@ header h1 {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
 }
 
+//Projects Page invisible boxes
+div.transparentbox {
+	margin: 30px;
+	background-color: rgb(255, 255, 255, .2);
+	border-radius: 15px;
+	// filter: alpha(opacity=60);
+	/* This is for IE8 and other earlier browsers */
+}
+
+div.transparentbox p {
+	margin: 5%;
+	color: #000000;
+	font-weight: bold;
+}
+
 .project-title-settings {
 	margin-top: 5%;
 	font: 18px/24px 'opensans-bold', sans-serif;
@@ -432,7 +447,7 @@ header h1 {
 .section-title {
 	padding-top: 5%;
 	padding-bottom: 5%;
-	font: 18px/24px 'opensans-bold', sans-serif;
+	font: 24px/36px 'opensans-bold', sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	color: #a3a3a3;
