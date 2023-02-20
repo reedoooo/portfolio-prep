@@ -36,8 +36,8 @@ class SearchBar extends Component {
 
             </Stack>
                 <div className="project-choices">
-                    {filteredProjects.map((project, i) => (
-                        <Col key={i}>
+                    {filteredProjects.map((project) => (
+                        <Col>
                             <Projects2 resumeProjects={[project]} />
                         </Col>
                     ))}

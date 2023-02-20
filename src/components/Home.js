@@ -5,9 +5,9 @@ import Experience from "./Experience";
 
 class Home extends Component {
   render() {
-    const consOle = () => { console.log(Projects2) }
+    const consOle = () => { console.log(projects2) }
     const projects = this.props.resumeData.projects;
-    const Projects2 = this.props.resumeData.projects;
+    const projects2 = this.props.resumeData.projects;
     // const allProjects =
     //   this.props.location.pathname === "/projects2" ? projects :
     //     projects2;
