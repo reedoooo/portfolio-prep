@@ -16,7 +16,7 @@
         "class": "fab fa-instagram"
       }
     ],
-    "image": "../src/img/headshot.png"
+    "image": "headshot.png"
   },
   "skills": {
     "icons": [
@@ -60,6 +60,57 @@
         "class": "devicon-express-original",
         "level": "70"
       }
-    ]
+    ],
+    "goals": [
+      {
+        "academic": {
+          "events": [
+            {
+              "name": "HTML 5",
+              "class": "devicon-html5-plain",
+              "level": "95"
+            },
+            {
+              "name": "HTML 5",
+              "class": "devicon-html5-plain",
+              "level": "95"
+            }
+          ]
+        }
+      },
+      {
+        "career": {
+          "jobs": [
+            {
+              "name": "HTML 5",
+              "class": "devicon-html5-plain",
+              "level": "95"
+            },
+            {
+              "name": "HTML 5",
+              "class": "devicon-html5-plain",
+              "level": "95"
+            }
+          ]
+        }
+      },
+      {
+        "Life": {
+          "Personal Projects": [
+            {
+              "name": "HTML 5",
+              "class": "devicon-html5-plain",
+              "level": "95"
+            },
+            {
+              "name": "HTML 5",
+              "class": "devicon-html5-plain",
+              "level": "95"
+            }
+          ]
+        }
+      }
+    ],
+    "image": "headshot.png"
   }
 }

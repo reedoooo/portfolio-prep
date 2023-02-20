@@ -59,13 +59,14 @@ h1 {
 
 .active {
 	background-color: #008CBA;
+	border-radius: 10%;
 }
 
 #home {
 	// background-image: url('https://www.w3schools.com/w3images/mountains.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 #home .header-content {
@@ -87,6 +88,7 @@ h1 {
 }
 
 #about .about-heading {
+
 	text-align: center;
 }
 
@@ -176,10 +178,6 @@ h1 {
 #portfolio .portfolio-item:hover .project-title-settings {
 	opacity: 1;
 }
-
-
-
-
 
 #portfolio .portfolio-item .how-title {
 	color: #fff;
@@ -306,6 +304,11 @@ h1 {
  	margin-bottom: 15px;
  	border-radius: 5px;
  }
+
+#portfolio.col {
+display: flex;
+flex-direction: column;
+  }
 
  .portfolio-item img {
  	transition: all 0.3s ease 0s;
@@ -745,6 +748,36 @@ header .nav {
 	justify-content: center;
 }
 
+//transparent box for about section
+#about .background .transparentbox {
+	margin: auto;
+	margin-top: 10rem;
+	margin-bottom: 10rem;
+	display: flex;
+	flex-grow: 1;
+	width: 95%;
+	align-items: center;
+	justify-content: center;
+}
+
+#about .background .transparentbox #portfolio {
+	display: flex;
+	flex-grow: 1;
+	height:auto;
+	width: 95%;
+	align-items: center;
+	justify-content: center;
+}
+
+#about .background .transparentbox #portfolio .aboutCol {
+	padding: 10px;
+	display: flex;
+	flex-grow: 1;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+}
+
 /*QuickReset*/
 * {
 	margin: 0;
@@ -887,7 +920,7 @@ header h1 {
 }
 
 #about {
-	background: #fff;
+	background: transparent;
 	overflow: hidden;
 }
 
@@ -1224,3 +1257,47 @@ footer a:focus {
 	margin-top: 10px;
 	font-size: 22px;
 }
+
+//animate image slight right
+div.slide-right {
+	width: 100%;
+	overflow: hidden;
+}
+
+div.slide-right div.inner {
+	animation: slide-right 10s;
+	margin-top: 0%;
+}
+
+@keyframes slide-right {
+	from {
+		margin-left: -100%;
+	}
+
+	to {
+		margin-left: 0%;
+	}
+}
+
+//animate image slide left
+div.slide-left {
+	width: 100%;
+	overflow: hidden;
+}
+
+div.slide-left div.inner {
+	animation: slide-right 10s;
+	margin-top: 0%;
+}
+
+@keyframes slide-left {
+	from {
+		margin-left: -100%;
+	}
+
+	to {
+		margin-left: 0%;
+	}
+}
+
+

@@ -4,9 +4,7 @@ import ProjectDetailsModal from './ProjectDetailsModal';
 import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 class Projects2 extends Component {
@@ -35,12 +33,19 @@ class Projects2 extends Component {
     const filtered = this.props.resumeProjects.filter((project) =>
       project.title.toLowerCase().includes(query.toLowerCase())
     );
+    if (this.state.value !== "All") {
+      filtered.sort((a, b) => b[this.state.value] - a[this.state.value]);
+    }
     this.setState({ filteredProjects: filtered });
   };
 
+
   handleChange = (e) => {
-    this.setState({ searchInput: e.target.value });
+    const query = e.target.value;
+    this.setState({ searchInput: query });
+    this.filterProjects(query);
   };
+
 
   handleSelectChange = (e) => {
     const value = e.target.value;
@@ -119,13 +124,6 @@ class Projects2 extends Component {
               <section id="portfolio">
 
                 <React.Fragment>
-                  <div className="project-choices">
-                    {filteredProjects.map((project) => (
-                      <Col key={project.title}>
-                        <Projects2 resumeProjects={[project]} />
-                      </Col>
-                    ))}
-                  </div>
                   <InputGroup>
                     <Form.Control
                       type="search"
@@ -136,7 +134,11 @@ class Projects2 extends Component {
                       value={searchInput}
                     />
                     <InputGroup.Text id="basic-addon1">Filter by:</InputGroup.Text>
-                    <Form.Control as="select" onChange={this.handleSelectChange} value={value}>
+                    <Form.Control
+                      as="select"
+                      onChange={this.handleSelectChange}
+                      value={value}
+                    >
                       <option value="All">All</option>
                       <option value="name">Name</option>
                       <option value="popularity">Popularity</option>
