@@ -1,8 +1,6 @@
-@import '/src/scss/themes/theme-dark.scss';
-@import '/src/scss/themes/theme-light.scss';
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300&display=swap');
-
-
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
 
 body {
 	background: linear-gradient(to top, #00172D, #00264D, #02386E, #00498D, #0052A2);

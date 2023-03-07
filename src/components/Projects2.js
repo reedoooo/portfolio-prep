@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ProjectDetailsModal from './ProjectDetailsModal';
-import Form from 'react-bootstrap/Form';
-import Stack from 'react-bootstrap/Stack';
-import Col from 'react-bootstrap/Col';
-import InputGroup from 'react-bootstrap/InputGroup';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import ProjectDetailsModal from "./ProjectDetailsModal";
+import Form from "react-bootstrap/Form";
+import Stack from "react-bootstrap/Stack";
+import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
 
 class Projects2 extends Component {
   static propTypes = {
@@ -17,8 +16,8 @@ class Projects2 extends Component {
     deps: {},
     detailsModalShow: false,
     filteredProjects: [],
-    searchInput: '',
-    value: 'All',
+    searchInput: "",
+    value: "All",
   };
 
   detailsModalShow = (data) => {
@@ -39,13 +38,11 @@ class Projects2 extends Component {
     this.setState({ filteredProjects: filtered });
   };
 
-
   handleChange = (e) => {
     const query = e.target.value;
     this.setState({ searchInput: query });
     this.filterProjects(query);
   };
-
 
   handleSelectChange = (e) => {
     const value = e.target.value;
@@ -57,30 +54,36 @@ class Projects2 extends Component {
     const { filteredProjects, searchInput, value } = this.state;
 
     let projects = [];
-    let sectionName = '';
+    let sectionName = "";
 
     if (resumeProjects && resumeBasicInfo) {
-      sectionName = resumeBasicInfo.section_name.projects || '';
+      sectionName = resumeBasicInfo.section_name.projects || "";
       projects = filteredProjects.length ? filteredProjects : resumeProjects;
 
       projects = projects.map((project) => (
-
         <div className="div-main">
           <Col
             xs={4}
             className="wrapper2"
             key={project.title}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           >
             <span className="portfolio-item d-block">
-              <div className="foto" onClick={() => this.detailsModalShow(project)}>
+              <div
+                className="foto"
+                onClick={() => this.detailsModalShow(project)}
+              >
                 <div>
                   <img
                     src={project.images[0]}
                     alt="projectImages"
                     height="230"
                     width="368"
-                    style={{ marginBottom: 0, paddingBottom: 0, position: 'relative' }}
+                    style={{
+                      marginBottom: 0,
+                      paddingBottom: 0,
+                      position: "relative",
+                    }}
                   />
                   <span className="project-date">{project.startDate}</span>
                   <br />
@@ -89,26 +92,54 @@ class Projects2 extends Component {
               </div>
             </span>
           </Col>
-          <Col
-          xs={8}
-          className='wrapper'>
-            <h2 className='how-title'>CSS3 Skill Progress bar</h2>
-            <div className='skill'>
+          <Col xs={8} className="wrapper">
+            <h2 className="how-title">CSS3 Skill Progress bar</h2>
+            <div className="skill">
               <p>HTML5</p>
-              <div className='skill-bar skill1'>
+              {/* <div className='skill-bar skill1'>
                 <span className='skill-count1'>95%</span>
+              </div> */}
+              <div className="progress">
+                <div
+                  className="progress-bar progress-bar-striped progress-bar-animated"
+                  role="progressbar"
+                  aria-valuenow="75"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: "75%" }}
+                ></div>
               </div>
             </div>
-            <div className='skill'>
+            <div className="skill">
               <p>CSS3</p>
-              <div className='skill-bar skill2'>
-                <span className='skill-count2'>85%</span>
+              {/* <div className="skill-bar skill2">
+                <span className="skill-count2">85%</span>
+              </div> */}
+              <div className="progress">
+                <div
+                  className="progress-bar progress-bar-striped progress-bar-animated"
+                  role="progressbar"
+                  aria-valuenow="75"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: "75%" }}
+                ></div>
               </div>
             </div>
-            <div className='skill'>
+            <div className="skill">
               <p>JQUERY</p>
-              <div className='skill-bar skill3'>
-                <span className='skill-count3'>75%</span>
+              {/* <div className="skill-bar skill3">
+                <span className="skill-count3">75%</span>
+              </div> */}
+              <div className="progress">
+                <div
+                  className="progress-bar progress-bar-striped progress-bar-animated"
+                  role="progressbar"
+                  aria-valuenow="75"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: "75%" }}
+                ></div>
               </div>
             </div>
           </Col>
@@ -122,7 +153,6 @@ class Projects2 extends Component {
           <div className="background">
             <div className="transparentbox">
               <section id="portfolio">
-
                 <React.Fragment>
                   <InputGroup>
                     <Form.Control
@@ -133,7 +163,9 @@ class Projects2 extends Component {
                       aria-describedby="basic-addon1"
                       value={searchInput}
                     />
-                    <InputGroup.Text id="basic-addon1">Filter by:</InputGroup.Text>
+                    <InputGroup.Text id="basic-addon1">
+                      Filter by:
+                    </InputGroup.Text>
                     <Form.Control
                       as="select"
                       onChange={this.handleSelectChange}
@@ -156,13 +188,12 @@ class Projects2 extends Component {
           <div className="transparentbox">
             <section id="portfolio">
               <div className="col-md-12">
-                <h1 className="section-title" style={{ color: 'black' }}>
+                <h1 className="section-title" style={{ color: "black" }}>
                   <span>{sectionName}</span>
                 </h1>
                 <div className="col-md-12 mx-auto">
                   <div className="row mx-auto">
                     {projects.length ? <div>{projects}</div> : null}
-
                   </div>
                 </div>
                 <ProjectDetailsModal
