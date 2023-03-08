@@ -1,29 +1,32 @@
 import React, { Component } from "react";
-import { LinkContainer } from "react-router-bootstrap";
 import $ from "jquery";
 import Profile from "./Profile";
-import Projects from "./Projects";
-import { Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import Skills from "./Skills";
-import Greeting from "./Greeting";
 import StackProgress from "./StackProgress";
 import Education from "./Education";
 import WorkExperience from "./WorkExperience";
 import Achievements from "./Achievements";
 import MyStuff from "./MyStuff";
+import Splash from "./Splash";
+import ProjectsDynamicSection from "./ProjectsDynamicSection";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./Footer";
+import Header from "./Header";
+import Landingpage from "./LandingPage";
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       resumeData: {},
-      sharedData: {},
+      projectData: {},
     };
   }
 
   componentDidMount() {
-    this.loadSharedData();
-    this.loadResumeFromPath(`res_primaryLanguage.json`);
+    this.loadResumeFromPath(`resume.json`);
+    this.loadProjectFromPath(`projects.json`);
   }
 
   loadResumeFromPath = (path) => {
@@ -40,15 +43,13 @@ export default class Main extends Component {
     });
   };
 
-  loadSharedData = () => {
+  loadProjectFromPath = (path) => {
     $.ajax({
-      url: `portfolio_shared_data.json`,
+      url: path,
       dataType: "json",
       cache: false,
       success: (data) => {
-        this.setState({ sharedData: data }, () => {
-          document.title = `${this.state.sharedData.basic_info.name}`;
-        });
+        this.setState({ projectData: data });
       },
       error: function (xhr, status, err) {
         alert(err);
@@ -57,37 +58,44 @@ export default class Main extends Component {
   };
 
   render() {
-    const { resumeData } = this.state;
-
+    const { resumeData, projectData } = this.state;
     return (
       <>
-        <div>
-          <Greeting />
-        </div>
-        <LinkContainer to="/profile">
-          <Profile as={Button} resumeBasicInfo={resumeData.basic_info} />
-        </LinkContainer>
-        <LinkContainer to="/skills">
-          <Skills as={Button} />
-        </LinkContainer>
-        <LinkContainer to="/stackprogress">
-          <StackProgress as={Button} />
-        </LinkContainer>
-        <LinkContainer to="/education">
-          <Education as={Button} />
-        </LinkContainer>
-        <LinkContainer to="/workexperience">
-          <WorkExperience as={Button} />
-        </LinkContainer>
-        <LinkContainer to="/achievements">
-          <Achievements as={Button} />
-        </LinkContainer>
-        <LinkContainer to="/projects">
-          <Projects as={Button} />
-        </LinkContainer>
-        <LinkContainer to="/mystuff">
-          <MyStuff as={Button} />
-        </LinkContainer>
+        <Router>
+          <Navbar />
+          <Header
+            resumeBasicInfo={resumeData.basic_info}
+            projectBasicInfo={projectData.basic_info}
+          />
+          <Routes>
+            <Route path="/landingpage" element={<Landingpage />} />
+
+            <Route path="/profile" element={<Profile />} />
+
+            <Route path="/skills" element={<Skills />} />
+
+            <Route path="/stackprogress" element={<StackProgress />} />
+
+            <Route path="/education" element={<Education />} />
+
+            <Route path="/workexperience" element={<WorkExperience />} />
+
+            <Route path="/achievements" element={<Achievements />} />
+
+            <Route
+              path="/projectsdynamicsection"
+              element={
+                <ProjectsDynamicSection
+                  resumeBasicInfo={resumeData.basic_info}
+                  projectBasicInfo={projectData.basic_info}
+                />
+              }
+            />
+            <Route path="/splash" element={<Splash />} />
+            <Route path="/mystuff" element={<MyStuff />} />
+          </Routes>
+          <Footer />
+        </Router>
       </>
     );
   }

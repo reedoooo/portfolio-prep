@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Education extends Component {
   render() {
-    return (
-      <div>Education</div>
-    )
+    return <div>{console.log("Education Online")}</div>;
   }
 }

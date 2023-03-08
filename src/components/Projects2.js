@@ -59,6 +59,7 @@ class Projects2 extends Component {
       ? filteredProjects
       : resumeProjects;
 
+    console.log("DynamicProjects Online")
     return projects.map((project) => (
       <div className="div-main" key={project.title}>
         <Col

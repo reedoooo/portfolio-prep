@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Achievements extends Component {
   render() {
-    return (
-      <div>Achievements</div>
-    )
+    return <div>{console.log("Achievements Online")}</div>;
   }
 }
