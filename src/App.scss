@@ -1251,51 +1251,5 @@ footer a:focus {
 	color: #fff;
 }
 
-.social-links {
-	margin-top: 10px;
-	font-size: 22px;
-}
-
-//animate image slight right
-div.slide-right {
-	width: 100%;
-	overflow: hidden;
-}
-
-div.slide-right div.inner {
-	animation: slide-right 10s;
-	margin-top: 0%;
-}
-
-@keyframes slide-right {
-	from {
-		margin-left: -100%;
-	}
-
-	to {
-		margin-left: 0%;
-	}
-}
-
-//animate image slide left
-div.slide-left {
-	width: 100%;
-	overflow: hidden;
-}
-
-div.slide-left div.inner {
-	animation: slide-right 10s;
-	margin-top: 0%;
-}
-
-@keyframes slide-left {
-	from {
-		margin-left: -100%;
-	}
-
-	to {
-		margin-left: 0%;
-	}
-}
 
 
