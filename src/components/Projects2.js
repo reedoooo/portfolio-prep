@@ -89,7 +89,7 @@ class Projects2 extends Component {
           </span>
         </Col>
         <Col xs={8} className="wrapper">
-          <h2 className="how-title">CSS3 Skill Progress bar</h2>
+          <h2 className="how-title">CSS3 Skill </h2>
           <div className="skill">
             <p>HTML5</p>
             <div className="progress">
