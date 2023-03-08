@@ -7,8 +7,7 @@ import Footer from "./components/Footer";
 import Projects2 from "./components/Projects2";
 import About from "./components/About";
 import Home from "./components/Home";
-
-
+import Practice from "./components/Practice";
 
 class App extends Component {
   constructor(props) {
@@ -78,7 +77,19 @@ class App extends Component {
           <Route
             path="/projects2"
             element={
-              <Projects2 resumeProjects={resumeData.projects2} resumeBasicInfo={resumeData.basic_info} />
+              <Projects2
+                resumeProjects={resumeData.projects2}
+                resumeBasicInfo={resumeData.basic_info}
+              />
+            }
+          />
+          <Route
+            path="/practice"
+            element={
+              <Practice
+                resumeBasicInfo={resumeData.basic_info}
+                sharedBasicInfo={sharedData.basic_info}
+              />
             }
           />
         </Routes>

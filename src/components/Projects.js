@@ -8,7 +8,7 @@ class Projects extends Component {
     this.state = {
       deps: {},
       detailsModalShow: false,
-      filteredProjects: []
+      filteredProjects: [],
     };
   }
 
@@ -36,30 +36,38 @@ class Projects extends Component {
 
       projects = projects.map(function (project) {
         return (
-          <div
-            className="col-sm-12 col-md-6 col-lg-4"
-            key={project.title} // <-- use project.title instead of projects.title
-            style={{ cursor: "pointer" }}
-          >
-            <span className="portfolio-item d-block">
-              <div className="foto" onClick={() => detailsModalShow(project)}>
-                <div>
-                  <img
-                    src={project.images[0]}
-                    alt="projectImages"
-                    height="230"
-                    width="368"
-                    style={{ marginBottom: 0, paddingBottom: 0, position: 'relative' }}
-                  />
-                  <span className="project-date">{project.startDate}</span>
-                  <br />
-                  <p className="project-title-settings mt-3">
-                    {project.title}
-                  </p>
+          <>
+            <div
+              className="mini-proj-container wrapper col-sm-12 col-md-6 col-lg-4"
+              key={project.title} // <-- use project.title instead of projects.title
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              <span className="portfolio-item d-block bounce-in">
+                <div className="foto" onClick={() => detailsModalShow(project)}>
+                  <div>
+                    <img
+                      src={project.images[0]}
+                      alt="projectImages"
+                      height="230"
+                      width="368"
+                      style={{
+                        marginBottom: 0,
+                        paddingBottom: 0,
+                        position: "relative",
+                      }}
+                    />
+                    <span className="project-date">{project.startDate}</span>
+                    <br />
+                    <p className="project-title-settings mt-3">
+                      {project.title}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </span>
-          </div>
+              </span>
+            </div>
+          </>
         );
       });
     }
