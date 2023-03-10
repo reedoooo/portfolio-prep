@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import ProjectDetailsModal from "../utils/ProjectDetailsModal";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
@@ -14,6 +15,11 @@ class Projects2 extends Component {
       deps: {},
       detailsModalShow: false,
       filteredProjects: [],
+      sectionName:
+        (this.props.profileData &&
+          this.props.profileData.section_name &&
+          this.props.profileData.section_name.projects2) ||
+        "",
     };
   }
 
@@ -49,10 +55,39 @@ class Projects2 extends Component {
     this.filterProjects(this.state.searchInput);
   };
 
+  componentDidMount() {
+    this.loadProfileData("https://raw.githubusercontent.com/reedoooo/portfolio-prep/ec448c2d8401ec6dd2892d6ba5e7fca5a158d374/public/profile.json");
+    this.loadProjectData("https://raw.githubusercontent.com/reedoooo/portfolio-prep/ec448c2d8401ec6dd2892d6ba5e7fca5a158d374/public/portfolio_project_data.json");
+  }
+
+  loadProfileData = (path) => {
+    axios
+      .get(path)
+      .then((response) => {
+        this.setState({ profileData: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  loadProjectData = (path) => {
+    axios
+      .get(path)
+      .then((response) => {
+        this.setState(
+          { projectData: response.data },
+          () => (document.title = `${this.state.projectData.basic_info.name}`)
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   renderProjects = () => {
     const { filteredProjects } = this.state;
-    const { projectData } = this.props;
+    const { projectData } = this.state;
     const projects = filteredProjects.length
       ? filteredProjects
       : projectData;
@@ -128,18 +163,59 @@ class Projects2 extends Component {
               ></div>
             </div>
           </div>
+          <div className="skill">
+            <p>React.js</p>
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "75%" }}
+              ></div>
+            </div>
+          </div>
+          <div className="skill">
+            <p>Node.js</p>
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="50"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "50%" }}
+              ></div>
+            </div>
+          </div>
+          <div className="skill">
+            <p>MongoDB</p>
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="60"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "60%" }}
+              ></div>
+            </div>
+          </div>
         </Col>
       </div>
     ));
-  };
 
-  render() {
+};
+render() {
     console.log("Projects Working");
+        console.log(this.state);
+
     const { projectData, profileData } = this.props;
     const { filteredProjects, searchInput, value, detailsModalShow, deps } =
       this.state;
 
-    const sectionName = profileData.section_name.projects || "";
+    const sectionName = profileData.section_name.projects2 || "";
     return (
       <Col>
         <Stack>

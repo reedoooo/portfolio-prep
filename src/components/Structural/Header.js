@@ -16,7 +16,7 @@ class Header extends Component {
     super(props);
     this.state = {
       profileData: this.props.profileData,
-      projectData: this.props.projectData,
+      // projectData: this.props.projectData,
     };
   }
   // componentDidMount() {
@@ -64,13 +64,15 @@ class Header extends Component {
         id="home"
         style={{ height: window.innerHeight - 100, display: "block" }}
       >
-        <a
+        {console.log(this.state)}
+
+        {/* <a
           href="https://github.com/reedoooo/portfolio-prep/blob/ec448c2d8401ec6dd2892d6ba5e7fca5a158d374/public/profile.json"
           target="_blank"
           rel="noreferrer"
           className="github-corner"
           aria-label="View source on GitHub"
-        ></a>
+        ></a> */}
         <Router>
           <Navbar>
             <Nav
@@ -106,7 +108,6 @@ class Header extends Component {
             </div>
           </Navbar>
           <Routes>
-
             <Route path="/profile" element={<Profile />} />
 
             <Route

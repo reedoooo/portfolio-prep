@@ -13,14 +13,13 @@
     "description_header": "Hi",
     "description": "I am an up and coming software Developer with a strong foundation in computer science and a passion for creating intuitive, user-friendly software. Proficient in Javascript, and experienced in developing both front-end and back-end applications. Committed to staying up-to-date with the latest trends and best practices in the field, and eager to continually improve and expand upon my skill set.",
     "section_name": {
-      "about": "About me",
+      "profile": "Profile",
       "projects": "Projects",
       "projects2": "Projects2",
-      "skills": "Skills",
-      "experience": "Experience"
+      "mystuff": "MyStuff"
     }
   },
-  "skills": {
+  "profile": {
     "icons": [
       {
         "name": "HTML 5",
@@ -329,7 +328,7 @@
       ]
     }
   ],
-  "experience": [
+  "MyStuff": [
     {
       "company": "DefOpenSource",
       "title": "Front-End Developer",

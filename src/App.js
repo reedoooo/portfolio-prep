@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./reset.css";
 import "./styles/App.scss";
-import $ from "jquery";
+// import $ from "jquery";
 import Header from "./components/Structural/Header";
 import Main from "./components/Structural/Main";
 import Footer from "./components/Structural/Footer";
@@ -10,7 +10,7 @@ import Footer from "./components/Structural/Footer";
 class App extends Component {
   titles = [];
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       foo: "bar",
       profileData: {},
@@ -19,44 +19,39 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.loadProjectData("projects.json");
-    this.loadProfileData("profile.json");
+    this.loadProfileData();
+    this.loadProjectData();
   };
 
-  loadProfileData = (filename) => {
-    axios
-      .get(
-        `https://raw.githubusercontent.com/reedoooo/portfolio-prep/main/public/${filename}`
-      )
-      .then((response) => {
-        this.setState({ profileData: response.data });
-      })
-      .catch((error) => {
-        console.log("Error loading profile data: ", error);
-        alert(error.message);
+  loadProfileData = async () => {
+    try {
+      let apiFetch = `${process.env.REACT_APP_SERVER}/Data/profile.json`;
+      let response = await axios.get(apiFetch);
+      this.setState({
+        profileData: response.data,
       });
+    } catch (error) {
+      console.log("Error loading profile data: ", error);
+      alert(error.message);
+    }
   };
 
-  loadProjectData = (filename) => {
-    axios
-      .get(
-        `https://raw.githubusercontent.com/reedoooo/portfolio-prep/main/public/${filename}`
-      )
-      .then((response) => {
-        this.setState(
-          { projectData: response.data },
-          () => (document.title = `${this.state.projectData.basic_info.name}`)
-        );
-      })
-      .catch((error) => {
-        console.log("Error loading project data: ", error);
-        alert(error.message);
+  loadProjectData = async () => {
+    try {
+      let apiFetch = `${process.env.REACT_APP_SERVER}/projects`;
+      let response = await axios.get(apiFetch);
+      this.setState({
+        projectData: response.data,
       });
+    } catch (error) {
+      console.log("Error loading project data: ", error);
+      alert(error.message);
+    }
   };
 
   render() {
+    console.log(this.state);
     console.log(this.state.projectData);
-    console.log(this.state.profileData);
 
     return (
       <div className="MASTER-DIV">
