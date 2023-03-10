@@ -1,48 +1,52 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import "./reset.css";
 import "./styles/App.scss";
+import $ from "jquery";
 import Header from "./components/Structural/Header";
-import Footer from "./components/Structural/Footer";
 import Main from "./components/Structural/Main";
+import Footer from "./components/Structural/Footer";
 
 class App extends Component {
-  // titles = [];
+  titles = [];
   constructor(props) {
-    super(props);
+    super();
     this.state = {
+      foo: "bar",
       profileData: {},
       projectData: {},
     };
   }
 
-  componentDidMount() {
-    this.loadResumeFromPath(`profile.json`);
-    this.loadProjectFromPath(`projects.json`);
-  }
+  componentDidMount = () => {
+    this.loadProjectData();
+    this.loadProfileData("document.json");
+  };
 
-  loadResumeFromPath = (path) => {
+  loadProfileData = (path) => {
     $.ajax({
       url: path,
       dataType: "json",
       cache: false,
-      success: (data) => {
+      success: function (data) {
         this.setState({ profileData: data });
-      },
+      }.bind(this),
       error: function (xhr, status, err) {
         alert(err);
       },
     });
   };
 
-  loadProjectFromPath = (path) => {
+  loadProjectData = () => {
     $.ajax({
-      url: path,
+      url: `portfolio_project_data.json`,
       dataType: "json",
       cache: false,
-      success: (data) => {
-        this.setState({ projectData: data });
-      },
+      success: function (data) {
+        this.setState(
+          { projectData: data },
+          () => (document.title = `${this.state.projectData.basic_info.name}`)
+        );
+      }.bind(this),
       error: function (xhr, status, err) {
         alert(err);
       },
@@ -50,15 +54,22 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div className="MASTER-DIV">
-        <Header profileData={this.state.profileData}
-              projectData={this.state.projectData}/>
-        <Main profileData={this.state.profileData}
-              projectData={this.state.projectData}/>
-        <Footer />
-      </div>
-    );
+  console.log(this.state.projectData.basic_info);
+  console.log(this.state.profileData);
+
+  return (
+    <div className="MASTER-DIV">
+      <Header
+        profileData={this.state.profileData.basic_info}
+        projectData={this.state.projectData.basic_info}
+      />
+      <Main
+        profileData={this.state.profileData}
+        projectData={this.state.projectData}
+      />
+      <Footer />
+    </div>
+  );
   }
 }
 

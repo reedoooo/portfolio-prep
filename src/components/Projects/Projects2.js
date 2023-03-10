@@ -9,7 +9,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 class Projects2 extends Component {
   static propTypes = {
     projectData: PropTypes.object.isRequired,
-    profileData: PropTypes.object.isRequired,
+    profileData: PropTypes.array.isRequired,
   };
 
   state = {
@@ -29,9 +29,9 @@ class Projects2 extends Component {
   };
 
   filterProjects = (query) => {
-    const { projectsData } = this.props;
+    const { projectData } = this.props;
     const { value } = this.state;
-    const filtered = projectsData.filter((project) =>
+    const filtered = projectData.filter((project) =>
       project.title.toLowerCase().includes(query.toLowerCase())
     );
     if (value !== "All") {
@@ -52,100 +52,14 @@ class Projects2 extends Component {
     this.filterProjects(this.state.searchInput);
   };
 
-  renderProjects = () => {
-    const { filteredProjects } = this.state;
-    const { resumeProjects } = this.props;
-    const projects = filteredProjects.length
-      ? filteredProjects
-      : resumeProjects;
-
-    console.log("DynamicProjects Online")
-    return projects.map((project) => (
-      <div className="div-main" key={project.title}>
-        <Col
-          xs={4}
-          className="wrapper2"
-          style={{ cursor: "pointer" }}
-          onClick={() => this.detailsModalShowHandler(project)}
-        >
-          <span className="portfolio-item d-block">
-            <div className="foto">
-              <div>
-                <img
-                  src={project.images[0]}
-                  alt="projectImages"
-                  height="230"
-                  width="368"
-                  style={{
-                    marginBottom: 0,
-                    paddingBottom: 0,
-                    position: "relative",
-                  }}
-                />
-                <span className="project-date">{project.startDate}</span>
-                <br />
-                <p className="project-title-settings mt-3">{project.title}</p>
-              </div>
-            </div>
-          </span>
-        </Col>
-        <Col xs={8} className="wrapper">
-          <h2 className="how-title">CSS3 Skill </h2>
-          <div className="skill">
-            <p>HTML5</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>CSS3</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>JQUERY</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-        </Col>
-      </div>
-    ));
-  };
   render() {
-    const { resumeProjects, resumeBasicInfo } = this.props;
-    const {
-      filteredProjects,
-      searchInput,
-      value,
-      detailsModalShow,
-      deps,
-    } = this.state;
-    const sectionName = resumeBasicInfo.section_name.projects || "";
+const { projectData, profileData } = this.props;
+const { filteredProjects, searchInput, value, detailsModalShow, deps } =
+  this.state;
+
+    const sectionName = profileData.section_name.projects || "";
     return (
-      <div>
+      <Col>
         <Stack>
           <div className="background">
             <div className="transparentbox">
@@ -188,9 +102,12 @@ class Projects2 extends Component {
                 </h1>
                 <div className="col-md-12 mx-auto">
                   <div className="row mx-auto">
-                    {filteredProjects.length || resumeProjects.length ? (
+                    {filteredProjects.length || projectData.length ? (
                       <div>{this.renderProjects()}</div>
                     ) : null}
+                    {/* {filteredProjects.length || projectData.length
+                      ? this.renderProjects()
+                      : null} */}
                   </div>
                 </div>
                 <ProjectDetailsModal
@@ -202,7 +119,7 @@ class Projects2 extends Component {
             </section>
           </div>
         </div>
-      </div>
+      </Col>
     );
   }
 }
