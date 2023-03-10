@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./reset.css";
 import "./styles/App.scss";
 import $ from "jquery";
@@ -18,59 +19,60 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.loadProjectData();
-    this.loadProfileData("document.json");
+    this.loadProjectData("projects.json");
+    this.loadProfileData("profile.json");
   };
 
-  loadProfileData = (path) => {
-    $.ajax({
-      url: path,
-      dataType: "json",
-      cache: false,
-      success: function (data) {
-        this.setState({ profileData: data });
-      }.bind(this),
-      error: function (xhr, status, err) {
-        alert(err);
-      },
-    });
+  loadProfileData = (filename) => {
+    axios
+      .get(
+        `https://raw.githubusercontent.com/reedoooo/portfolio-prep/main/public/${filename}`
+      )
+      .then((response) => {
+        this.setState({ profileData: response.data });
+      })
+      .catch((error) => {
+        console.log("Error loading profile data: ", error);
+        alert(error.message);
+      });
   };
 
-  loadProjectData = () => {
-    $.ajax({
-      url: `portfolio_project_data.json`,
-      dataType: "json",
-      cache: false,
-      success: function (data) {
+  loadProjectData = (filename) => {
+    axios
+      .get(
+        `https://raw.githubusercontent.com/reedoooo/portfolio-prep/main/public/${filename}`
+      )
+      .then((response) => {
         this.setState(
-          { projectData: data },
+          { projectData: response.data },
           () => (document.title = `${this.state.projectData.basic_info.name}`)
         );
-      }.bind(this),
-      error: function (xhr, status, err) {
-        alert(err);
-      },
-    });
+      })
+      .catch((error) => {
+        console.log("Error loading project data: ", error);
+        alert(error.message);
+      });
   };
 
   render() {
-  console.log(this.state.projectData.basic_info);
-  console.log(this.state.profileData);
+    console.log(this.state.projectData);
+    console.log(this.state.profileData);
 
-  return (
-    <div className="MASTER-DIV">
-      <Header
-        profileData={this.state.profileData.basic_info}
-        projectData={this.state.projectData.basic_info}
-      />
-      <Main
-        profileData={this.state.profileData}
-        projectData={this.state.projectData}
-      />
-      <Footer />
-    </div>
-  );
+    return (
+      <div className="MASTER-DIV">
+        <Header
+          profileData={this.state.profileData.basic_info}
+          projectData={this.state.projectData.basic_info}
+        />
+        <Main
+          profileData={this.state.profileData}
+          projectData={this.state.projectData}
+        />
+        <Footer />
+      </div>
+    );
   }
 }
 
 export default App;
+

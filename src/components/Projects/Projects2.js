@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import ProjectDetailsModal from "../utils/ProjectDetailsModal";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
@@ -7,18 +6,16 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 
 class Projects2 extends Component {
-  static propTypes = {
-    projectData: PropTypes.object.isRequired,
-    profileData: PropTypes.array.isRequired,
-  };
-
-  state = {
-    deps: {},
-    detailsModalShow: false,
-    filteredProjects: [],
-    searchInput: "",
-    value: "All",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchInput: "",
+      value: "All",
+      deps: {},
+      detailsModalShow: false,
+      filteredProjects: [],
+    };
+  }
 
   detailsModalShowHandler = (data) => {
     this.setState({ detailsModalShow: true, deps: data });
@@ -52,10 +49,95 @@ class Projects2 extends Component {
     this.filterProjects(this.state.searchInput);
   };
 
+
+  renderProjects = () => {
+    const { filteredProjects } = this.state;
+    const { projectData } = this.props;
+    const projects = filteredProjects.length
+      ? filteredProjects
+      : projectData;
+
+    console.log("DynamicProjects Online");
+    return projects.map((project) => (
+      <div className="div-main" key={project.title}>
+        <Col
+          xs={4}
+          className="wrapper2"
+          style={{ cursor: "pointer" }}
+          onClick={() => this.detailsModalShowHandler(project)}
+        >
+          <span className="portfolio-item d-block">
+            <div className="foto">
+              <div>
+                <img
+                  src={project.images[0]}
+                  alt="projectImages"
+                  height="230"
+                  width="368"
+                  style={{
+                    marginBottom: 0,
+                    paddingBottom: 0,
+                    position: "relative",
+                  }}
+                />
+                <span className="project-date">{project.startDate}</span>
+                <br />
+                <p className="project-title-settings mt-3">{project.title}</p>
+              </div>
+            </div>
+          </span>
+        </Col>
+        <Col xs={8} className="wrapper">
+          <h2 className="how-title">CSS3 Skill </h2>
+          <div className="skill">
+            <p>HTML5</p>
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "75%" }}
+              ></div>
+            </div>
+          </div>
+          <div className="skill">
+            <p>CSS3</p>
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "75%" }}
+              ></div>
+            </div>
+          </div>
+          <div className="skill">
+            <p>JQUERY</p>
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "75%" }}
+              ></div>
+            </div>
+          </div>
+        </Col>
+      </div>
+    ));
+  };
+
   render() {
-const { projectData, profileData } = this.props;
-const { filteredProjects, searchInput, value, detailsModalShow, deps } =
-  this.state;
+    console.log("Projects Working");
+    const { projectData, profileData } = this.props;
+    const { filteredProjects, searchInput, value, detailsModalShow, deps } =
+      this.state;
 
     const sectionName = profileData.section_name.projects || "";
     return (
