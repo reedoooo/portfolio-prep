@@ -11,10 +11,11 @@
     ],
     "image": "myProfile.jpg",
     "description_header": "Hi",
-    "description": "👋 I'm Ursula Lopez. Fictional person for preview purposes :) I'm working with newest front-end frameworks like Angular, React and Vue. What you are seeing now is portfolio template from Code Fellows. If you like this portfolio template, make sure to ⭐ the repository to make it more recognizable for other users. Thank you 💜",
+    "description": "I am an up and coming software Developer with a strong foundation in computer science and a passion for creating intuitive, user-friendly software. Proficient in Javascript, and experienced in developing both front-end and back-end applications. Committed to staying up-to-date with the latest trends and best practices in the field, and eager to continually improve and expand upon my skill set.",
     "section_name": {
       "about": "About me",
       "projects": "Projects",
+      "projects2": "Projects2",
       "skills": "Skills",
       "experience": "Experience"
     }
