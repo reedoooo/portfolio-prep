@@ -6,7 +6,7 @@ import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 
-class Projects2 extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class Projects2 extends Component {
       sectionName:
         (this.props.profileData &&
           this.props.profileData.section_name &&
-          this.props.profileData.section_name.projects2) ||
+          this.props.profileData.section_name.projects) ||
         "",
     };
   }
@@ -215,7 +215,7 @@ render() {
     const { filteredProjects, searchInput, value, detailsModalShow, deps } =
       this.state;
 
-    const sectionName = profileData.section_name.projects2 || "";
+    const sectionName = profileData.section_name.projects || "";
     return (
       <Col>
         <Stack>
@@ -282,4 +282,4 @@ render() {
   }
 }
 
-export default Projects2;
+export default Projects;

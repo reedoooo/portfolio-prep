@@ -77,10 +77,13 @@
 
 #navbar {
 	z-index: 7;
+	position: fixed;
 	background-color:white;
-	float: left;
+	color: white;
+	float: right;
 	margin: 0;
 	padding: 0;
+	top: 10
 }
 
 #navbar li {
