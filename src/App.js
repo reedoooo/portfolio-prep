@@ -1,52 +1,52 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./reset.css";
+import "./styles/App.scss";
 import $ from "jquery";
-import "./App.scss";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Projects2 from "./components/Projects2";
-import About from "./components/About";
-import Home from "./components/Home";
-import Practice from "./components/Practice";
+import Header from "./components/Structural/Header";
+import Main from "./components/Structural/Main";
+import Footer from "./components/Structural/Footer";
 
 class App extends Component {
+  titles = [];
   constructor(props) {
-    super(props);
+    super();
     this.state = {
-      resumeData: {},
-      sharedData: {},
+      foo: "bar",
+      profileData: {},
+      projectData: {},
     };
   }
 
-  componentDidMount() {
-    this.loadSharedData();
-    this.loadResumeFromPath(`res_primaryLanguage.json`);
-  }
+  componentDidMount = () => {
+    this.loadProjectData();
+    this.loadProfileData("document.json");
+  };
 
-  loadResumeFromPath = (path) => {
+  loadProfileData = (path) => {
     $.ajax({
       url: path,
       dataType: "json",
       cache: false,
-      success: (data) => {
-        this.setState({ resumeData: data });
-      },
+      success: function (data) {
+        this.setState({ profileData: data });
+      }.bind(this),
       error: function (xhr, status, err) {
         alert(err);
       },
     });
   };
 
-  loadSharedData = () => {
+  loadProjectData = () => {
     $.ajax({
-      url: `portfolio_shared_data.json`,
+      url: `portfolio_project_data.json`,
       dataType: "json",
       cache: false,
-      success: (data) => {
-        this.setState({ sharedData: data }, () => {
-          document.title = `${this.state.sharedData.basic_info.name}`;
-        });
-      },
+      success: function (data) {
+        this.setState(
+          { projectData: data },
+          () => (document.title = `${this.state.projectData.basic_info.name}`)
+        );
+      }.bind(this),
       error: function (xhr, status, err) {
         alert(err);
       },
@@ -54,48 +54,22 @@ class App extends Component {
   };
 
   render() {
-    const { resumeData, sharedData } = this.state;
+  console.log(this.state.projectData.basic_info);
+  console.log(this.state.profileData);
 
-    return (
-      <Router>
-        <Header sharedData={sharedData.basic_info} />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<Home resumeData={resumeData} sharedData={sharedData} />}
-          />
-          <Route
-            path="/about"
-            element={
-              <About
-                resumeBasicInfo={resumeData.basic_info}
-                sharedBasicInfo={sharedData.basic_info}
-              />
-            }
-          />
-          <Route
-            path="/projects2"
-            element={
-              <Projects2
-                resumeProjects={resumeData.projects2}
-                resumeBasicInfo={resumeData.basic_info}
-              />
-            }
-          />
-          <Route
-            path="/practice"
-            element={
-              <Practice
-                resumeBasicInfo={resumeData.basic_info}
-                sharedBasicInfo={sharedData.basic_info}
-              />
-            }
-          />
-        </Routes>
-        <Footer sharedBasicInfo={sharedData.basic_info} />
-      </Router>
-    );
+  return (
+    <div className="MASTER-DIV">
+      <Header
+        profileData={this.state.profileData.basic_info}
+        projectData={this.state.projectData.basic_info}
+      />
+      <Main
+        profileData={this.state.profileData}
+        projectData={this.state.projectData}
+      />
+      <Footer />
+    </div>
+  );
   }
 }
 
