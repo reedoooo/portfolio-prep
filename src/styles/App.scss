@@ -1,15 +1,19 @@
 .MASTER-DIV {
 	display: flex;
-	z-index: 4;
-	height: 100vh;
-	width: 100vw;
+	z-index: 5;
+	width: 0;
+	padding: 0;
+	margin: 0;
 	background: gray.200;
 }
 /*---------------------------------- Iframe bars ----------------------------------------*/
+
 .container.iframe-div {
 	padding: 0;
 }
-
+.container {
+	padding: 0;
+}
 .iframe-div {
 	padding: 0;
 	margin: 0;
@@ -22,11 +26,12 @@
 }
 
 .frame {
+	z-index: 1;
 	min-width: 100%;
 	max-height: 100%;
+	padding: 0;
 	bottom: 0;
 	left: 0;
-	z-index: "2";
 	overflow:visible;
 	position: fixed;
 	right: 0;
@@ -70,28 +75,30 @@
 // 	clear: both;
 // }
 
-// #navbar {
-// 	float: left;
-// 	margin: 0;
-// 	padding: 0;
-// }
+#navbar {
+	z-index: 7;
+	background-color:white;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
 
-// #navbar li {
-// 	display: inline-block;
-// 	margin-left: 70px;
-// }
+#navbar li {
+	display: inline-block;
+	margin-left: 70px;
+}
 
-// #navbar li a {
-// 	display: block;
-// 	color: white;
-// 	text-align: center;
-// 	padding: 14px 16px;
-// 	text-decoration: none;
-// }
+#navbar li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
 
-// #navbar li a:hover {
-// 	background-color: #111;
-// }
+#navbar li a:hover {
+	background-color: #111;
+}
 
 // .active {
 // 	background-color: #008CBA;
