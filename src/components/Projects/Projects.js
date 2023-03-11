@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import ProjectDetailsModal from "../utils/ProjectDetailsModal";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
@@ -32,9 +31,9 @@ class Projects extends Component {
   };
 
   filterProjects = (query) => {
-    const { projectData } = this.props;
+    const { profileData } = this.props;
     const { value } = this.state;
-    const filtered = projectData.filter((project) =>
+    const filtered = profileData.filter((project) =>
       project.title.toLowerCase().includes(query.toLowerCase())
     );
     if (value !== "All") {
@@ -42,7 +41,7 @@ class Projects extends Component {
     }
     this.setState({ filteredProjects: filtered });
   };
-
+  //-------------------------------------SEARCH BAR-------------------------------------------
   handleChange = (e) => {
     const query = e.target.value;
     this.setState({ searchInput: query });
@@ -54,43 +53,12 @@ class Projects extends Component {
     this.setState({ value });
     this.filterProjects(this.state.searchInput);
   };
-
-  componentDidMount() {
-    this.loadProfileData("https://raw.githubusercontent.com/reedoooo/portfolio-prep/ec448c2d8401ec6dd2892d6ba5e7fca5a158d374/public/profile.json");
-    this.loadProjectData("https://raw.githubusercontent.com/reedoooo/portfolio-prep/ec448c2d8401ec6dd2892d6ba5e7fca5a158d374/public/portfolio_project_data.json");
-  }
-
-  loadProfileData = (path) => {
-    axios
-      .get(path)
-      .then((response) => {
-        this.setState({ profileData: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  loadProjectData = (path) => {
-    axios
-      .get(path)
-      .then((response) => {
-        this.setState(
-          { projectData: response.data },
-          () => (document.title = `${this.state.projectData.basic_info.name}`)
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  //-------------------------------------SEARCH BAR-------------------------------------------
 
   renderProjects = () => {
     const { filteredProjects } = this.state;
-    const { projectData } = this.state;
-    const projects = filteredProjects.length
-      ? filteredProjects
-      : projectData;
+    const { profileData } = this.state;
+    const projects = filteredProjects.length ? filteredProjects : profileData;
 
     console.log("DynamicProjects Online");
     return projects.map((project) => (
@@ -205,13 +173,13 @@ class Projects extends Component {
         </Col>
       </div>
     ));
-
-};
-render() {
+  };
+  
+  render() {
     console.log("Projects Working");
-        console.log(this.state);
+    console.log(this.state);
 
-    const { projectData, profileData } = this.props;
+    const { profileData } = this.props;
     const { filteredProjects, searchInput, value, detailsModalShow, deps } =
       this.state;
 
@@ -260,10 +228,10 @@ render() {
                 </h1>
                 <div className="col-md-12 mx-auto">
                   <div className="row mx-auto">
-                    {filteredProjects.length || projectData.length ? (
+                    {filteredProjects.length || profileData.length ? (
                       <div>{this.renderProjects()}</div>
                     ) : null}
-                    {/* {filteredProjects.length || projectData.length
+                    {/* {filteredProjects.length || profileData.length
                       ? this.renderProjects()
                       : null} */}
                   </div>

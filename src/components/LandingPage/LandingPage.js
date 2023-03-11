@@ -1,29 +1,26 @@
-import { Container } from "react-bootstrap";
+import React from "react";
+import Profile from "../Profile/Profile";
 
-const Landingpage = () => {
-  return (
-    <Container className="frame-container" h="100vh" w="100vw" bg="gray.200">
-      <div className="iframe-div">
-        <iframe
-          className="frame"
-          title="hello"
-          style={{
-            padding: "none",
-            left: "0",
-            top: "0",
-            width: "100vw",
-            height: "100vh",
-          }}
-          src={"https://prosperous-nature-455718.framer.app/"}
+class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profileData: this.props.profileData,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <Profile
+          profileData={this.state.profileData}
+          styles={{ height: "100vh" }}
         />
-        {/* <Center h='100%' w='100%' bg='tomato'> */}
-        {/* <Circle h='100%' w='100%'> */}
-        {/* hello */}
-        {/* </Circle> */}
-        {/* </Center> */}
+        {/* <Projects profileData={this.state.profileData} styles={{ height: "100vh" }} /> */}
+        {/* <MyStuff profileData={this.state.profileData} styles={{ height: "100vh" }} /> */}
       </div>
-    </Container>
-  );
-};
+    );
+  }
+}
 
-export default Landingpage;
+export default LandingPage;
