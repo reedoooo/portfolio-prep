@@ -1,137 +1,100 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "../Profile/Profile";
-import Skills from "../Profile/Skills";
-import StackProgress from "../Profile/StackProgress";
-import Education from "../Profile/Education";
-import Achievements from "../Profile/Achievements";
-import MyStuff from "../MyStuff/MyStuff";
-import Experience from "../Profile/Experience";
-import Projects2 from "../Projects/Projects2";
-import { Nav, Navbar } from "react-bootstrap";
-
+import { Container } from "react-bootstrap";
+import NavBar from "./Navigation";
+// import { LinkContainer } from "react-router-bootstrap";
+import { Center } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 class Header extends Component {
   titles = [];
-  constructor(props) {
-    super(props);
-    this.state = {
-      profileData: this.props.profileData,
-      projectData: this.props.projectData,
-    };
-  }
-  // componentDidMount() {
-  //   axios
-  //     .get(
-  //       "https://raw.githubusercontent.com/<your-github-username>/<your-repo-name>/main/public/profile.json"
-  //     )
-  //     .then((response) => {
-  //       this.setState({ profileData: response.data });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-
-  //   axios
-  //     .get(
-  //       "https://raw.githubusercontent.com/<your-github-username>/<your-repo-name>/main/public/projects.json"
-  //     )
-  //     .then((response) => {
-  //       this.setState({ projectData: response.data });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
 
   render() {
-    this.titles = [];
-    if (this.state.profileData) {
-      var name = this.state.profileData.name;
-      this.titles = this.state.profileData.titles
-        .map((x) => [x.toUpperCase(), 1500])
-        .flat();
-    }
+    // const { basic_info } = this.props.profileData;
+    // const name = basic_info.name;
 
-    const HeaderTitleTypeAnimation = React.memo(
-      () => {
-        return this.titles;
-      },
-      (props, prevProp) => true
-    );
+    // if (this.props.profileData) {
+    //   var name = this.props.profileData.name;
+    //   this.titles = this.props.profileData.titles; //...map(x => [ x.toUpperCase(), 1500 ] ).flat();
+    // }
+
+    // const HeaderTitleTypeAnimation = React.memo(
+    //   () => {
+    //     return this.titles;
+    //   },
+    //   (props, prevProp) => true
+    // );
+
+    // function scrollHandler() {
+    //   if (window.scrollY >= 20) {
+    //     updateNavbar(true);
+    //   } else {
+    //     updateNavbar(false);
+    //   }
+    // }
+
+    // window.addEventListener("scroll", scrollHandler);
 
     return (
-      <header
-        id="home"
-        style={{ height: window.innerHeight - 100, display: "block" }}
-      >
-        <a
-          href="https://github.com/reedoooo/portfolio-prep/blob/ec448c2d8401ec6dd2892d6ba5e7fca5a158d374/public/profile.json"
-          target="_blank"
-          rel="noreferrer"
-          className="github-corner"
-          aria-label="View source on GitHub"
-        ></a>
-        <Router>
-          <Navbar>
-            <Nav
-              activeKey="/home"
-              fill
-              style={{ position: "absolute", top: 10, right: 10 }}
+      <header id="home" style={{ display: "block" }}>
+        {console.log(this.props)}
+
+        {/* <Nav
+          activeKey="/LandingPage"
+          fill
+          style={{ position: "absolute", top: 10, right: 10 }}
+        >
+          <Nav.Item>
+            <LinkContainer to="/landingpage">
+              <Nav.Link href="/">LandingPage</Nav.Link>
+            </LinkContainer>
+          </Nav.Item>
+          <LinkContainer to="/profile">
+            <Nav.Link href="/profile">Profile</Nav.Link>
+          </LinkContainer>
+
+          <Nav.Item>
+            <LinkContainer to="/projects">
+              <Nav.Link href="/projects">Projects</Nav.Link>
+            </LinkContainer>
+          </Nav.Item>
+          <Nav.Item>
+            <LinkContainer to="/mystuff">
+              <Nav.Link href="/mystuff">MyStuff</Nav.Link>
+            </LinkContainer>
+          </Nav.Item>
+        </Nav> */}
+        <div className="row aligner" style={{ height: "100%" }}>
+          {/* <div className="col-md-12"> */}
+          <Navbar></Navbar>
+          <Container
+            className="frame-container"
+            h="100vh"
+            w="100vw"
+            bg="gray.200"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              exit={{ opacity: 0 }}
+              className="absolute top-0 left-0 w-full h-full"
             >
-              <Nav.Item>
-                <Nav.Link href="/profile">Profile</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/projects">Projects</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/mystuff">MyStuff</Nav.Link>
-              </Nav.Item>
-            </Nav>
-            <div className="row aligner" style={{ height: "100%" }}>
-              <div className="col-md-12">
-                <div>
-                  <span
-                    className="iconify header-icon"
-                    data-icon="la:laptop-code"
-                    data-inline="false"
-                  ></span>
-                  <br />
-                  <h1 className="mb-0">{name}</h1>
-                  <div className="title-container">
-                    <HeaderTitleTypeAnimation />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Navbar>
-          <Routes>
-
-            <Route path="/profile" element={<Profile />} />
-
-            <Route
-              path="/projects"
-              element={
-                <Projects2
-                  profileData={this.props.profileData}
-                  projectData={this.props.profileData}
+              <Center h="100vh" w="100vw" bg="gray.200">
+                <iframe
+                  scrolling="no"
+                  title="hello"
+                  style={{
+                    width: "100vw",
+                    height: "100vh",
+                    alignItems: "center",
+                    position: "static",
+                    bottom: "0",
+                  }}
+                  src={"https://start-wring-042927.framer.app/"}
                 />
-              }
-            />
-
-            <Route path="/mystuff" element={<MyStuff />} />
-
-            <Route path="/profile/skills" element={<Skills />} />
-
-            <Route path="/profile/stackprogress" element={<StackProgress />} />
-
-            <Route path="/profile/education" element={<Education />} />
-
-            <Route path="/profile/experience" element={<Experience />} />
-
-            <Route path="/profile/achievements" element={<Achievements />} />
-          </Routes>
-        </Router>
+              </Center>
+            </motion.div>
+          </Container>
+        </div>
       </header>
     );
   }

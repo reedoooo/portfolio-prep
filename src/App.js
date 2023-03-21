@@ -1,78 +1,81 @@
-import React, { Component } from "react";
-import axios from "axios";
 import "./reset.css";
 import "./styles/App.scss";
-import $ from "jquery";
+import { ChakraProvider } from "@chakra-ui/react";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from "axios";
+
 import Header from "./components/Structural/Header";
-import Main from "./components/Structural/Main";
+import Landingpage from "./components/LandingPage/LandingPage";
+import Profile from "./components/Profile/Profile";
+import MyStuff from "./components/MyStuff/MyStuff";
+import Projects from "./components/Projects/Projects";
 import Footer from "./components/Structural/Footer";
 
 class App extends Component {
-  titles = [];
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      foo: "bar",
       profileData: {},
-      projectData: {},
     };
   }
 
   componentDidMount = () => {
-    this.loadProjectData("projects.json");
-    this.loadProfileData("profile.json");
+    this.loadProfileData();
   };
 
-  loadProfileData = (filename) => {
-    axios
-      .get(
-        `https://raw.githubusercontent.com/reedoooo/portfolio-prep/main/public/${filename}`
-      )
-      .then((response) => {
-        this.setState({ profileData: response.data });
-      })
-      .catch((error) => {
-        console.log("Error loading profile data: ", error);
-        alert(error.message);
-      });
-  };
+  loadProfileData = async () => {
+    try {
+      let profile = `${process.env.REACT_APP_SERVER}/profile`;
 
-  loadProjectData = (filename) => {
-    axios
-      .get(
-        `https://raw.githubusercontent.com/reedoooo/portfolio-prep/main/public/${filename}`
-      )
-      .then((response) => {
-        this.setState(
-          { projectData: response.data },
-          () => (document.title = `${this.state.projectData.basic_info.name}`)
-        );
-      })
-      .catch((error) => {
-        console.log("Error loading project data: ", error);
-        alert(error.message);
-      });
+      let response = await axios.get(profile);
+
+      this.setState(
+        {
+          profileData: response.data,
+        },
+        () => {
+          document.title = `${this.state.profileData.basic_info.name}`;
+        }
+      );
+    } catch (error) {
+      console.log("Error loading profile data: ", error);
+      alert(error.message);
+      return;
+    }
   };
 
   render() {
-    console.log(this.state.projectData);
-    console.log(this.state.profileData);
+    console.log(this.state);
 
     return (
-      <div className="MASTER-DIV">
-        <Header
-          profileData={this.state.profileData.basic_info}
-          projectData={this.state.projectData.basic_info}
-        />
-        <Main
-          profileData={this.state.profileData}
-          projectData={this.state.projectData}
-        />
-        <Footer />
-      </div>
+      <ChakraProvider>
+        <Router>
+          <Header profileData={this.state.profileData.basic_info} />
+          <main>
+            <Landingpage profileData={this.state.profileData} />
+          </main>
+          <Routes>
+            <Route
+              exact
+              path="/profile"
+              element={<Profile profileData={this.state.profileData} />}
+            />
+            <Route
+              path="/mystuff"
+              element={<MyStuff profileData={this.state.profileData} />}
+            />
+            <Route
+              exact
+              path="/projects"
+              element={<Projects profileData={this.state.profileData} />}
+            />
+          </Routes>
+          <Footer />
+        </Router>
+      </ChakraProvider>
     );
   }
 }
 
 export default App;
-

@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Projects2 from '../components/Projects2';
+import Projects from '../components/Projects';
 
 class SearchBar extends Component {
     constructor(props) {
@@ -38,7 +38,7 @@ class SearchBar extends Component {
                 <div className="project-choices">
                     {filteredProjects.map((project) => (
                         <Col>
-                            <Projects2 resumeProjects={[project]} />
+                            <Projects resumeProjects={[project]} />
                         </Col>
                     ))}
                 </div>
