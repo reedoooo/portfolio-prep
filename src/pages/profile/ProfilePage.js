@@ -1,10 +1,3 @@
-import React, { Component } from "react";
-import ProfileContainer from "../../containers/profile/ProfileContainer";
-
-class ProfilePage extends Component {
-  render() {
-    return <ProfileContainer />;
-  }
-}
-
-export default ProfilePage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:68f273199301448920ba5da0470e66e55aa7ae43220a9bea0fb4a4ea2e2ee3d1
+size 236

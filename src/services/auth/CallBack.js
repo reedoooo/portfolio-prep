@@ -1,34 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import "../../pages/splash/Splash.css";
-import LogoLoader from "../../components/Loader/LoaderLogo";
-
-function CallBackSVG(props) {
-  return (
-    <div className="logo_wrapper">
-        <LogoLoader id="logo" />
-    </div>
-  );
-}
-
-function CallBack(props) {
-  const [redirected, setRedirected] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const id = setTimeout(() => setRedirected(true), 5500);
-    return () => clearTimeout(id);
-  }, []); // Only run once, equivalent to componentDidMount
-
-  useEffect(() => {
-    if (redirected) {
-      navigate('/');
-    }
-  }, [redirected, navigate]); // Run whenever `redirected` changes
-
-  return redirected ? null : (
-    <CallBackSVG theme={props.theme} />
-  );
-}
-
-export default CallBack;
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa33f0c051502a3d598bacfa09917d69a0ddd2b7f888584dd5bc78fca25cf393
+size 822

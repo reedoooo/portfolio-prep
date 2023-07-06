@@ -1,17 +1,3 @@
-import { withAuthenticationRequired } from "@auth0/auth0-react";
-import React from "react";
-import { Route } from "react-router-dom";
-import { PageLoader } from "./page-loader";
-
-export const ProtectedRoute = ({ component, ...args }) => (
-  <Route
-    component={withAuthenticationRequired(component, {
-      onRedirecting: () => (
-        <div className="page-layout">
-          <PageLoader />
-        </div>
-      ),
-    })}
-    {...args}
-  />
-);
+version https://git-lfs.github.com/spec/v1
+oid sha256:14b7ec8418d57d402b2d32ce32653b3c7c0810c3dc0595eb2e308b6bda95db7c
+size 449
