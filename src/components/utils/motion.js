@@ -12,7 +12,7 @@ export const textVariant = (delay) => {
         duration: 1.25,
         delay: delay,
       },
-    },
+    }, 
   };
 };
 

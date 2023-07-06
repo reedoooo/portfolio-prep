@@ -20,6 +20,6 @@ const StarWrapper = (Component, idName) =>
         <Component />
       </motion.section>
     );
-  };
+  }; 
 
 export default StarWrapper;

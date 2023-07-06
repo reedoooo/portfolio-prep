@@ -1,253 +1,115 @@
-import React, { Component } from "react";
-import ProjectDetailsModal from "../utils/ProjectDetailsModal";
-import Form from "react-bootstrap/Form";
-import Stack from "react-bootstrap/Stack";
-import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
+import React from "react";
+import {
+  Container,
+  Box,
+  Grid,
+  GridItem,
+  Input,
+  Select,
+  InputGroup,
+  InputLeftAddon,
+  Text,
+  Image,
+  Flex,
+  Button,
+  useColorModeValue,
+  ScaleFade,
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
-class Projects extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchInput: "",
-      value: "All",
-      deps: {},
-      detailsModalShow: false,
-      filteredProjects: [],
-      sectionName:
-        (this.props.profileData &&
-          this.props.profileData.section_name &&
-          this.props.profileData.section_name.projects) ||
-        "",
-    };
-  }
+const MotionBox = motion(Box);
 
-  detailsModalShowHandler = (data) => {
-    this.setState({ detailsModalShow: true, deps: data });
-  };
+const Projects = ({
+  searchInput,
+  value,
+  sectionName,
+  handleChange,
+  handleSelectChange,
+  filteredProjects,
+  detailsModalShowHandler,
+  profileData,
+}) => {
+  console.log("Projects.js: profileData", profileData);
 
-  detailsModalCloseHandler = () => {
-    this.setState({ detailsModalShow: false });
-  };
+  const bgColor = useColorModeValue("white", "gray.800");
+  const color = useColorModeValue("gray.800", "white");
 
-  filterProjects = (query) => {
-    const { profileData } = this.props;
-    const { value } = this.state;
-    const filtered = profileData.filter((project) =>
-      project.title.toLowerCase().includes(query.toLowerCase())
-    );
-    if (value !== "All") {
-      filtered.sort((a, b) => b[value] - a[value]);
-    }
-    this.setState({ filteredProjects: filtered });
-  };
-  //-------------------------------------SEARCH BAR-------------------------------------------
-  handleChange = (e) => {
-    const query = e.target.value;
-    this.setState({ searchInput: query });
-    this.filterProjects(query);
-  };
-
-  handleSelectChange = (e) => {
-    const value = e.target.value;
-    this.setState({ value });
-    this.filterProjects(this.state.searchInput);
-  };
-  //-------------------------------------SEARCH BAR-------------------------------------------
-
-  renderProjects = () => {
-    const { filteredProjects } = this.state;
-    const { profileData } = this.state;
-    const projects = filteredProjects.length ? filteredProjects : profileData;
-
-    console.log("DynamicProjects Online");
-    return projects.map((project) => (
-      <div className="div-main" key={project.title}>
-        <Col
-          xs={4}
-          className="wrapper2"
-          style={{ cursor: "pointer" }}
-          onClick={() => this.detailsModalShowHandler(project)}
-        >
-          <span className="portfolio-item d-block">
-            <div className="foto">
-              <div>
-                <img
-                  src={project.images[0]}
-                  alt="projectImages"
-                  height="230"
-                  width="368"
-                  style={{
-                    marginBottom: 0,
-                    paddingBottom: 0,
-                    position: "relative",
-                  }}
-                />
-                <span className="project-date">{project.startDate}</span>
-                <br />
-                <p className="project-title-settings mt-3">{project.title}</p>
-              </div>
-            </div>
-          </span>
-        </Col>
-        <Col xs={8} className="wrapper">
-          <h2 className="how-title">CSS3 Skill </h2>
-          <div className="skill">
-            <p>HTML5</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>CSS3</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>JQUERY</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>React.js</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "75%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>Node.js</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="50"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "50%" }}
-              ></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>MongoDB</p>
-            <div className="progress">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="60"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "60%" }}
-              ></div>
-            </div>
-          </div>
-        </Col>
-      </div>
-    ));
-  };
-  
-  render() {
-    console.log("Projects Working");
-    console.log(this.state);
-
-    const { profileData } = this.props;
-    const { filteredProjects, searchInput, value, detailsModalShow, deps } =
-      this.state;
-
-    const sectionName = profileData.section_name.projects || "";
-    return (
-      <Col>
-        <Stack>
-          <div className="background">
-            <div className="transparentbox">
-              <section id="portfolio">
-                <InputGroup>
-                  <Form.Control
-                    type="search"
-                    onChange={this.handleChange}
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="basic-addon1"
-                    value={searchInput}
-                  />
-                  <InputGroup.Text id="basic-addon1">
-                    Filter by:
-                  </InputGroup.Text>
-                  <Form.Control
-                    as="select"
-                    onChange={this.handleSelectChange}
-                    value={value}
-                  >
-                    <option value="All">All</option>
-                    <option value="name">Name</option>
-                    <option value="popularity">Popularity</option>
-                    <option value="recent">Recent</option>
-                    <option value="size">Size</option>
-                  </Form.Control>
-                </InputGroup>
-              </section>
-            </div>
-          </div>
-        </Stack>
-
-        <div className="background">
-          <div className="transparentbox">
-            <section id="portfolio">
-              <div className="col-md-12">
-                <h1 className="section-title" style={{ color: "black" }}>
-                  <span>{sectionName}</span>
-                </h1>
-                <div className="col-md-12 mx-auto">
-                  <div className="row mx-auto">
-                    {filteredProjects.length || profileData.length ? (
-                      <div>{this.renderProjects()}</div>
-                    ) : null}
-                    {/* {filteredProjects.length || profileData.length
-                      ? this.renderProjects()
-                      : null} */}
-                  </div>
-                </div>
-                <ProjectDetailsModal
-                  show={detailsModalShow}
-                  onHide={this.detailsModalCloseHandler}
-                  data={deps}
-                />
-              </div>
-            </section>
-          </div>
-        </div>
-      </Col>
-    );
-  }
-}
+  return (
+    <>
+      <Box as="section" pt="5rem" pb="3rem" bg={bgColor} color={color}>
+        <Container maxW="container.lg">
+          <ScaleFade initialScale={0.9} in={true}>
+            <Text fontSize="4xl" fontWeight="bold" textAlign="center" mb="5">
+              {sectionName}
+            </Text>
+            <InputGroup mb="5">
+              <InputLeftAddon children="Filter by:" />
+              <Select onChange={handleSelectChange} value={value}>
+                <option value="All">All</option>
+                <option value="name">Name</option>
+                <option value="popularity">Popularity</option>
+                <option value="recent">Recent</option>
+                <option value="size">Size</option>
+              </Select>
+              <Input
+                type="search"
+                onChange={handleChange}
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="basic-addon1"
+                value={searchInput}
+              />
+            </InputGroup>
+            <Grid
+              templateColumns="repeat(auto-fit, minmax(240px, 1fr))"
+              gap={6}
+            >
+              {filteredProjects.length > 0 &&
+                filteredProjects.map((project, index) => (
+                  <GridItem key={index}>
+                    <MotionBox
+                      bg={bgColor}
+                      boxShadow="lg"
+                      rounded="lg"
+                      overflow="hidden"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Image
+                        src={project.images[0]}
+                        alt="project_image"
+                        className="w-full h-full object-cover rounded-2xl"
+                        h="200px"
+                        objectFit="cover"
+                      />
+                      <Box p="6">
+                        <Text fontWeight="bold" fontSize="xl" mb="2">
+                          {project.title}
+                        </Text>
+                        <Text fontSize="md" color="gray.500" mb="4">
+                          {project.description}
+                        </Text>
+                        <Flex justify="space-between">
+                          <Text fontWeight="bold">{project.startDate}</Text>
+                          <Button
+                            onClick={() => detailsModalShowHandler(project)}
+                            colorScheme="teal"
+                            variant="outline"
+                            _hover={{ bg: "teal.600", color: "white" }}
+                          >
+                            Details
+                          </Button>
+                        </Flex>
+                      </Box>
+                    </MotionBox>
+                  </GridItem>
+                ))}
+            </Grid>
+          </ScaleFade>
+        </Container>
+      </Box>
+    </>
+  );
+};
 
 export default Projects;

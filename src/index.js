@@ -1,17 +1,22 @@
-import { ColorModeScript } from "@chakra-ui/react";
 import React from "react";
-import ReactDOM from "react-dom/client";
-// import './index.scss';
+import { createRoot } from "react-dom/client";
+import "./assets/styles/Index.scss";
+import "./assets/styles/App.scss";
 import App from "./App";
-import ".";
-import theme from "./styles/Theme";
-import "bootstrap/dist/css/bootstrap.min.css";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
+import AuthProvider from "./context/Auth/authContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
 
-    <App />
-  </React.StrictMode>
+const root = document.getElementById("root");
+createRoot(root).render(
+  <BrowserRouter basename="/">
+    <AuthProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </AuthProvider>
+  </BrowserRouter>
 );
+
+serviceWorker.unregister();
