@@ -1,23 +1,3 @@
-// ResumeHomePage.js
-import React from "react";
-import { Flex, useMediaQuery } from "@chakra-ui/react";
-import ResumeHomeContainer from "../../containers/resume/ResumeHomeContainer";
-
-function ResumeHomePage() {
-  const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
-
-  return (
-    <Flex
-      direction="column"
-      alignItems="center"
-      justify="center"
-      minHeight="100vh"
-      px={isLargerThan900 ? 0 : 5}
-      py={10}
-    >
-      <ResumeHomeContainer />
-    </Flex>
-  );
-}
-
-export default ResumeHomePage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:e6f4b4293a10febe1ea222e151e60e96df94305471d47ed0788cdf4c25fc9c76
+size 533

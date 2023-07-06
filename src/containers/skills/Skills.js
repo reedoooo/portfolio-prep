@@ -1,28 +1,3 @@
-import React, { Component } from "react";
-import { Center, Grid, GridItem, Heading } from "@chakra-ui/react";
-import Toolstack from "../../components/softwareSkills/ToolStack";
-import Techstack from "../../components/softwareSkills/TechStack";
-
-class Skills extends Component {
-  render() {
-    return (
-      <>
-        <Center>
-          <Heading as="h2" size="lg" color={"white"}>
-            Tech Skills
-          </Heading>
-        </Center>
-        <Grid>
-          <GridItem>
-            <Techstack />
-          </GridItem>
-          <GridItem>
-            <Toolstack />
-          </GridItem>
-        </Grid>
-      </>
-    );
-  }
-}
-
-export default Skills; 
+version https://git-lfs.github.com/spec/v1
+oid sha256:e62223b136971bb0ee78a0dc0623b99dde3414dceadf49caa1d2d8d827887fef
+size 663

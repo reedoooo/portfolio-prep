@@ -1,17 +1,3 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { seo } from "../../portfolio.js";
-
-function SeoHeader() {
-  return (
-    <Helmet>
-      <title>{seo.title}</title>
-      <meta name="description" content={seo.description} />
-      <meta property="og:title" content={seo?.og?.title} />
-      <meta property="og:type" content={seo?.og?.type} />
-      <meta property="og:url" content={seo?.og?.url} />
-    </Helmet>
-  );
-}
-
-export default SeoHeader;
+version https://git-lfs.github.com/spec/v1
+oid sha256:9b8027a43e728efd6faf606c94f9d8dd7657e96bbcfb07e8d9203fe5b42a7193
+size 471
