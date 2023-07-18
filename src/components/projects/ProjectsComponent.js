@@ -19,7 +19,7 @@ import { motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
 
-const Projects = ({
+const ProjectsComponent = ({
   searchInput,
   value,
   sectionName,
@@ -112,4 +112,4 @@ const Projects = ({
   );
 };
 
-export default Projects;
+export default ProjectsComponent;
