@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4019ec466f17ff1cdd7d8f17789666b818ab8dc161351c12cd14f207d832da0d
-size 732
+import { Container } from '@chakra-ui/react';
+import React, { Component } from 'react';
+import NavBar from '../../components/headings/navbar/Navigation';
+
+class NavContainer extends Component {
+  render() {
+    return (
+      <Container>
+        <NavBar
+        // profileData={profileData.basic_info}
+        //   style={{
+        //     display: "flex",
+        //     zIndex: "100",
+        //     justifyContent: "space-between",
+        //     alignItems: "center",
+        //     width: "100vw",
+        //     height: "20vw",
+        //     alignContent: "center",
+        //     top: "0",
+        //     backgroundColor: "black",
+        //   }}
+        />{' '}
+      </Container>
+    );
+  }
+}
+
+export default NavContainer;

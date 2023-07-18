@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d93f853e86ff7ee9a28b15a73059f4c1901377d84d18ac44da27c1a25b925b8c
-size 38
+{
+    "search.useIgnoreFiles": false
+}

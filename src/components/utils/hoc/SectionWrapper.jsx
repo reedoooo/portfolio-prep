@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:56c1a31386b7d8396a0fc9ff410ad62a9440f6e2673b8bb9aeaa473f03b2751f
-size 608
+import { motion } from 'framer-motion';
+
+import { styles } from '../styles';
+import { staggerContainer } from '../motion';
+
+const StarWrapper = (Component, idName) =>
+  function HOC() {
+    return (
+      <motion.section
+        variants={staggerContainer()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+      >
+        <span className="hash-span" id={idName}>
+          &nbsp;
+        </span>
+
+        <Component />
+      </motion.section>
+    );
+  };
+
+export default StarWrapper;

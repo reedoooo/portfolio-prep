@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:66acf951d858073e8f3a8efdc7f43bb62ea975ab84bae063327d1a3eecd37984
-size 434
+import { useAuth0 } from '@auth0/auth0-react';
+import { Button } from '@chakra-ui/react';
+import React from 'react';
+
+export const ProfileButton = () => {
+  const { ReRoute } = useAuth0();
+
+  const handleReRoute = () => {
+    ReRoute({
+      ReRouteParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
+
+  return (
+    <Button className="button__login" onClick={handleReRoute}>
+      Log Out
+    </Button>
+  );
+};

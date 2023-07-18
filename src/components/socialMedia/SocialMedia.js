@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5955ebb9fde5d5d5a24a4c5e4761d01356c364c81a1440f16ebd2d552f56efe4
-size 894
+import React from 'react';
+import './SocialMedia.css';
+import { socialMediaLinks } from '../../portfolio';
+import styled from 'styled-components';
+
+const IconWrapper = styled.span`
+  i {
+    background-color: ${(props) => props.backgroundColor};
+  }
+  &:hover i {
+    background-color: ${({ theme }) => theme.text};
+    transition: 0.3s ease-in;
+  }
+`;
+
+export default function socialMedia(props) {
+  return (
+    <div className="social-media-div">
+      {socialMediaLinks.map((media) => {
+        return (
+          <a
+            href={media.link}
+            className={`icon-button`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconWrapper {...media} {...props}>
+              <i className={`fab ${media.fontAwesomeIcon}`}></i>
+            </IconWrapper>
+            {/* <span></span> */}
+          </a>
+        );
+      })}
+    </div>
+  );
+}
