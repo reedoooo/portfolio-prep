@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a99c9c01dc21e87c64b63ee943ffaa5e03e8f2847fa4a81eb1298de4b5d9abaa
-size 807
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Splash.css';
+import LogoLoader from '../../components/Loader/LoaderLogo';
+
+function AnimatedSplash() {
+  return (
+    <div className="logo_wrapper">
+      <LogoLoader id="logo" />
+    </div>
+  );
+}
+
+function Splash() {
+  const [redirected, setRedirected] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const id = setTimeout(() => setRedirected(true), 5500);
+    return () => clearTimeout(id);
+  }, []); // Only run once, equivalent to componentDidMount
+
+  useEffect(() => {
+    if (redirected) {
+      navigate('/');
+    }
+  }, [redirected, navigate]); // Run whenever `redirected` changes
+
+  return redirected ? null : <AnimatedSplash />;
+}
+
+export default Splash;

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:98bfc8824eb7a2c9e1e56ced8fb3f648617f9549535eff7480dc4d4151ba04a3
-size 482
+import { useAuth0 } from '@auth0/auth0-react';
+import React from 'react';
+
+// import ProfileButton from "./ProfileButton";
+
+export const ModalButtons = () => {
+  const { isAuthenticated } = useAuth0();
+
+  return (
+    <div className="nav-bar__buttons">
+      {!isAuthenticated && (
+        <>
+          <LoginButton />
+          {/* <ProfileButton /> */}
+        </>
+      )}
+      {isAuthenticated && (
+        <>
+          <LogoutButton />
+        </>
+      )}
+    </div>
+  );
+};

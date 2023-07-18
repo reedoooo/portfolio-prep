@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7697afc3bb75fb6532a4fc6b01de899a4e948fd383f0ff235e588c5af447391a
-size 446
+import { Route, Navigate } from 'react-router-dom';
+import Auth from '../components/Auth/auth';
+
+function PrivateRoute({ children, ...rest }) {
+  let auth = Auth(); // Replace with your auth logic
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth.user ? (
+          children
+        ) : (
+          <Navigate to="/login" state={{ from: location }} />
+        )
+      }
+    />
+  );
+}
+
+export default PrivateRoute;

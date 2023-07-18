@@ -1,3 +1,55 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4b94b3ef873838c46c31da09e549fb7c1d41b566bc0fd25c98f1e30c3a6018b
-size 1071
+import React from 'react';
+import Particles from 'react-tsparticles';
+
+function Particle() {
+  return (
+    <Particles
+      id="tsparticles"
+      params={{
+        particles: {
+          number: {
+            value: 160,
+            density: {
+              enable: true,
+              value_area: 1500,
+            },
+          },
+          line_linked: {
+            enable: false,
+            opacity: 0.03,
+          },
+          move: {
+            direction: 'right',
+            speed: 0.05,
+          },
+          size: {
+            value: 1,
+          },
+          opacity: {
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.05,
+            },
+          },
+        },
+        interactivity: {
+          events: {
+            onclick: {
+              enable: true,
+              mode: 'push',
+            },
+          },
+          modes: {
+            push: {
+              particles_nb: 1,
+            },
+          },
+        },
+        retina_detect: true,
+      }}
+    />
+  );
+}
+
+export default Particle;
