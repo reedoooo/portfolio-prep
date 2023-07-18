@@ -8,7 +8,7 @@ class ProjectsComponent extends Component {
       <Flex
         alignItems="center"
         justifyContent="top"
-        h={`calc(100vh - 100px)`}
+        h={'calc(100vh - 100px)'}
         w="100vw"
         flexDirection="column"
       >

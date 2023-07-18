@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectDetailsModal from '../../components/modals/Modal_ProjectDetails';
 import NavBar from '../../components/headings/navbar/Navigation';
-import Projects from '../../components/projects/Projects';
+import ProjectsComponent from '../../components/projects/ProjectsComponent';
 
 const ProjectContainer = (props) => {
   const [searchInput, setSearchInput] = useState('');
@@ -77,7 +77,7 @@ const ProjectContainer = (props) => {
       ) : (
         <>
           <NavBar />
-          <Projects
+          <ProjectsComponent
             searchInput={searchInput}
             value={value}
             sectionName={sectionName}
