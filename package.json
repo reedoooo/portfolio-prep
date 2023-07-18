@@ -1,3 +1,108 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1748421ce9467931a32e61d09a21524e2e4b2d140222b1dcd4f173e476ce9dff
-size 3065
+{
+  "name": "portfolio",
+  "author": {
+    "name": "Reed Vogt",
+    "email": "reedvogt1999@gmail.com",
+    "url": "http://your-website.com"
+  },
+  "description": "My personal portfolio website",
+  "license": "MIT",
+  "version": "0.1.0",
+  "private": false,
+  "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reedoooo/portfolio-prep"
+  },
+  "bugs": {
+    "url": "https://github.com/reedoooo/portfolio-prep/issues"
+  }, 
+  "dependencies": {
+    "@auth0/auth0-react": "^2.1.1",
+    "@brookr/react-switch": "^6.0.1",
+    "@chakra-ui/css-reset": "^2.1.2",
+    "@chakra-ui/icons": "^2.0.19",
+    "@chakra-ui/react": "^2.7.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.10.6",
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.18",
+    "auth0-js": "^9.21.0",
+    "autoprefixer": "^10.4.14",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.0",
+    "chakra": "^0.0.3",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.16.0",
+    "framer-motion": "^10.12.18",
+    "jquery": "^3.7.0",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.1",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^7.3.1",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.4.25",
+    "react": "^18.2.0",
+    "react-awesome-slider": "^4.1.0",
+    "react-bootstrap": "^2.8.0",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-github-calendar": "^4.0.1",
+    "react-icons": "^4.10.1",
+    "react-if": "^4.1.5",
+    "react-parallax-tilt": "^1.7.151",
+    "react-pdf": "^7.1.2",
+    "react-router-bootstrap": "^0.26.2",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^6.14.1",
+    "react-scripts": "5.0.1",
+    "react-simple-placeholder-image": "^0.1.2",
+    "react-tsparticles": "^2.10.1",
+    "react-vertical-timeline-component": "^3.6.0",
+    "redux": "^4.2.1",
+    "web-vitals": "^3.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postbuild": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css",
+    "predeploy": "npm runrun build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@iconify/icons-logos": "^1.2.33",
+    "@iconify/react": "^4.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "gh-pages": "^5.0.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^2.3.2",
+    "purgecss": "^5.0.0",
+    "sass": "^1.63.6",
+    "tailwindcss": "^3.3.2"
+  }
+}
