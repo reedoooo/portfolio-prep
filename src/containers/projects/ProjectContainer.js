@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Projects from '../../components/projects/Projects';
 import ProjectDetailsModal from '../../components/modals/Modal_ProjectDetails';
 import NavBar from '../../components/headings/navbar/Navigation';
+import Projects from '../../components/projects/Projects';
 
 const ProjectContainer = (props) => {
   const [searchInput, setSearchInput] = useState('');
