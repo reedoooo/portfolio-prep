@@ -49,7 +49,7 @@ function Login() {
 
   useEffect(() => {
     if (authContext.isLoggedIn) {
-      navigate('/profile');
+      navigate('/users/profile');
     }
   }, [authContext.isLoggedIn, navigate]);
 
