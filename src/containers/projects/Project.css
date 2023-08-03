@@ -15,6 +15,18 @@
   gap: 1rem 1rem;
 }
 
+/* .project-container {
+  background: url('../../assets/images/bg2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  z-index: -1;
+} */
+
+
 /* Media Query */
 @media (max-width: 1380px) {
   .project-title {

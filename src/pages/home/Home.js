@@ -4,24 +4,16 @@ import Header from '../../components/headings/header/Header.js';
 import HomeComponent from './HomeComponent';
 import ProfileComponent from '../profile/ProfilePage.js';
 import NavContainer from '../../containers/navbar/NavContainer';
-// import ResumeNew from "../resume/ResumeComponent.js";
 import ProjectsHomeContainer from '../projects/ProjectsHomeContainer.js';
-// import ResumeHomeContainer from "../resume/ResumeHomeContainer.js";
-// import ResumeHomeComponent from "../resume/ResumeHomeComponent.js";
 import ResumeHomePage from '../resume/ResumeHomePage.js';
+import './Home.css'; // assuming the CSS file is in the same directory
 
 class Home extends Component {
   render() {
     return (
-      <main>
+      <main className="home-container">
         <Box w={'100vw'}>
-          {/* ---------         ---------              ---------       ---------*/}
-          {/* --------------------------------------- Header --------------------------------------- */}
-          {/* ---------         ---------              ---------       ---------*/}
           <Header style={{ display: 'block', minHeight: '100vh' }} />
-          {/* ---------         ---------              ---------       ---------*/}
-          {/* --------------------------------------- Navbar --------------------------------------- */}
-          {/* ---------         ---------              ---------       ---------*/}
           <NavContainer
             style={{
               display: 'flex',
@@ -36,23 +28,11 @@ class Home extends Component {
             }}
           />
           <Flex flexDirection="column" h={'600vh'}>
-            {/* ---------         ---------              ---------       ---------*/}
-            {/* --------------------------------------- Home section --------------------------------------- */}
-            {/* ---------         ---------              ---------       ---------*/}
             <HomeComponent style={{ display: 'block', minHeight: '100vh' }} />
-            {/* ---------         ---------              ---------       ---------*/}
-            {/* --------------------------------------- Profile section --------------------------------------- */}
-            {/* ---------         ---------              ---------       ---------*/}
             <ProfileComponent
               style={{ display: 'block', minHeight: '100vh' }}
             />
-            {/* ---------         ---------              ---------       ---------*/}
-            {/* --------------------------------------- Resume Section --------------------------------------- */}
-            {/* ---------         ---------              ---------       ---------*/}
             <ResumeHomePage style={{ display: 'block', minHeight: '100vh' }} />
-            {/* ---------         ---------              ---------       ---------*/}
-            {/* --------------------------------------- Projects Section --------------------------------------- */}
-            {/* ---------         ---------              ---------       ---------*/}
             <ProjectsHomeContainer
               style={{ display: 'block', minHeight: '100vh' }}
             />
