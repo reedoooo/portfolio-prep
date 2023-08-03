@@ -3,7 +3,7 @@ import Home from '../pages/home/Home';
 import Splash from '../pages/splash/Splash';
 import Login from '../components/Auth/login';
 import ResumePage from '../pages/resume/ResumePage';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import CallBack from '../services/auth/CallBack';
 import MyStuff from './login/MyStuff';
@@ -25,6 +25,7 @@ export default function Main({ onLogin }) {
   }, []);
 
   const routes = [
+    { path: '/', element: <Navigate to="/home" /> },
     { path: '/home', element: <Home /> },
     { path: '/login', element: <Login onLogin={onLogin} /> },
     { path: '/privateroute/*', element: <MyStuff /> },
