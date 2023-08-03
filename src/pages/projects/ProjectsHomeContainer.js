@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectDetailsModal from '../../components/modals/Modal_ProjectDetails';
 import ProjectsHomeComponent from './ProjectsHomeComponent';
+import { Spinner } from '@chakra-ui/react';
 
 const ProjectsHomeContainer = (props) => {
   const [deps, setDeps] = useState({});
@@ -26,9 +27,17 @@ const ProjectsHomeContainer = (props) => {
       .get(`${process.env.REACT_APP_SERVER}/api/myprofile`)
       .then((response) => {
         console.log('Received response:', response);
-        const data = response.data[0].projects;
-        console.log('Setting projectArray to retrieved data:', data);
-        setProjectArray(data);
+        const data = response.data;
+        if (data.length > 0 && data[0].projects) {
+          console.log(
+            'Setting projectArray to retrieved data:',
+            data[0].projects,
+          );
+          setProjectArray(data[0].projects);
+        } else {
+          console.log('Data retrieved does not have expected structure');
+          setProjectArray([]); // or handle this situation as you see fit
+        }
         setLoading(false);
       })
       .catch((error) => {
@@ -42,7 +51,16 @@ const ProjectsHomeContainer = (props) => {
   return (
     <>
       {loading ? (
-        <div>Loading...</div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}
+        >
+          <Spinner size="xl" />
+        </div>
       ) : (
         <>
           <ProjectsHomeComponent

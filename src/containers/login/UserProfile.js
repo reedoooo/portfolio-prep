@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import cookie from 'react-cookies';
+import { useCookies } from 'react-cookie';
 import {
   Box,
   Center,
@@ -48,7 +48,8 @@ const theme = extendTheme({
 
 const UserProfile = () => {
   const toast = useToast();
-  const token = cookie.load('auth');
+  const [cookies] = useCookies(['auth']);
+  const token = cookies.auth;
   const [userData, setUserData] = useState(null);
   const [editData, setEditData] = useState(null);
   const [fetchError, setFetchError] = useState(false);
@@ -106,7 +107,7 @@ const UserProfile = () => {
   };
 
   useEffect(() => {
-    if (cookie.load('userCookie') && token && !fetchError) {
+    if (token && !fetchError) {
       fetchData();
     }
   }, [token, toast, fetchData, fetchError]);

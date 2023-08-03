@@ -3,6 +3,8 @@ import axios from 'axios';
 import ProjectDetailsModal from '../../components/modals/Modal_ProjectDetails';
 import NavBar from '../../components/headings/navbar/Navigation';
 import ProjectsComponent from '../../components/projects/ProjectsComponent';
+import { Spinner } from '@chakra-ui/react';
+import './Project.css';
 
 const ProjectContainer = (props) => {
   const [searchInput, setSearchInput] = useState('');
@@ -70,10 +72,11 @@ const ProjectContainer = (props) => {
   };
 
   console.log('ProjectContainer.js: props.profileData', props.profileData);
+
   return (
-    <>
+    <div className="project-container">
       {loading ? (
-        <div>Loading...</div>
+        <Spinner size="xl" />
       ) : (
         <>
           <NavBar />
@@ -97,7 +100,7 @@ const ProjectContainer = (props) => {
       )}
 
       {error && <div>Error: {error.message}</div>}
-    </>
+    </div>
   );
 };
 
