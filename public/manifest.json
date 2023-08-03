@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "https://github.com/reedoooo/portfolio-prep/blob/f7261d894c77020f2f2cbebf581e73fcb82762ea/public/icons/logo192.png",
+      "src": "https://media.githubusercontent.com/media/reedoooo/portfolio-prep/f7261d894c77020f2f2cbebf581e73fcb82762ea/public/icons/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "./home",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
