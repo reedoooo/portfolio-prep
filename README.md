@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/55b8f6bc-999c-4e54-ac28-e2af630eed39/deploy-status)](https://app.netlify.com/sites/myportfolio-showcase/deploys)
+
 ## Description
 
 This repository contains a portfolio project developed to showcase my skills as a software developer. The project is a personal portfolio website that provides comprehensive information about my skills, experiences, and projects I've completed. It also offers an interactive platform for users to contact me and learn more about my work in a simple and elegant manner.
