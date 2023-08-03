@@ -239,10 +239,6 @@ $RECYCLE.BIN/
 cleanup
 Dockerfile
 docker-compose.yml
-.prettierrc
-.eslintrc.js
-.eslintrc.json
-.eslintignore
 
 
 # End of https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocodenode_modules
