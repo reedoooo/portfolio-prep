@@ -28,18 +28,18 @@
       "error",
       2,
       {
-          "CallExpression": {
-              "arguments": "first"
-          },
-          "FunctionDeclaration": {
-              "parameters": "first"
-          },
-          "FunctionExpression": {
-              "parameters": "first"
-          },
-          "offsetTernaryExpressions": true
+        "CallExpression": {
+          "arguments": "first"
+        },
+        "FunctionDeclaration": {
+          "parameters": "first"
+        },
+        "FunctionExpression": {
+          "parameters": "first"
+        },
+        "offsetTernaryExpressions": true
       }
-  ],
+    ],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "always"],

@@ -1,5 +1,7 @@
 @import '~react-pdf/dist/esm/Page/AnnotationLayer.css';
 @import '~react-pdf/dist/esm/Page/TextLayer.css';
+// <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
 html {
   z-index: 1;
@@ -13,7 +15,7 @@ main {
 }
 
 .bg {
-  background: url('../images/bg2.jpg') no-repeat;
+  background: url('../images/bg4.jpg') no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -624,7 +626,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-image: var(--image-gradient), url('../images/bg2.jpg');
+  background-image: var(--image-gradient), url('../images/bg4.jpg');
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -812,7 +814,7 @@ button:focus {
 /* Projects */
 /* --------- */
 .project-section {
-  // background: url('../images/bg2.jpg') no-repeat;
+  // background: url('../images/bg4.jpg') no-repeat;
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
@@ -923,12 +925,12 @@ button:focus {
   margin: 15px !important;
   padding: 10px !important;
   opacity: 0.93 !important;
-  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  border: 1.7px solid rgba(49, 151, 149, 0.673) !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 5px !important;
   display: table !important;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+  box-shadow: 4px 5px 4px 3px rgba(49, 151, 149, 0.173) !important;
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
 }
@@ -942,8 +944,11 @@ button:focus {
 .tech-icons:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
-  border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
+  border: 1.7px solid rgba(79, 183, 179, 0.673) !important;
+  box-shadow: 0 0 15px rgba(79, 183, 179, 0.8), 0 0 25px rgba(79, 183, 179, 0.8),
+    0 0 35px rgba(79, 183, 179, 0.8), 0 0 45px rgba(79, 183, 179, 1);
 }
+
 .tech-icon-images {
   padding: 20px !important;
   line-height: 1.6 !important;
@@ -1199,7 +1204,7 @@ button:focus {
   height: 100%;
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
+  // backdrop-filter: blur(5px);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: width 0.3s ease;

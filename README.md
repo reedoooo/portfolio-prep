@@ -10,6 +10,8 @@ I developed it using React.js as the main framework, applying its powerful featu
 
 For handling user authentication and data protection, I employed the Auth0 authentication service, ensuring that user data remains secure. All these technologies come together to create a dynamic, responsive, and user-friendly portfolio website that effectively highlights my skills and experiences as a software developer.
 
+<img src="public/home.png" width="33%" alt="Homepage">
+
 ## Features
 
 This portfolio project encompasses a wide array of features, offering visitors an in-depth look at my experience and skills. These features include:
@@ -36,13 +38,12 @@ This portfolio project encompasses a wide array of features, offering visitors a
 
 By exploring the portfolio, visitors gain a comprehensive understanding of my abilities as a software developer and the quality of my work. The portfolio's diverse range of features ensures an engaging, interactive, and user-friendly experience for all users.
 
-Apologies for the confusion earlier. The code blocks should indeed have a specified language for better syntax highlighting and readability. Here's the corrected version:
-
 ## Installation
 
 Before you can run this project locally, you'll need to have Node.js and npm (which comes with Node.js) installed on your computer. After you've confirmed that you have Node and npm installed, you can take the following steps to install and run this project:
 
 1. **Clone the Repository**
+
    - Open your terminal and use `git clone` to clone this repository. Run the command:
 
      ```bash
@@ -50,6 +51,7 @@ Before you can run this project locally, you'll need to have Node.js and npm (wh
      ```
 
 2. **Navigate to the Project Directory**
+
    - After cloning the repository, navigate to the project directory by running:
 
      ```bash
@@ -67,6 +69,7 @@ Before you can run this project locally, you'll need to have Node.js and npm (wh
      This command will install all the dependencies listed in the `package.json` file.
 
 4. **Run the Project**
+
    - After you've installed all of the dependencies, you can run the project locally by using the following command:
 
      ```bash
@@ -79,7 +82,7 @@ The following scripts are available to help with the project's development:
 
 - `npm run build`: Builds the app for production to the `build` folder.
 - `npm run test`: Launches the test runner in the interactive watch mode.
-- `npm run eject`: This command will remove the single build dependency from your project. Note: this is a one-way operation. Once you `eject`, you canâ€™t go back!
+- `npm run eject`: This command will remove the single build dependency from your project. Note: this is a one-way operation. Once you `eject`, you can’t go back!
 - `npm run predeploy`: Run the build script before deploying.
 - `npm run deploy`: Deploys the app to GitHub pages.
 
@@ -100,6 +103,10 @@ While this project is primarily a personal portfolio project, I welcome bug repo
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+# Attributions
+
+- Background Image: [https://unsplash.com/photos/iIJrUoeRoCQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink](https://unsplash.com/photos/iIJrUoeRoCQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
 ## License
 

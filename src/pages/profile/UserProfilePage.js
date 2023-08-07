@@ -1,7 +1,6 @@
 import React from 'react';
 import { ChakraProvider, CSSReset, extendTheme } from '@chakra-ui/react';
 import UserProfileContainer from '../../containers/profile/UserProfileContainer';
-import NavBar from '../../components/headings/navbar/Navigation';
 
 const theme = extendTheme({
   styles: {
@@ -26,7 +25,6 @@ const UserProfilePage = () => {
   return (
     <ChakraProvider theme={theme}>
       <CSSReset />
-      <NavBar />
       <UserProfileContainer />
     </ChakraProvider>
   );

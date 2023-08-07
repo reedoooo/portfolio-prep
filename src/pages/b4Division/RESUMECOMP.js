@@ -1,7 +1,7 @@
 import React from 'react';
 import Particle from './Particle';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
-import pdf from './reedVogtResume.pdf';
+import pdf from './Reed_Vogt_Resume.pdf';
 import { AiOutlineDownload } from 'react-icons/ai';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
@@ -17,7 +17,7 @@ import {
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-const resumeLink = pdf || './reedVogtResume.pdf'; // if pdf is null, use the default link
+const resumeLink = pdf || './Reed_Vogt_Resume.pdf'; // if pdf is null, use the default link
 
 function ResumeComponent() {
   // const [width, setWidth] = useState(1200);

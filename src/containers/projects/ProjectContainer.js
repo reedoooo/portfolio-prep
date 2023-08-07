@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectDetailsModal from '../../components/modals/Modal_ProjectDetails';
-import NavBar from '../../components/headings/navbar/Navigation';
-import ProjectsComponent from '../../components/projects/ProjectsComponent';
-import { Spinner } from '@chakra-ui/react';
 import './Project.css';
+import Loading from '../../components/Loader/Loading';
+import Search from './Search';
+import Select from './Select';
+import ProjectList from './ProjectList';
+import Error from '../../components/utils/Error';
 
 const ProjectContainer = (props) => {
   const [searchInput, setSearchInput] = useState('');
@@ -14,7 +16,6 @@ const ProjectContainer = (props) => {
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [projectArray, setProjectArray] = useState([]);
   const [error, setError] = useState(null);
-  const sectionName = props.profileData?.section_name?.projects || '';
   const [loading, setLoading] = useState(true);
 
   const detailsModalShowHandler = (data) => {
@@ -76,20 +77,18 @@ const ProjectContainer = (props) => {
   return (
     <div className="project-container">
       {loading ? (
-        <Spinner size="xl" />
+        <Loading />
       ) : (
         <>
-          <NavBar />
-          <ProjectsComponent
-            searchInput={searchInput}
+          <Search value={searchInput} onChange={handleChange} />
+          <Select
             value={value}
-            sectionName={sectionName}
-            handleChange={handleChange}
-            handleSelectChange={handleSelectChange}
-            filteredProjects={filteredProjects}
-            detailsModalShowHandler={detailsModalShowHandler}
-            profileData={props.profileData}
-            marginTop="128px"
+            onChange={handleSelectChange}
+            options={['All', 'Option1', 'Option2']}
+          />
+          <ProjectList
+            projects={filteredProjects}
+            onDetails={detailsModalShowHandler}
           />
           <ProjectDetailsModal
             show={detailsModalShow}
@@ -98,8 +97,7 @@ const ProjectContainer = (props) => {
           />
         </>
       )}
-
-      {error && <div>Error: {error.message}</div>}
+      {error && <Error message={error.message} />}
     </div>
   );
 };

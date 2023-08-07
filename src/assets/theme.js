@@ -26,6 +26,43 @@ const theme = extendTheme({
       800: '#262626',
       900: '#0d0d0d',
     },
+    // tertiary: {
+    //   50: '#FFF5F2',
+    //   100: '#FFE4D9',
+    //   200: '#FFD1BF',
+    //   300: '#FFBFA5',
+    //   400: '#FFAC8C',
+    //   500: '#FF9972',
+    //   600: '#CC7A5A',
+    //   700: '#995C42',
+    //   800: '#663D2A',
+    //   900: '#332013',
+    // },
+    tertiary: {
+      50: '#66d3cf', // Light cyan
+      100: '#57c9c6', // Light cyan 2
+      200: '#47bfbf', // Light Caribbean current
+      300: '#37b5b8', // Light Caribbean current 2
+      400: '#28abaf', // Light Midnight green
+      500: '#18a1a6', // Light Indigo dye
+      600: '#08968f', // Light Berkeley blue
+      700: '#008c79', // Light Oxford blue
+      800: '#008163', // Light Penn blue
+      900: '#00774e', // Light greenish-blue
+    },
+
+    quaternary: {
+      50: '#319795', // Dark cyan
+      100: '#2C878B', // Dark cyan 2
+      200: '#267A7E', // Adjusted Caribbean current
+      300: '#206D70', // Adjusted Caribbean current 2
+      400: '#1A6063', // Adjusted Midnight green
+      500: '#145356', // Adjusted Indigo dye
+      600: '#0E4649', // Adjusted Berkeley blue
+      700: '#08393C', // Adjusted Oxford blue
+      800: '#022C2F', // Adjusted Penn blue
+      900: '#001F22', // Very dark greenish-blue
+    },
   },
   styles: {
     global: {

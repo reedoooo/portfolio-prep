@@ -81,7 +81,18 @@ const ProjectDetailsModal = ({ onHide, profileData, projects }) => {
               </a>
             ) : null}
           </h3>
-          <p className="modal-description">{description}</p>
+          <p
+            className="modal-description"
+            style={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+            }}
+          >
+            {description}
+          </p>{' '}
           <div className="col-md-12 text-center">
             <ul className="list-inline mx-auto">{tech}</ul>
           </div>
