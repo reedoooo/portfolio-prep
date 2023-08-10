@@ -1,18 +1,20 @@
-import ReusableHeader from '../../components/headings/header/ReusableHeader';
+import ReusableHeader from './ReusableHeader';
 
 /* eslint-disable */
 const HeaderCreator = (type) => {
   switch (type) {
     case 'profile':
-      return <ReusableHeader headerText="Profile Section" height={'5vh'} />;
+      return <ReusableHeader headerText="Profile" height={'5vh'} />;
+    case 'about':
+      return <ReusableHeader headerText="About Me" height={'5vh'} />;
     case 'projects':
-      return <ReusableHeader headerText="Projects Section" color="white" />;
+      return <ReusableHeader headerText="Projects" color="white" />;
     case 'resume':
-      return <ReusableHeader headerText="Resume Section" />;
+      return <ReusableHeader headerText="Resume" />;
     case 'techSkills':
       return <ReusableHeader headerText="Tech Skills" color="white" />;
     case 'experiences':
-      return <ReusableHeader headerText="Experiences" color="white" />;
+      return <ReusableHeader headerText="Experience" color="white" />;
     default:
       return null;
   }

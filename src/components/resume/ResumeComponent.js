@@ -4,8 +4,10 @@ import {
   Button,
   Flex,
   Link,
+  Text,
   useBreakpointValue,
-  useMediaQuery,
+  Container,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { Document, Page } from 'react-pdf';
 import { AiOutlineDownload } from 'react-icons/ai';
@@ -20,37 +22,47 @@ const resumeLink = pdf || './Reed_Vogt_Resume.pdf';
 
 function ResumeComponent() {
   const scale = useBreakpointValue({ base: 0.5, md: 1.6 });
+  const bgColor = useColorModeValue('white', 'gray.800');
+  // const bgColor = 'customColors.translucentQuaternary50';
+  const color = useColorModeValue('gray.800', 'white');
 
   return (
-    <Box as="section">
-      <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        my={5}
-        // minHeight="100vh"
-        // width="100%"
-        flexDirection="column"
-      >
-        <Link href={resumeLink} isExternal></Link>
-      </Flex>
-      <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        bg="white"
-        p={8}
-        borderRadius="2xl"
-        boxShadow="xl"
-        w="100%"
-      >
-        <PDFViewer file={resumeLink} scale={scale} />
-        <ButtonContainer
-          resumeLink={resumeLink}
-          buttonIcon={<AiOutlineDownload />}
-          buttonText="Download CV"
-        />
-      </Flex>
+    <Box
+      as="section"
+      pt={{ base: '3rem', md: '5rem' }}
+      pb={{ base: '2rem', md: '3rem' }}
+      bg={bgColor}
+      color={color}
+    >
+      <Container maxW="container.lg">
+        <Flex direction="column" alignItems="center" justifyContent="center">
+          <Text
+            fontSize={{ base: '3xl', md: '4xl' }}
+            fontWeight="bold"
+            textAlign="center"
+            mb="5"
+          >
+            Resume
+          </Text>
+          <Flex
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            bg={bgColor}
+            p={6}
+            borderRadius="lg"
+            boxShadow="lg"
+            w="100%"
+          >
+            <PDFViewer file={resumeLink} scale={scale} />
+            <ButtonContainer
+              resumeLink={resumeLink}
+              buttonIcon={<AiOutlineDownload />}
+              buttonText="Download CV"
+            />
+          </Flex>
+        </Flex>
+      </Container>
     </Box>
   );
 }

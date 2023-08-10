@@ -1,8 +1,8 @@
-import { Box, Image, Link as ChakraLink, Text } from '@chakra-ui/react';
+import { Box, Image, Text } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import logo from '../../../assets/navlogo.png';
 
-export function NavLogoComponent() {
+export function NavLogoComponent({ textColor }) {
   return (
     <Box display="flex" alignItems="center">
       <RouterLink to="/home">
@@ -31,7 +31,7 @@ export function NavLogoComponent() {
         ml={3}
         fontSize="xxl"
         fontWeight="bold"
-        color="teal.500"
+        color={textColor} // Use the textColor here
         fontFamily="'Roboto Slab', serif"
       >
         ReedVogt.com

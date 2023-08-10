@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Container } from '@chakra-ui/react';
-import Particle from '../../pages/resume/Particle';
-import ResumeComponent from '../../components/resume/ResumeComponent';
+// import Particle from '../../pages/resume/Particle';
+// import ResumeComponent from '../../components/resume/ResumeComponent';
 import HeaderCreator from '../../pages/utils/HeaderCreator';
 
 const HeaderComponent = () => {
@@ -11,12 +11,11 @@ const HeaderComponent = () => {
         My Resume
       </Heading> */}
       <Box display="flex" justifyContent="center">
-        {' '}
         {HeaderCreator('resume')}
       </Box>
 
-      {Particle && <Particle />}
-      <ResumeComponent />
+      {/* {Particle && <Particle />}
+      <ResumeComponent /> */}
     </Container>
   );
 };

@@ -63,6 +63,55 @@ const theme = extendTheme({
       800: '#022C2F', // Adjusted Penn blue
       900: '#001F22', // Very dark greenish-blue
     },
+    quinary: {
+      50: '#FFEFE5', // Very pale coral
+      100: '#FFD6C1', // Pale coral
+      200: '#FFBDA0', // Light coral
+      300: '#FFA380', // Coral
+      400: '#FF8960', // Dark coral
+      500: '#FF7040', // Darker coral
+      600: '#E66030', // Ambered coral
+      700: '#B54A24', // Ambered brown
+      800: '#833418', // Dark brown
+      900: '#521E0C', // Very dark brown
+    },
+    // quinary: {
+    //   50: '#FCE9E5', // Light coral pink
+    //   100: '#F9C4BD', // Coral pink
+    //   200: '#F59E94', // Light salmon
+    //   300: '#F1776A', // Salmon
+    //   400: '#ED5150', // Light coral
+    //   500: '#E82A35', // Coral
+    //   600: '#C3202D', // Dark coral
+    //   700: '#9D161D', // Darker coral
+    //   800: '#780C0E', // Almost maroon
+    //   900: '#530305', // Maroon
+    // },
+    pentenary: {
+      50: '#4db0a8', // Lightened version of Dark cyan
+      100: '#46989d', // Lightened version of Dark cyan 2
+      200: '#3f818f', // Lightened version of Adjusted Caribbean current
+      300: '#37697f', // Lightened version of Adjusted Caribbean current 2
+      400: '#305270', // Lightened version of Adjusted Midnight green
+      500: '#284b60', // Lightened version of Adjusted Indigo dye
+      600: '#20444f', // Lightened version of Adjusted Berkeley blue
+      700: '#173d3e', // Lightened version of Adjusted Oxford blue
+      800: '#0e362e', // Lightened version of Adjusted Penn blue
+      900: '#052f1d', // Lightened version of Very dark greenish-blue
+    },
+    customColors: {
+      translucentQuaternary50: 'rgba(49, 151, 149, 0.4)', // Dark cyan
+      translucentQuaternary100: 'rgba(44, 135, 139, 0.4)', // Dark cyan 2
+      translucentQuaternary200: 'rgba(38, 122, 126, 0.4)', // Adjusted Caribbean current
+      translucentQuaternary300: 'rgba(32, 109, 112, 0.4)', // Adjusted Caribbean current 2
+      translucentQuaternary400: 'rgba(26, 96, 99, 0.4)', // Adjusted Midnight green
+      translucentQuaternary500: 'rgba(20, 83, 86, 0.4)', // Adjusted Indigo dye
+      translucentQuaternary600: 'rgba(14, 70, 73, 0.4)', // Adjusted Berkeley blue
+      translucentQuaternary700: 'rgba(8, 57, 60, 0.4)', // Adjusted Oxford blue
+      translucentQuaternary800: 'rgba(2, 44, 47, 0.4)', // Adjusted Penn blue
+      translucentQuaternary900: 'rgba(0, 31, 34, 0.4)', // Very dark greenish-blue
+      translucentQuaternary901: 'rgba(0, 31, 34, 0.6)', // Very dark greenish-blue
+    },
   },
   styles: {
     global: {
@@ -74,6 +123,13 @@ const theme = extendTheme({
       a: {
         color: 'teal.500',
       },
+      // '*:hover': {
+      //   transform: 'scale(1.05)',
+      //   overflow: 'hidden',
+      //   border: '1.7px solid rgba(79, 183, 179, 0.673)',
+      //   boxShadow:
+      //     '0 0 15px rgba(79, 183, 179, 0.8), 0 0 25px rgba(79, 183, 179, 0.8), 0 0 35px rgba(79, 183, 179, 0.8), 0 0 45px rgba(79, 183, 179, 1)',
+      // },
       '*': {
         boxSizing: 'border-box',
       },

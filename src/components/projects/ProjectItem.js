@@ -46,7 +46,13 @@ const ProjectItem = ({ project, bgColor, detailsModalShowHandler }) => (
           onClick={() => detailsModalShowHandler(project)}
           colorScheme="quaternary"
           variant="outline"
-          _hover={{ bg: 'teal.600', color: 'white' }}
+          _hover={{
+            transform: 'scale(1.05)',
+            overflow: 'hidden',
+            border: '1.7px solid rgba(79, 183, 179, 0.673)',
+            boxShadow:
+              '0 0 15px rgba(79, 183, 179, 0.8), 0 0 25px rgba(79, 183, 179, 0.8), 0 0 35px rgba(79, 183, 179, 0.8), 0 0 45px rgba(79, 183, 179, 1)',
+          }}
         >
           Details
         </Button>
