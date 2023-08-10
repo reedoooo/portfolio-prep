@@ -1,61 +1,54 @@
-// import { Box } from '@chakra-ui/react';
-// import ProfileParagraph from './ProfileParagraph';
+import { Box, Heading, Text, Link, Icon } from '@chakra-ui/react';
+import { BsLinkedin } from 'react-icons/bs';
 
-// const ProfileDescription = () => (
-//   <Box width="90%" mt={8} height="50%" flexGrow={1}>
-//     <ProfileParagraph>
-//       Hi there! I&apos;m Reed Vogt, a Full Stack Web Developer from Seattle, WA,
-//       delivering creative and user-centric software solutions.
-//     </ProfileParagraph>
+const ProfileDescription = () => {
+  // This function redirects to LinkedIn
+  const redirectToLinkedIn = () => {
+    window.location.href = 'https://www.linkedin.com/in/yourLinkedInProfile/';
+  };
 
-//     <ProfileParagraph>
-//       My arsenal is well-stocked with JavaScript, React.js, Node.js, and AWS -
-//       all aimed at developing software that is both functional and
-//       user-friendly. Leveraging a solid foundation in computer science,
-//       I&apos;ve honed my skills in both front-end and back-end development.
-//     </ProfileParagraph>
-
-//     <ProfileParagraph>
-//       Whether it&apos;s HTML5, CSS3, JavaScript, SQL, or a new language or tool
-//       in the software industry, I pride myself on my adaptability and ongoing
-//       commitment to learning.
-//     </ProfileParagraph>
-
-//     <ProfileParagraph>
-//       Throughout my career, I&apos;ve been fortunate to work on a wide range of
-//       projects. From developing a personal portfolio and a work organizer web
-//       app to creating a YuGiOh TCG deck builder, these projects have refined my
-//       programming capabilities, honed my problem-solving skills, and deepened my
-//       understanding of what users want.
-//     </ProfileParagraph>
-//   </Box>
-// );
-
-// export default ProfileDescription;
-import { Box, Heading, Text } from '@chakra-ui/react';
-
-const ProfileDescription = () => (
-  <Box
-    id="profile-description"
-    width="90%"
-    mt={8}
-    mb={8}
-    height="50%"
-    flexGrow={1}
-    zIndex={'100'}
-    textAlign={'center'}
-    justifyContent={'center'}
-  >
-    <Heading as="h2" size="xl" textAlign={'center'}>
-      <Text fontStyle="italic" textAlign={'center'}>
-        Seattle-based Full Stack Developer, Reed Vogt, leverages a robust
-        Computer Science background to deliver functional, user-centric
-        software. Expert in JavaScript, React.js, Node.js, and AWS, with a
-        career reflecting diverse projects and ongoing technical skill
-        enhancement.
-      </Text>
-    </Heading>
-  </Box>
-);
+  return (
+    <Box
+      id="profile-description"
+      width="90%"
+      mt={8}
+      mb={8}
+      height="50%"
+      flexGrow={1}
+      zIndex={'100'}
+      textAlign={'center'}
+      justifyContent={'center'}
+      lineHeight="1.2" // Increased line spacing
+    >
+      <Heading as="h2" size="xl" textAlign={'center'}>
+        <Text fontStyle="italic" textAlign={'center'}>
+          👋 Hey there, adventurous internet traveler! <br />
+          Welcome to my little corner of the digital universe. I&apos;m Reed, a
+          tech enthusiast, code wizard, and an avid lover of all things web.
+          Whether you&apos;re here to peek at my latest projects or just
+          stumbled upon this space by accident, I&apos;m glad you&apos;re here.{' '}
+          <br />
+          Grab a virtual coffee ☕, scroll around, and{' '}
+          <Link
+            onClick={redirectToLinkedIn}
+            color="teal.500"
+            fontWeight="bold"
+            fontSize="1.2em" // Increased font size
+            textDecoration="none" // Removed underline
+            _hover={{
+              color: 'blue.500',
+              transform: 'scale(1.2)', // Added a zoom effect on hover
+              transition: 'all 0.3s ease', // Smooth transition effect
+            }}
+          >
+            let&apos;s connect <Icon as={BsLinkedin} boxSize={8} ml={2} p={1} />{' '}
+          </Link>
+          . After all, the internet&apos;s all about bringing amazing people
+          (like you!) together.
+        </Text>
+      </Heading>
+    </Box>
+  );
+};
 
 export default ProfileDescription;

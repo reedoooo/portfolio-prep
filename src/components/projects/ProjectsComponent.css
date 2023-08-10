@@ -8,14 +8,17 @@
 #scaled-frame {
   width: 900px;
   height: 1200px;
-  border: 0px;
+  border: 0;
   zoom: 0.3;
+
+  /* Transformation properties */
   -moz-transform: scale(0.3);
-  -moz-transform-origin: 0 0;
+  -moz-transform-origin: center center; /* For Firefox 3 */
   -o-transform: scale(0.3);
-  -o-transform-origin: 0 0;
+  -o-transform-origin: center center; /* For older Opera versions */
   -webkit-transform: scale(0.3);
-  -webkit-transform-origin: 0 0;
+  -webkit-transform-origin: center center; /* For older Webkit browsers */
+  transform-origin: center center; /* Standard property */
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {

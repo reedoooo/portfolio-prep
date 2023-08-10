@@ -18,11 +18,13 @@ function ResumeHomePageSection() {
 
   return (
     <SectionContainer>
-      {HeaderCreator('resume')}
-      {Particle && <Particle />}
-      <Box mt={'2vh'}>
-        <PDFViewer file={resumeLink} scale={scale} />
-        <ButtonContainer resumeLink={resumeLink} buttonText="Download CV" />
+      <Box>
+        {HeaderCreator('resume')}
+        {Particle && <Particle />}
+        <Box mt={'2vh'}>
+          <PDFViewer file={resumeLink} scale={scale} />
+          <ButtonContainer resumeLink={resumeLink} buttonText="Download CV" />
+        </Box>
       </Box>
     </SectionContainer>
   );

@@ -12,7 +12,7 @@ import { useDisclosure } from '@chakra-ui/hooks';
 import { AuthContext } from '../../../context/Auth/authContext';
 import Login from '../../Auth/login';
 
-export function LoginModal() {
+export function LoginModal({ textColor }) {
   const { isLoggedIn } = useContext(AuthContext);
   const loginDisclosure = useDisclosure();
 
@@ -24,7 +24,7 @@ export function LoginModal() {
             variant="outline"
             borderWidth={2}
             borderColor={'quaternary.400'}
-            color="quaternary.50"
+            color={textColor} // Use the textColor here
             size="md"
             fontSize="lg"
             fontWeight="bold"
@@ -57,7 +57,7 @@ export function LoginModal() {
   );
 }
 
-export function SignupModal() {
+export function SignupModal({ textColor }) {
   const { isLoggedIn } = useContext(AuthContext);
   const signupDisclosure = useDisclosure();
 
@@ -69,7 +69,7 @@ export function SignupModal() {
             variant="outline"
             borderWidth={2}
             borderColor={'secondary.50'}
-            color="secondary.50"
+            color={textColor} // Use the textColor here
             size="md"
             fontSize="lg"
             fontWeight="bold"

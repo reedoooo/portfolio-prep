@@ -1,6 +1,6 @@
 import { Box, Heading, Divider } from '@chakra-ui/react';
 
-const ReusableHeader = ({ headerText, color = 'white' }) => (
+const ReusableHeaderWithSubHeader = ({ headerText, color = 'white' }) => (
   <Box
     id="reusable-header"
     width="90%"
@@ -22,7 +22,16 @@ const ReusableHeader = ({ headerText, color = 'white' }) => (
       // mt={8}
       // mb={8}
     />
+    <Heading as="h3" size="l" textAlign="center" color={color} mt={4} mb={4}>
+      {headerText}
+    </Heading>
+    <Divider
+      borderColor={'quaternary.50'}
+      borderBottomWidth={'3px'}
+      // mt={8}
+      // mb={8}
+    />
   </Box>
 );
 
-export default ReusableHeader;
+export default ReusableHeaderWithSubHeader;

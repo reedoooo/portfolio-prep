@@ -14,7 +14,7 @@ import SideBar from './SideBar';
 import NavLogoComponent from './NavLogoComponent';
 import { LoginModal } from './AuthControls';
 
-function NavLinks() {
+function NavLinks({ textColor }) {
   const [isMobile] = useMediaQuery('(max-width: 768px)');
   const { isLoggedIn, logout } = useContext(AuthContext);
 
@@ -26,6 +26,7 @@ function NavLinks() {
       width="100%"
       top="0"
       height="10vh"
+      color={textColor}
     >
       {isMobile ? (
         <Stack
@@ -44,7 +45,7 @@ function NavLinks() {
       ) : (
         <>
           <Stack spacing={4} direction="row" align="center">
-            <NavLogoComponent />
+            <NavLogoComponent textColor={textColor} />
           </Stack>
           <Stack
             spacing={20}
@@ -58,7 +59,7 @@ function NavLinks() {
               to="/home"
               fontSize="lg"
               fontWeight="bold"
-              color="quaternary.50"
+              color={textColor} // Use the textColor here
               _hover={{ color: 'secondary.50', transition: 'color 0.3s' }}
             >
               Home
@@ -69,7 +70,7 @@ function NavLinks() {
               to="/projects"
               fontSize="lg"
               fontWeight="bold"
-              color="quaternary.50"
+              color={textColor} // Use the textColor here
               _hover={{ color: 'secondary.200', transition: 'color 0.3s' }}
             >
               Projects
@@ -80,7 +81,7 @@ function NavLinks() {
               to="/resume"
               fontSize="lg"
               fontWeight="bold"
-              color="quaternary.50"
+              color={textColor} // Use the textColor here
               _hover={{ color: 'secondary.50', transition: 'color 0.3s' }}
             >
               Resume
@@ -92,7 +93,7 @@ function NavLinks() {
                 to="/profile"
                 fontSize="lg"
                 fontWeight="bold"
-                color="quaternary.50"
+                color={textColor} // Use the textColor here
                 _hover={{ color: 'quaternary.400', transition: 'color 0.3s' }}
               >
                 Profile
@@ -109,6 +110,7 @@ function NavLinks() {
               <Button
                 onClick={logout}
                 variant="outline"
+                color={textColor} // Use the textColor here
                 // colorScheme="quaternary"
               >
                 Logout

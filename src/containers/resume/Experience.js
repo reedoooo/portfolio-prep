@@ -1,12 +1,13 @@
 import {
   Box,
-  Badge,
   VStack,
   Flex,
-  useColorModeValue,
   Text,
+  Tooltip,
+  Grid,
+  IconButton,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import ExperienceContent from './ExperienceContent';
 import { motion } from 'framer-motion';
 import {
@@ -14,15 +15,74 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import './Experience.css'; // <-- Added this line to import the CSS
+import './Experience.css'; // <-- Imported the CSS
 import HeaderCreator from '../../pages/utils/HeaderCreator';
+import { ProfileContext } from '../../context/ProfileContext';
+import { DiJavascript1, DiReact } from 'react-icons/di';
+import { BsFiletypeSass } from 'react-icons/bs';
+import { BiLogoPostgresql, BiLogoVuejs } from 'react-icons/bi';
+import { SiExpress, SiJest } from 'react-icons/si';
 
 const MotionBox = motion(Box);
 
-const ExperienceTimelineElement = ({ exp, direction }) => {
-  const { role, company, duration, technologies } = exp;
+// Sample mapping from technology names to icons and descriptions.
+// You can expand this to cover all your technologies.
+// Sample mapping from technology names to icons and descriptions.
+// You can expand this to cover all your technologies.
+const technologyMapping = {
+  react: {
+    icon: <DiReact />,
+    description: 'React is a JavaScript library for building user interfaces.',
+  },
+  typescript: {
+    icon: <DiJavascript1 />,
+    description:
+      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.',
+  },
+  sass: {
+    icon: <BsFiletypeSass />,
+    description:
+      'Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS).',
+  },
+  postgresql: {
+    icon: <BiLogoPostgresql />,
+    description:
+      'PostgreSQL is a powerful, open-source object-relational database system.',
+  },
+  express: {
+    icon: <SiExpress />,
+    description: 'Express.js is a web application framework for Node.js.',
+  },
+  vuejs: {
+    icon: <BiLogoVuejs />,
+    description: 'Vue.js is a progressive JavaScript framework.',
+  },
+  jest: {
+    icon: <SiJest />,
+    description:
+      'Jest is a delightful JavaScript Testing Framework with a focus on simplicity.',
+  },
+  // ... Add all the technologies you listed
+};
 
-  const slideDirection = direction === 'left' ? -50 : 50; // <-- Adjusted here. Left will be -50 and right will be 50.
+const TechnologyGridItem = ({ technology }) => {
+  // Check if technologyMapping has this technology
+  if (!Object.prototype.hasOwnProperty.call(technologyMapping, technology)) {
+    return null; // Do not render anything
+  }
+
+  const techData = technologyMapping[technology];
+
+  return (
+    <Tooltip label={techData.description} placement="top" hasArrow>
+      <IconButton isRound icon={techData.icon} aria-label={technology} />
+    </Tooltip>
+  );
+};
+
+const ExperienceTimelineElement = ({ exp, direction }) => {
+  const { title, startDate, description, technologies } = exp; // Adjusted based on your data structure.
+  const slideDirection = direction === 'left' ? -50 : 50;
 
   return (
     <MotionBox
@@ -42,62 +102,43 @@ const ExperienceTimelineElement = ({ exp, direction }) => {
     >
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
-        date={duration}
+        date={startDate}
         iconStyle={{ bg: 'quaternary.500', color: '#fff' }}
         icon={<i className="fab fa-angular experience-icon"></i>}
       >
-        <Box>
-          {technologies.slice(0, 2).map((tech, techIndex) => (
-            <Badge key={techIndex} mx={1} mb={2} colorScheme="quaternary">
-              {tech}
-            </Badge>
-          ))}
-        </Box>
         <Text as="h3" fontWeight="bold" textAlign="left">
-          {role}
+          {title}
         </Text>
-        <Text as="h4" fontWeight="medium" textAlign="left">
-          {company}
+        <Text as="p" textAlign="left" mb={4}>
+          {description}
         </Text>
-
-        <Box mt={4}>
-          {technologies.map((tech, techIndex) => (
-            <Badge
-              key={techIndex}
-              mx={1}
-              mb={2}
-              variant="outline"
-              colorScheme="gray"
-            >
-              {tech}
-            </Badge>
-          ))}
-        </Box>
+        <Grid templateColumns="repeat(3, 1fr)" gap={4} mt={4}>
+          {technologies.map((tech) =>
+            Object.prototype.hasOwnProperty.call(
+              technologyMapping,
+              tech.name.toLowerCase(),
+            ) ? (
+              <TechnologyGridItem
+                key={tech.name}
+                technology={tech.name.toLowerCase()}
+              />
+            ) : null,
+          )}
+        </Grid>
       </VerticalTimelineElement>
     </MotionBox>
   );
 };
 
 const Experience = () => {
-  const borderColor = useColorModeValue('gray.200', 'whiteAlpha.300');
-  const experiences = [
-    {
-      role: 'Software Developer',
-      company: 'XYZ',
-      duration: '2020-present',
-      description:
-        'Developed several features for the product, contributing to significant growth in the user base.',
-      technologies: ['React', 'Redux', 'Node.js', 'MongoDB'],
-    },
-    {
-      role: 'Junior Developer',
-      company: 'ABC',
-      duration: '2018-2020',
-      description:
-        'Worked on front-end development using HTML, CSS, JavaScript, and jQuery. Helped design and implement responsive web pages.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
-    },
-  ];
+  const { profileData } = useContext(ProfileContext);
+
+  const {
+    profileData: { experience },
+  } = useContext(ProfileContext);
+  console.log('ProfileData from context: ', profileData);
+  console.log('experiences from context: ', experience);
+
   return (
     <VStack align="start" mt={10} width="100%" className="Experience-vstack">
       <Flex
@@ -106,46 +147,37 @@ const Experience = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Box width="100%" mt={8} flexGrow={1}>
+        <Box width="100%" mt={8} flexGrow={1} py={5} overflowY="scroll">
           <Box
-            py={5}
-            // h="90vh"
-            overflowY="scroll"
-            borderY="1px"
-            borderColor={borderColor}
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            width="100%"
           >
-            <Box
-              // maxW="xxl"
-              display="flex"
-              m={0}
-              flexDirection="column"
-              justifyContent="center"
-              width="100%"
-            >
-              <Box display="flex" justifyContent="center" width="100%">
-                {HeaderCreator('experiences')}
-              </Box>
-              <Box display="flex" justifyContent="center" width="100%">
-                <ExperienceContent />
-              </Box>
-
-              <VerticalTimeline>
-                {experiences.map((exp, index) => (
+            <Box display="flex" justifyContent="center" width="100%">
+              {HeaderCreator('experience')}
+            </Box>
+            <Box display="flex" justifyContent="center" width="100%">
+              <ExperienceContent />
+            </Box>
+            <VerticalTimeline>
+              {experience &&
+                experience.map((exp, index) => (
                   <ExperienceTimelineElement
                     key={index}
+                    experiences={experience}
                     exp={exp}
                     direction={index % 2 === 0 ? 'left' : 'right'}
                   />
                 ))}
 
-                <VerticalTimelineElement
-                  iconStyle={{ background: '#AE944F', color: '#fff' }}
-                  icon={
-                    <i className="fas fa-hourglass-start mx-auto experience-icon"></i>
-                  }
-                />
-              </VerticalTimeline>
-            </Box>
+              <VerticalTimelineElement
+                iconStyle={{ background: '#AE944F', color: '#fff' }}
+                icon={
+                  <i className="fas fa-hourglass-start mx-auto experience-icon"></i>
+                }
+              />
+            </VerticalTimeline>
           </Box>
         </Box>
       </Flex>
