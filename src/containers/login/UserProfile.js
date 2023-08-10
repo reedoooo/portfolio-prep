@@ -25,7 +25,6 @@ import AddProjectForm from './AddProjectForm';
 import ExperienceForm from './ExperienceForm';
 import ProfilePhotoForm from './ProfilePhotoForm';
 import { ChakraProvider, CSSReset, extendTheme } from '@chakra-ui/react';
-import NavBar from '../../components/headings/navbar/Navigation';
 
 const theme = extendTheme({
   styles: {
@@ -128,8 +127,6 @@ const UserProfile = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <NavBar />
-
         <Grid
           templateColumns="repeat(2, 1fr)"
           gap={6}

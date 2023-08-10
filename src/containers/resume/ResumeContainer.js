@@ -1,35 +1,28 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
-import ResumeComponent from '../../components/resume/ResumeComponent';
-import Particle from './Particle';
+import { Box, Container, Grid, Center } from '@chakra-ui/react';
+import ResumeFooter from './ResumeFooter';
+import Skills from './Skills';
+import Experience from './Experience';
+import ResumeHeader from './ResumeHeader';
 
 function ResumeContainer() {
   return (
-    <Box
-      marginTop="128px"
-      minH="100vh"
-      minW="100vw"
-      bgGradient="linear(to-r, blue.300, blue.500)"
-      p={8}
-      justifyContent={'center'}
-      flexGrow={1}
-    >
-      <Box>
-        {Particle && <Particle />}
-        <ResumeComponent />
-        <Box
-          as="footer"
-          mt={8}
-          py={4}
-          textAlign="center"
-          borderTop="1px"
-          borderColor="gray.300"
-        >
-          <Text>
-            © {new Date().getFullYear()} My Portfolio. All rights reserved.
-          </Text>
-        </Box>
-      </Box>
+    <Box width="100%">
+      <Container py={4} maxW="100%">
+        <Center>
+          <Grid
+            templateColumns={{ base: '1fr' }}
+            gap={4}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <ResumeHeader />
+            <Skills />
+            <Experience />
+            <ResumeFooter />
+          </Grid>
+        </Center>
+      </Container>
     </Box>
   );
 }

@@ -1,0 +1,11 @@
+.react-vertical-timeline--animate .vertical-timeline-element-content,
+.react-vertical-timeline .vertical-timeline-element-content {
+    width: 100% !important; /* Use !important to override any conflicting styles */
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+.vertical-timeline::before {
+    left: calc(50% - 2px) !important;
+}

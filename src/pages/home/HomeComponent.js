@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import log02 from '../../assets/logo.png';
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
-// import logo from "../../../assets/navlogo.png";
 
 class HomeComponent extends Component {
   render() {
@@ -9,7 +8,6 @@ class HomeComponent extends Component {
       <Flex
         alignItems="center"
         justifyContent="center"
-        // h={`calc(100vh - 100px)`}
         h={'100vh'}
         w={'100vw'}
         flexDirection="column"
@@ -28,13 +26,14 @@ class HomeComponent extends Component {
               alignItems="center"
               justifyContent="center"
               position="relative"
+              borderRadius="full" // make the box round
+              boxShadow="0px 0px 0px 4px black" // add the boxShadow to this box, not the image
             >
               <Image
                 src={log02}
                 alt="My Logo"
                 boxSize="4em"
                 position="relative"
-                // filter="brightness(0.5) sepia(1) hue-rotate(90deg) saturate(5) brightness(0.8)"
               />
               <Box
                 position="absolute"

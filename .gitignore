@@ -247,4 +247,6 @@ node_modules
 node_modules/
 portfolio-prep.git/
 portfolio-prep.git.bfg-report/
+.vscode/
+dist/
 
