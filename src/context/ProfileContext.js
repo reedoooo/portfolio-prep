@@ -13,7 +13,11 @@ export const ProfileProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState(null); // Add this line
-
+  const [basicInfoData, setBasicInfoData] = useState(null); // Add this line
+  const [skillsData, setSkillsData] = useState(null); // Add this line
+  const [projectsData, setProjectsData] = useState(null); // Add this line
+  const [experienceData, setExperienceData] = useState(null); // Add this line
+  const [technologyMappingData, setTechnologyMappingData] = useState(null); // Add this line
   const detailsModalShowHandler = (data) => {
     setDetailsModalShow(true);
     setDeps(data);
@@ -24,7 +28,7 @@ export const ProfileProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    console.log('Starting request to /myProfileRoute...');
+    console.log('Starting request for profileData');
     axios
       .get(`${process.env.REACT_APP_SERVER}/api/myprofile`)
       .then((response) => {
@@ -33,9 +37,14 @@ export const ProfileProvider = ({ children }) => {
         console.log('Setting projectArray to retrieved data:', data);
         setProjectArray(data);
         setProfileData(response.data[0]); // Set the profile data here
-        console.log('profileData', profileData);
+        setBasicInfoData(response.data[0].basic_info); // Set the basic info data here
+        setSkillsData(response.data[0].skills); // Set the skills data here
+        setProjectsData(response.data[0].projects); // Set the projects data here
+        setExperienceData(response.data[0].experience); // Set the experience data here
+        setTechnologyMappingData(response.data[0].technologyMapping); // Set the technology mapping data here
 
         setLoading(false);
+        console.log('loading:', loading);
       })
       .catch((error) => {
         console.error(`Error occurred during request: ${error}`);
@@ -71,7 +80,32 @@ export const ProfileProvider = ({ children }) => {
     setValue(value);
   };
 
-  console.log('ProfileProvider.js: profileData', profileData);
+  useEffect(() => {
+    console.log('ProfileProvider.js: useEffect', {
+      searchInput,
+      value,
+      deps,
+      detailsModalShow,
+      filteredProjects,
+      projectArray,
+      error,
+      loading,
+      profileData,
+      basicInfoData,
+      skillsData,
+      projectsData,
+      experienceData,
+      technologyMappingData,
+    });
+  }, [
+    profileData,
+    basicInfoData,
+    skillsData,
+    projectsData,
+    experienceData,
+    technologyMappingData,
+  ]);
+
   // console.log('exp', profileData.data.experience);
 
   return (
@@ -91,6 +125,11 @@ export const ProfileProvider = ({ children }) => {
         setProjectArray,
         error,
         profileData, // Add this line
+        basicInfoData, // Add this line
+        skillsData, // Add this line
+        projectsData, // Add this line
+        experienceData, // Add this line
+        technologyMappingData, // Add this line
         setError,
         loading,
         setLoading,

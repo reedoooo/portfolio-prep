@@ -1,10 +1,10 @@
 import { Button } from '@chakra-ui/react';
 import { Link as ScrollLink } from 'react-scroll';
 
-const ScrollButton = (props) => {
+const ScrollButton = ({ to, smooth, duration, children, ...restProps }) => {
   return (
-    <ScrollLink to={props.to} smooth={props.smooth} duration={props.duration}>
-      <Button {...props}>{props.children}</Button>
+    <ScrollLink to={to} smooth={smooth} duration={duration}>
+      <Button {...restProps}>{children}</Button>
     </ScrollLink>
   );
 };

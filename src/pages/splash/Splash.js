@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Splash.css';
-import LogoLoader from '../../components/Loader/LoaderLogo';
 import { motion } from 'framer-motion';
+import { theme } from '../../assets/theme';
+import Particle from '../resume/Particle';
 
 const logoVariants = {
   hidden: { opacity: 0, scale: 0 },
   visible: {
-    opacity: 1,
-    scale: [1, 1.5, 1],
-    rotate: [0, 360],
+    opacity: [0, 1, 0.8, 1],
+    scale: [1, 1.3, 1.1, 1.4, 1.2, 1],
+    rotateX: [0, 20, -20, 10, -10, 0],
+    rotateY: [0, -20, 20, -10, 10, 0],
+    boxShadow: [
+      '0px 0px',
+      '10px 10px',
+      '15px 15px',
+      '20px 20px',
+      '10px 10px',
+      '0px 0px',
+    ],
     transition: {
-      duration: 1,
+      duration: 4,
       repeat: Infinity,
-      repeatType: 'reverse',
+      repeatType: 'mirror',
+      ease: 'easeInOut',
     },
   },
   exit: { opacity: 0, scale: 0, transition: { duration: 0.5 } },
@@ -23,12 +34,19 @@ const textVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    color: ['#ff0000', '#00ff00', '#0000ff'],
+    color: [
+      theme.colors.quaternary[400],
+      theme.colors.quaternary[500],
+      theme.colors.quaternary[600],
+      theme.colors.quaternary[700],
+      theme.colors.quaternary[800],
+      theme.colors.quaternary[900],
+    ],
+    textShadow: ['0px 0px', '5px 5px', '3px 3px', '0px 0px'],
     transition: {
-      delay: 1,
-      duration: 2,
+      duration: 6, // Increased due to more colors
       repeat: Infinity,
-      repeatType: 'reverse',
+      repeatType: 'loop',
     },
   },
   exit: { opacity: 0, transition: { duration: 0.5 } },
@@ -37,15 +55,33 @@ const textVariants = {
 function AnimatedSplash() {
   return (
     <motion.div
-      className="logo_wrapper"
+      className="splash_wrapper"
       initial="hidden"
       animate="visible"
       exit="exit"
+      style={{ backgroundColor: theme.colors.quaternary[100] }}
     >
-      <motion.div id="logo" variants={logoVariants}>
-        <LogoLoader />
-      </motion.div>
-      <motion.p variants={textVariants}>Loading...</motion.p>
+      <motion.div
+        className="logo_container"
+        variants={logoVariants}
+      ></motion.div>
+      {Particle && <Particle />}
+
+      <motion.p
+        className="loading_text"
+        variants={textVariants}
+        style={{
+          rotateX: [0, 10, -10, 0],
+          transition: {
+            repeat: Infinity,
+            repeatType: 'mirror',
+            duration: 4,
+          },
+          color: theme.colors.quaternary[500],
+        }}
+      >
+        Loading...
+      </motion.p>
     </motion.div>
   );
 }
@@ -55,7 +91,7 @@ function Splash() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const id = setTimeout(() => setRedirected(true), 5500);
+    const id = setTimeout(() => setRedirected(true), 10000);
     return () => clearTimeout(id);
   }, []);
 

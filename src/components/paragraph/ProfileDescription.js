@@ -18,7 +18,7 @@ const ProfileDescription = () => {
       zIndex={'100'}
       textAlign={'center'}
       justifyContent={'center'}
-      lineHeight="1.2" // Increased line spacing
+      lineHeight="1.2"
     >
       <Heading as="h2" size="xl" textAlign={'center'}>
         <Text fontStyle="italic" textAlign={'center'}>
@@ -33,12 +33,12 @@ const ProfileDescription = () => {
             onClick={redirectToLinkedIn}
             color="teal.500"
             fontWeight="bold"
-            fontSize="1.2em" // Increased font size
-            textDecoration="none" // Removed underline
+            fontSize="1.2em"
+            textDecoration="none"
             _hover={{
               color: 'blue.500',
-              transform: 'scale(1.2)', // Added a zoom effect on hover
-              transition: 'all 0.3s ease', // Smooth transition effect
+              transform: 'scale(1.2)',
+              transition: 'all 0.3s ease',
             }}
           >
             let&apos;s connect <Icon as={BsLinkedin} boxSize={8} ml={2} p={1} />{' '}
