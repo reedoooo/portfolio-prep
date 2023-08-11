@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import {
   DiJavascript1,
   DiReact,
@@ -17,7 +17,11 @@ import {
   SiMysql,
   SiChakraui,
 } from 'react-icons/si';
-import { BiLogoPostgresql, BiLogoVuejs } from 'react-icons/bi';
+import {
+  BiLogoPostgresql,
+  BiLogoVuejs,
+  BiLogoTypescript,
+} from 'react-icons/bi';
 import { TbBrandThreejs } from 'react-icons/tb';
 import { BsFiletypeSass, BsFillBootstrapFill } from 'react-icons/bs';
 import { RiGatsbyLine } from 'react-icons/ri';
@@ -44,6 +48,7 @@ export const ResumeProvider = ({ children }) => {
     SiJest,
     SiSocketdotio,
     RiGatsbyLine,
+    BiLogoTypescript,
     SiMysql,
     BsFiletypeSass,
     BsFillBootstrapFill,
@@ -52,8 +57,35 @@ export const ResumeProvider = ({ children }) => {
     SiChakraui,
   ];
 
+  const allIconsMapping = {
+    DiJavascript1,
+    DiReact,
+    DiNodejs,
+    DiPostgresql,
+    DiGit,
+    DiAws,
+    DiJqueryLogo,
+    SiNextdotjs,
+    SiMongodb,
+    SiExpress,
+    SiJest,
+    SiSocketdotio,
+    SiMysql,
+    SiChakraui,
+    BiLogoPostgresql,
+    BiLogoVuejs,
+    BiLogoTypescript,
+    TbBrandThreejs,
+    BsFiletypeSass,
+    BsFillBootstrapFill,
+    RiGatsbyLine,
+  };
+
+  // No need to combine as before, directly use the above object
+  const allIcons = allIconsMapping;
+
   return (
-    <ResumeContext.Provider value={{ homeIcons, resumeIcons }}>
+    <ResumeContext.Provider value={{ homeIcons, resumeIcons, allIcons }}>
       {children}
     </ResumeContext.Provider>
   );

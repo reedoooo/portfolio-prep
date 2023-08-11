@@ -9,6 +9,7 @@ import AuthProvider from './context/Auth/authContext';
 import { PageProvider } from './context/PageContext';
 import { ProfileProvider } from './context/ProfileContext';
 import { ResumeProvider } from './context/ResumeContext';
+import { ProjectsContextProvider } from './context/ProjectsContextProvider';
 
 const root = document.getElementById('root');
 createRoot(root).render(
@@ -16,11 +17,13 @@ createRoot(root).render(
     <AuthProvider>
       <ProfileProvider>
         <ResumeProvider>
-          <PageProvider>
-            <React.StrictMode>
-              <App />
-            </React.StrictMode>
-          </PageProvider>
+          <ProjectsContextProvider>
+            <PageProvider>
+              <React.StrictMode>
+                <App />
+              </React.StrictMode>
+            </PageProvider>
+          </ProjectsContextProvider>
         </ResumeProvider>
       </ProfileProvider>
     </AuthProvider>

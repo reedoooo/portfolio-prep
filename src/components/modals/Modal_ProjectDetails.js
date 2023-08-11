@@ -1,103 +1,144 @@
-import React from 'react';
-import { Modal } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  Box,
+  Link,
+  Text,
+  List,
+  ListItem,
+  Badge,
+  VStack,
+  Image,
+  HStack,
+  Center,
+  Flex,
+} from '@chakra-ui/react';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import * as FaIcons from 'react-icons/fa';
+import * as MdIcons from 'react-icons/md';
+import { ProjectContext } from '../../context/ProjectContext';
+import { useResumeContext } from '../../context/ResumeContext';
 
-const ProjectDetailsModal = ({ onHide, profileData, projects }) => {
-  console.log(profileData);
-
-  let technologies, title, description, url, tech;
-
-  if (projects) {
-    technologies = projects.technologies;
-    title = projects.title;
-    description = projects.description;
-    url = projects.url;
-
-    if (projects.technologies) {
-      tech = technologies.map((icons, i) => (
-        <li className="list-inline-item mx-3" key={i}>
-          <span>
-            <div className="text-center">
-              <i className={icons.class} style={{ fontSize: '300%' }}>
-                <p className="text-center" style={{ fontSize: '30%' }}>
-                  {icons.name}
-                </p>
-              </i>
-            </div>
-          </span>
-        </li>
-      ));
-    }
+const getIconComponent = (iconName) => {
+  if (FaIcons[iconName]) {
+    return FaIcons[iconName];
   }
+  if (MdIcons[iconName]) {
+    return MdIcons[iconName];
+  }
+  return null;
+};
+
+const ProjectDetailsModal = () => {
+  const { detailsModalShow, closeDetailsModal, detailsModalData } =
+    useContext(ProjectContext);
+  const { allIcons } = useResumeContext();
+
+  const tech = detailsModalData?.technologies?.map((iconDetail, i) => {
+    // Get the actual React component from our mapping using the class field
+    const IconComponent = allIcons[iconDetail.class];
+
+    return (
+      <ListItem key={i} mx={3} textAlign="center">
+        {IconComponent && <Box as={IconComponent} boxSize={12} />}
+        <Text fontSize="xs" mt={2}>
+          {iconDetail.name}
+        </Text>
+      </ListItem>
+    );
+  });
 
   return (
     <Modal
-      onHide={onHide}
+      isOpen={detailsModalShow}
+      onClose={closeDetailsModal}
       size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      className="modal-inside"
-      zIndex={9999}
+      isCentered
     >
-      <span onClick={onHide} className="modal-close">
-        <i className="fas fa-times fa-3x close-icon"></i>
-      </span>
-      <div className="col-md-12">
-        <div className="col-md-10 mx-auto" style={{ paddingBottom: '50px' }}>
-          <div className="slider-tab">
-            <span
-              className="iconify slider-iconfiy"
-              data-icon="emojione:red-circle"
-              data-inline="false"
-              style={{ marginLeft: '5px' }}
-            ></span>{' '}
-            &nbsp;{' '}
-            <span
-              className="iconify slider-iconfiy"
-              data-icon="twemoji:yellow-circle"
-              data-inline="false"
-            ></span>{' '}
-            &nbsp;{' '}
-            <span
-              className="iconify slider-iconfiy"
-              data-icon="twemoji:green-circle"
-              data-inline="false"
-            ></span>
-          </div>
-        </div>
-        <div className="col-md-10 mx-auto">
-          <h3 style={{ padding: '5px 5px 0 5px' }}>
-            {title}
-            {url ? (
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-href"
-              >
-                <i
-                  className="fas fa-external-link-alt"
-                  style={{ marginLeft: '10px' }}
-                ></i>
-              </a>
-            ) : null}
-          </h3>
-          <p
-            className="modal-description"
-            style={{
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-            }}
+      <ModalOverlay />
+      <ModalContent bg="gray.800" color="white" borderRadius="2xl">
+        <ModalCloseButton />
+        <ModalHeader fontFamily="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+          <Flex justify="center" align="start" direction="column">
+            <Badge colorScheme="blue">{detailsModalData?.startDate}</Badge>
+            <Text
+              fontSize="2xl"
+              fontWeight="bold"
+              borderBottom="2px solid"
+              borderColor="blue.400"
+              pb={2}
+            >
+              {detailsModalData?.title}
+            </Text>
+          </Flex>
+          <Center mt={4}>
+            <HStack spacing={4}>
+              {detailsModalData?.url && (
+                <Link href={detailsModalData.url} isExternal color="blue.400">
+                  <HStack spacing={2}>
+                    <FaExternalLinkAlt size={24} />
+                    <Text>View Live</Text>
+                  </HStack>
+                </Link>
+              )}
+              {detailsModalData?.readmeurl && (
+                <Link
+                  href={detailsModalData.readmeurl}
+                  isExternal
+                  color="green.400"
+                >
+                  <HStack spacing={2}>
+                    <FaGithub size={24} />
+                    <Text>View on GitHub</Text>
+                  </HStack>
+                </Link>
+              )}
+            </HStack>
+          </Center>
+        </ModalHeader>
+
+        <Box p={6}>
+          <Text
+            mb={6}
+            fontSize="md"
+            isTruncated
+            noOfLines={5}
+            borderBottom="1px solid"
+            borderColor="gray.600"
+            pb={4}
           >
-            {description}
-          </p>{' '}
-          <div className="col-md-12 text-center">
-            <ul className="list-inline mx-auto">{tech}</ul>
-          </div>
-        </div>
-      </div>
+            {detailsModalData?.description}
+          </Text>
+          <Box mb={6}>
+            {detailsModalData?.images?.map((imgSrc, idx) => (
+              <Image
+                key={idx}
+                src={imgSrc + '.png'}
+                alt={`Project image ${idx}`}
+                borderRadius="md"
+                my={2}
+                boxShadow="xl"
+              />
+            ))}
+          </Box>
+          <Box
+            textAlign="center"
+            mt={4}
+            borderBottom="1px solid"
+            borderColor="gray.600"
+            pb={4}
+          >
+            <Text fontSize="lg" mb={4}>
+              Technologies Used:
+            </Text>
+            <List display="inline-flex">{tech}</List>
+          </Box>
+        </Box>
+      </ModalContent>
     </Modal>
   );
 };

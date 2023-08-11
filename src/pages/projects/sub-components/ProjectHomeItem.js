@@ -5,6 +5,7 @@ import {
   Button,
   AspectRatio,
   useColorModeValue,
+  Image,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
@@ -25,12 +26,12 @@ const ProjectHomeItem = ({ project, onDetails }) => (
     transition={{ duration: 0.5 }}
   >
     <AspectRatio ratio={16 / 9} overflow="hidden">
-      <iframe
+      <Image
         title="project_website"
         id="scaled-frame"
-        src={project.url}
+        src={project.images[0] + '.png'}
         alt="project_website"
-        allowFullScreen
+        // allowFullScreen
       />
     </AspectRatio>
     <Box flex="1" overflowY="auto">

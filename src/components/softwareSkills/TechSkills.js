@@ -2,23 +2,21 @@ import { Grid, GridItem, Box } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import TechIcon from './TechIcon';
 import { PageContext } from '../../context/PageContext';
-import { useResumeContext } from '../../context/ResumeContext'; // <-- Import this
+import { useResumeContext } from '../../context/ResumeContext'; // <-- Already imported
 import HeaderCreator from '../../pages/utils/HeaderCreator';
 
 const TechSkills = () => {
   const { page } = useContext(PageContext);
-  const { homeIcons, resumeIcons } = useResumeContext(); // <-- Use the new hook here
+  const { homeIcons, resumeIcons } = useResumeContext(); // <-- Using the hook
 
   const currentURL = `${window.location.href}`;
   const homeURL = `${window.location.origin}/home`;
   const resumeURL = `${window.location.origin}/resume`;
 
-  const icons =
-    currentURL === homeURL
-      ? homeIcons
-      : currentURL === resumeURL
-      ? [...homeIcons, ...resumeIcons]
-      : homeIcons;
+  let icons = homeIcons;
+  if (currentURL === resumeURL) {
+    icons = [...homeIcons, ...resumeIcons];
+  }
 
   const isResumePage = currentURL === resumeURL;
 
@@ -26,7 +24,7 @@ const TechSkills = () => {
     <GridItem className="techskills-griditem">
       <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
         {HeaderCreator('techSkills')}
-      </Box>{' '}
+      </Box>
       <Grid
         className="techskills-griditem-grid"
         templateColumns={isResumePage ? 'repeat(5, 1fr)' : 'repeat(3, 1fr)'}

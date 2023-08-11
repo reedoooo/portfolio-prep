@@ -1,29 +1,23 @@
-// ProjectsHomePageSection.js
-
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 import CenteredSpinner from '../../components/utils/CenteredSpinner';
 import Error from '../../components/utils/Error';
 import ProjectsHomeContent from './sub-components/ProjectsHomeContent';
 import SectionContainer from '../utils/SectionContainer';
 import HeaderCreator from '../utils/HeaderCreator';
+import { ProjectContext } from '../../context/ProjectContext';
 
 const ProjectsHomePageSection = (props) => {
-  const [detailsModalData, setDetailsModalData] = useState({});
-  const [detailsModalShow, setDetailsModalShow] = useState(false);
   const [projectArray, setProjectArray] = useState([]);
   const [error, setError] = useState(null);
-  // const sectionName = props.profileData?.section_name?.projects || '';
   const [loading, setLoading] = useState(true);
 
-  const detailsModalShowHandler = (data) => {
-    setDetailsModalShow(true);
-    setDetailsModalData(data);
-  };
-
-  const detailsModalCloseHandler = () => {
-    setDetailsModalShow(false);
-  };
+  const {
+    showDetailsModal,
+    closeDetailsModal,
+    detailsModalData,
+    detailsModalShow,
+  } = useContext(ProjectContext);
 
   useEffect(() => {
     axios
@@ -48,15 +42,13 @@ const ProjectsHomePageSection = (props) => {
       {loading ? (
         <CenteredSpinner />
       ) : (
-        <>
-          <ProjectsHomeContent
-            projects={projectArray}
-            onDetails={detailsModalShowHandler}
-            showDetails={detailsModalShow}
-            onHide={detailsModalCloseHandler}
-            detailsData={detailsModalData}
-          />
-        </>
+        <ProjectsHomeContent
+          projects={projectArray}
+          onDetails={showDetailsModal}
+          showDetails={detailsModalShow}
+          onHide={closeDetailsModal}
+          detailsData={detailsModalData}
+        />
       )}
       {error && <Error message={error.message} />}
     </SectionContainer>

@@ -1,58 +1,49 @@
-.logo_wrapper {
-  height: 100vh;
+.splash_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Taken from the '#root' background-color of your theme */
 }
 
-.screen {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo_container {
+  margin-bottom: 2rem;
 }
 
-body {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
+.loading_text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #284b60; /* Using the Adjusted Indigo dye from your pentenary color theme */
+  letter-spacing: 1.5px;
 }
 
-.screen {
-  /* background-color: #55198b; */
-  overflow: hidden;
-  border-radius: 100%;
-  animation: grow 5.5s forwards;
+
+
+.splash_wrapper {
+  background: linear-gradient(45deg, 
+    #305270,  /* Adjusted Midnight green */
+    #284b60,  /* Adjusted Indigo dye */
+    #20444f,  /* Adjusted Berkeley blue */
+    #173d3e,  /* Adjusted Oxford blue */
+    #0e362e,  /* Adjusted Penn blue */
+    #052f1d   /* Very dark greenish-blue */
+  );
+  background-size: 600% 600%;
+  animation: Gradient 16s ease infinite;
 }
 
-@keyframes grow {
+
+@keyframes Gradient {
   0% {
-    transform: scale(0);
+    background-position: 0% 50%;
   }
-  10% {
-    transform: scale(1);
-    border-radius: 0%;
-    height: 100%;
-    width: 100%;
-  }
-  90% {
-    transform: scale(1);
-    border-radius: 0%;
-    height: 100%;
-    width: 100%;
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    transform: scale(0);
-    transform-origin: 50% 50%;
-    border-radius: 100%;
+    background-position: 0% 50%;
   }
-}
-
-#logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
