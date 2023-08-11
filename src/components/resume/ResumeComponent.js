@@ -1,15 +1,12 @@
 import React from 'react';
 import {
   Box,
-  Button,
   Flex,
-  Link,
   Text,
   useBreakpointValue,
   Container,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { Document, Page } from 'react-pdf';
 import { AiOutlineDownload } from 'react-icons/ai';
 import pdf from '../../assets/Reed_Vogt_Resume.pdf';
 import PDFViewer from '../PDFViewer';

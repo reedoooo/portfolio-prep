@@ -11,27 +11,26 @@ import {
   List,
   ListItem,
   Badge,
-  VStack,
   Image,
   HStack,
   Center,
   Flex,
 } from '@chakra-ui/react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import * as FaIcons from 'react-icons/fa';
-import * as MdIcons from 'react-icons/md';
+// import * as FaIcons from 'react-icons/fa';
+// import * as MdIcons from 'react-icons/md';
 import { ProjectContext } from '../../context/ProjectContext';
 import { useResumeContext } from '../../context/ResumeContext';
 
-const getIconComponent = (iconName) => {
-  if (FaIcons[iconName]) {
-    return FaIcons[iconName];
-  }
-  if (MdIcons[iconName]) {
-    return MdIcons[iconName];
-  }
-  return null;
-};
+// const getIconComponent = (iconName) => {
+//   if (FaIcons[iconName]) {
+//     return FaIcons[iconName];
+//   }
+//   if (MdIcons[iconName]) {
+//     return MdIcons[iconName];
+//   }
+//   return null;
+// };
 
 const ProjectDetailsModal = () => {
   const { detailsModalShow, closeDetailsModal, detailsModalData } =
