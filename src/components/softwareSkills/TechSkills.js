@@ -1,16 +1,13 @@
 import { Grid, GridItem, Box } from '@chakra-ui/react';
-import React, { useContext } from 'react';
+import React from 'react';
 import TechIcon from './TechIcon';
-import { PageContext } from '../../context/PageContext';
 import { useResumeContext } from '../../context/ResumeContext'; // <-- Already imported
 import HeaderCreator from '../../pages/utils/HeaderCreator';
 
 const TechSkills = () => {
-  const { page } = useContext(PageContext);
   const { homeIcons, resumeIcons } = useResumeContext(); // <-- Using the hook
 
   const currentURL = `${window.location.href}`;
-  const homeURL = `${window.location.origin}/home`;
   const resumeURL = `${window.location.origin}/resume`;
 
   let icons = homeIcons;

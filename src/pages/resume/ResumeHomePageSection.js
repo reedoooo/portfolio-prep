@@ -1,6 +1,6 @@
 // ResumeHomePageSection.js
 import React from 'react';
-import { Box, Flex, useBreakpointValue, useMediaQuery } from '@chakra-ui/react';
+import { Box, useBreakpointValue } from '@chakra-ui/react';
 import Particle from './Particle';
 import PDFViewer from '../../components/PDFViewer';
 import ButtonContainer from '../../components/buttons/ButtonContainer';
