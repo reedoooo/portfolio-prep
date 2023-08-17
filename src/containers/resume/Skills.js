@@ -10,7 +10,6 @@ const Skills = () => {
       zIndex={'100'}
       className="resume-skills-vstack"
     >
-      {/* <Heading size="lg">Skills</Heading> */}
       <Flex
         width="100%"
         flexDirection={{ base: 'column-reverse', md: 'column' }}

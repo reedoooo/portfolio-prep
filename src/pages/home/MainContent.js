@@ -15,10 +15,10 @@ const MainContent = () => (
       {/* Added the id here */}
       <ProfileHomePageSection minHeight="100vh" />
     </Box>
-    <Box mb={5}>
+    <Box mb={5} id="resumeSection">
       <ResumeHomePageSection minHeight="120vh" />
     </Box>
-    <Box>
+    <Box id="projectsSection">
       <ProjectsHomePageSection minHeight="100vh" />
     </Box>
   </Flex>

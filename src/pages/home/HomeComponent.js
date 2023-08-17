@@ -153,7 +153,7 @@ const HomeComponent = () => {
       alignItems="center"
       justifyContent="center"
       h={'100vh'}
-      w={'100vw'}
+      // w={'100vw'}
       flexDirection="column"
       bg="customColors.translucentQuaternary900"
     >
@@ -163,7 +163,7 @@ const HomeComponent = () => {
             position="absolute"
             top="0"
             left="0"
-            width="100%"
+            // width="100%"
             height="100%"
             bg="customColors.translucentQuaternary900"
             zIndex="-1"

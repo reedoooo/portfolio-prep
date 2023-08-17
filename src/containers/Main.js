@@ -11,8 +11,9 @@ import Auth from '../components/Auth/auth';
 import theme from '../assets/theme';
 import ProjectsPage from '../pages/projects/ProjectsPage';
 import HomePage from '../pages/home/HomePage';
-import NavBar from '../components/headings/navbar/NavBar';
+// import NavBar from '../components/headings/navbar/NavBar';
 import { PageContext } from '../context/PageContext';
+import Header from '../components/headings/header/Header';
 
 export default function Main({ onLogin }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -92,7 +93,7 @@ export default function Main({ onLogin }) {
         <Splash />
       ) : (
         <>
-          <NavBar />
+          <Header />
           {routing}
         </>
       )}

@@ -4,7 +4,7 @@ import logo from '../../../assets/navlogo.png';
 
 export function NavLogoComponent({ textColor }) {
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" id="navlogo-container">
       <RouterLink to="/home">
         <Box
           className="logo-container"

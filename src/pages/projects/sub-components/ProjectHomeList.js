@@ -1,36 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, Container, Grid, GridItem } from '@chakra-ui/react';
-import ProjectHomeItem from './ProjectHomeItem';
+import { Container, useMediaQuery, useTheme } from '@chakra-ui/react';
+import Carousel from './Carousel';
 
 const ProjectHomeList = ({ projects, onDetails }) => {
   const [itemHeight, setItemHeight] = useState(0);
   const middleRef = useRef(null);
-
+  const { breakpoints } = useTheme();
+  const isSm = useMediaQuery(`(max-width: ${breakpoints.md})`)[0];
+  const isMd = useMediaQuery(
+    `(min-width: ${breakpoints.md}) and (max-width: ${breakpoints.lg})`,
+  )[0];
+  const isLg = useMediaQuery(`(min-width: ${breakpoints.lg})`)[0];
   useEffect(() => {
     if (middleRef.current) {
       setItemHeight(middleRef.current.offsetHeight);
     }
   }, [middleRef]);
 
+  console.log('itemHeight', itemHeight);
   return (
-    <Container maxW="container.lg" id="projects-home-list">
-      <Grid
-        templateColumns={{
-          sm: 'repeat(auto-fit, minmax(200px, 1fr))',
-          md: 'repeat(auto-fit, minmax(240px, 1fr))',
-          lg: 'repeat(auto-fit, minmax(300px, 1fr))',
-        }}
-        gap={6}
-        className="project-home-list"
-      >
-        {projects.slice(0, 3).map((project, index) => (
-          <GridItem key={index} ref={index === 2 ? middleRef : null}>
-            <Box style={{ height: itemHeight, minHeight: '45vh' }}>
-              <ProjectHomeItem project={project} onDetails={onDetails} />
-            </Box>{' '}
-          </GridItem>
-        ))}
-      </Grid>
+    <Container
+      maxW="container.lg"
+      id="projects-home-list-container"
+      height={'100%'}
+      // width="100%"
+      py={4}
+    >
+      <Carousel
+        id={'projecthomelist-carousel'}
+        items={projects}
+        onDetails={onDetails}
+        isLg={isLg}
+        size={isSm ? 'sm' : isMd ? 'md' : 'lg'}
+      />
     </Container>
   );
 };

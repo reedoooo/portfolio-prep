@@ -113,29 +113,36 @@ const theme = extendTheme({
       translucentQuaternary901: 'rgba(0, 31, 34, 0.6)', // Very dark greenish-blue
     },
   },
+  breakpoints: {
+    xs: '20em', // 320px
+    xs2: '24.375em',
+    base: '36em', // 576px
+    sm: '36em', // 576px
+    md: '48em', // 768px <-- avg mobile
+    md2: '52.75em', // 768px <-- avg mobile
+    lg: '62em', // 992px
+    xl: '80em', // 1280px <-- avg desktop
+    '2xl': '96em', // 1536px, if you want to go beyond the standard sizes
+  },
   styles: {
     global: {
       'html, body': {
         color: 'gray.600',
         lineHeight: 'tall',
+        fontSize: 'md',
         width: '100%',
+        height: '100%',
       },
       a: {
         color: 'teal.500',
       },
-      // '*:hover': {
-      //   transform: 'scale(1.05)',
-      //   overflow: 'hidden',
-      //   border: '1.7px solid rgba(79, 183, 179, 0.673)',
-      //   boxShadow:
-      //     '0 0 15px rgba(79, 183, 179, 0.8), 0 0 25px rgba(79, 183, 179, 0.8), 0 0 35px rgba(79, 183, 179, 0.8), 0 0 45px rgba(79, 183, 179, 1)',
-      // },
       '*': {
         boxSizing: 'border-box',
       },
       '#root': {
         // backgroundColor: "#f5f5f5",
         minHeight: '100vh',
+        minWidth: '100%',
         display: 'flex',
         flexDirection: 'column',
       },

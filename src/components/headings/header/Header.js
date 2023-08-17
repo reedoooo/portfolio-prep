@@ -1,5 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import React, { Component } from 'react';
+import NavBar from '../navbar/NavBar';
 
 class Header extends Component {
   titles = [];
@@ -13,6 +14,7 @@ class Header extends Component {
       <header id="header" style={{ display: 'block' }}>
         <Box>
           {console.log(this.props)}
+          <NavBar />{' '}
           <div
             className="row aligner"
             style={{

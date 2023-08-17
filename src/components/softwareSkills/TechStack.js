@@ -1,3 +1,26 @@
+import { Grid, GridItem } from '@chakra-ui/react';
+import AboutMe from './AboutMe';
+import TechSkills from './TechSkills';
+
+function Techstack() {
+  return (
+    <Grid
+      templateColumns={{ base: '1fr', md: '1fr 1fr' }}
+      gap={4}
+      className="techstack-grid"
+    >
+      <GridItem>
+        <AboutMe />
+      </GridItem>
+      <GridItem>
+        <TechSkills />
+      </GridItem>
+    </Grid>
+  );
+}
+
+export default Techstack;
+
 {
   /* Additional skills for the skills for the potential resume/skills/profile section */
 }
@@ -86,23 +109,3 @@
             </Flex>
           </GridItem> */
 }
-
-import { Grid, GridItem } from '@chakra-ui/react';
-import AboutMe from './AboutMe';
-import TechSkills from './TechSkills';
-
-function Techstack() {
-  return (
-    <Grid
-      templateColumns={{ base: '1fr', md: '1fr 1fr' }}
-      gap={4}
-      className="techstack-grid"
-    >
-      <AboutMe />
-      <TechSkills />
-      <GridItem></GridItem>
-    </Grid>
-  );
-}
-
-export default Techstack;
