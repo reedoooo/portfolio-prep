@@ -114,15 +114,15 @@ const theme = extendTheme({
     },
   },
   breakpoints: {
-    xs: '20em', // 320px
-    xs2: '24.375em',
-    base: '36em', // 576px
-    sm: '36em', // 576px
-    md: '48em', // 768px <-- avg mobile
-    md2: '52.75em', // 768px <-- avg mobile
-    lg: '62em', // 992px
-    xl: '80em', // 1280px <-- avg desktop
-    '2xl': '96em', // 1536px, if you want to go beyond the standard sizes
+    xs: '20em',
+    sm: '28em',
+    md: '36em', // 768px <-- avg mobile
+    lg: '45em', // 992px
+    xl: '60em',
+  },
+  breakpoints2: {
+    md: '36em', // 768px <-- avg mobile
+    lg: '50em', // 992px
   },
   styles: {
     global: {

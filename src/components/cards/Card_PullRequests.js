@@ -42,7 +42,7 @@ class PullRequestCard extends Component {
           placement={'top'}
           style={{ marginBottom: '5px' }}
           overlay={
-            <Tooltip id={`tooltip-top`}>
+            <Tooltip id={'tooltip-top'}>
               <strong>{`Merged by ${name}`}</strong>
             </Tooltip>
           }

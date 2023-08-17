@@ -9,13 +9,15 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "prettier"
   ],
   "globals": {
     "fail": true
   },
-  "parser": "@typescript-eslint/parser",
+  "parser": "@babel",
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2018
@@ -23,27 +25,12 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "no-console": "off",
-    "indent": ["error", 2],
-    "@typescript-eslint/indent": [
-      "error",
-      2,
-      {
-        "CallExpression": {
-          "arguments": "first"
-        },
-        "FunctionDeclaration": {
-          "parameters": "first"
-        },
-        "FunctionExpression": {
-          "parameters": "first"
-        },
-        "offsetTernaryExpressions": true
-      }
-    ],
+    "indent": "off", 
+    "@typescript-eslint/indent": "off",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "always"],
-    "no-unused-vars": [1, { "vars": "local", "args": "none" }],
+    "@typescript-eslint/no-unused-vars": [1, { "vars": "local", "args": "none" }],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "prettier/prettier": [

@@ -12,46 +12,19 @@
   zoom: 0.3;
 
   /* Transformation properties */
-  -moz-transform: scale(0.3);
-  -moz-transform-origin: center center; /* For Firefox 3 */
-  -o-transform: scale(0.3);
-  -o-transform-origin: center center; /* For older Opera versions */
-  -webkit-transform: scale(0.3);
-  -webkit-transform-origin: center center; /* For older Webkit browsers */
-  transform-origin: center center; /* Standard property */
-}
+-webkit-transform: scale(0.3);
+-moz-transform: scale(0.3);
+-o-transform: scale(0.3);
+transform: scale(0.3);  /* Standard property */
 
-.wrap {
-  width: 80vw;
-  height: 20vh;
-  padding: 0;
-  overflow: hidden;
-}
-
-.scaled-frame {
-  width: 900px;
-  height: 1200px;
-  border: 0;
-  zoom: 0.3;
-
-  /* Transformation properties */
-  -moz-transform: scale(0.3);
-  -moz-transform-origin: center center; /* For Firefox 3 */
-  -o-transform: scale(0.3);
-  -o-transform-origin: center center; /* For older Opera versions */
-  -webkit-transform: scale(0.3);
-  -webkit-transform-origin: center center; /* For older Webkit browsers */
-  transform-origin: center center; /* Standard property */
+-webkit-transform-origin: center center; /* For older Webkit browsers */
+-moz-transform-origin: center center;    /* For Firefox 3 */
+-o-transform-origin: center center;      /* For older Opera versions */
+transform-origin: center center;         /* Standard property */
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   #scaled-frame {
-    zoom: 1;
-  }
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .scaled-frame {
     zoom: 1;
   }
 }

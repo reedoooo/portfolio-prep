@@ -1,11 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { Box, Fade } from '@chakra-ui/react'; // Changed ScaleFade to Fade
+import { Box, Fade } from '@chakra-ui/react';
 import ProjectHomeItem from './ProjectHomeItem';
 import CarouselControls from './CarouselControls';
 
-const Carousel = ({ items, onDetails, size }) => {
+const Carousel = ({ items, onDetails, size, itemHeight, isLg }) => {
   const [currentIndex, setCurrentIndex] = useState(2);
-  const [itemHeight, setItemHeight] = useState(0);
   const middleRef = useRef(null);
 
   const prevSlide = () => {
@@ -20,24 +19,29 @@ const Carousel = ({ items, onDetails, size }) => {
 
   const computeTransform = (index) => {
     if (index === currentIndex) return 'translateX(-50%)';
+
     if (size === 'lg') {
       if (index === (currentIndex - 1 + items.length) % items.length)
         return 'translateX(-100%) scale(0.8)';
       if (index === (currentIndex + 1) % items.length)
         return 'translateX(0%) scale(0.8)';
     }
+
+    if (size === 'md') {
+      return 'translateX(-200%)'; // Hide all non-current items off the screen
+    }
+
     return 'translateX(-200%)';
   };
 
   return (
     <Box
       id="projectshomelist-carousel-container"
-      style={{ height: itemHeight, minHeight: '45vh' }}
+      style={{ height: itemHeight, minHeight: '60vh' }}
       position="relative"
       width="100%"
       height="100%"
       borderRadius="lg"
-      bottom="0"
       perspective="1000px"
     >
       {items.map((item, index) => (
@@ -49,7 +53,7 @@ const Carousel = ({ items, onDetails, size }) => {
             left="50%"
             height="100%"
             bottom="0"
-            transition="transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)" // Added cubic-bezier for smoother transition
+            transition="transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)"
             display={
               index === currentIndex ||
               (size === 'lg' &&
@@ -73,8 +77,14 @@ const Carousel = ({ items, onDetails, size }) => {
                 'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0) 100%)',
             }}
             boxShadow="-10px 10px 15px rgba(0, 0, 0, 0.2), 10px -10px 15px rgba(0, 0, 0, 0.2)"
+            overflow={size === 'md' ? 'hidden' : 'visible'}
           >
-            <ProjectHomeItem project={item} onDetails={onDetails} />
+            <ProjectHomeItem
+              project={item}
+              onDetails={onDetails}
+              isMd={size === 'md'}
+              isLg={isLg}
+            />
           </Box>
         </Fade>
       ))}

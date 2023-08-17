@@ -38,6 +38,7 @@ class SearchBar extends Component {
         <Stack></Stack>
         <div className="project-choices">
           {filteredProjects.map((project) => (
+            // eslint-disable-next-line react/jsx-key
             <Col>
               <Projects resumeProjects={[project]} />
             </Col>

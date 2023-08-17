@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
 
-const ProjectHomeItem = ({ project, onDetails }) => {
+const ProjectHomeItem = ({ project, onDetails, isMd, isLg }) => {
   const displayDescription = () => {
     const maxCharsPerLine = 60; // This is an estimate. You might have to adjust this.
     const maxLines = 3;
@@ -26,7 +26,9 @@ const ProjectHomeItem = ({ project, onDetails }) => {
 
   return (
     <MotionBox
-      p="6"
+      p="20px"
+      width="100%"
+      height="100%"
       d="flex"
       flexDirection="column"
       bg={useColorModeValue(
@@ -34,18 +36,20 @@ const ProjectHomeItem = ({ project, onDetails }) => {
         'rgba(12, 8, 24, 0.904)',
       )}
       boxShadow="2xl"
-      // maxHeight={estimatedMaxHeight}
-      maxHeight="65vh"
+      // maxHeight={isMd ? '45vh' : '65vh'}
+      overflow={isLg ? 'hidden' : 'visible'}
       rounded="lg"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5 }}
     >
-      <AspectRatio ratio={16 / 9}>
+      {/* <AspectRatio ratio={16 / 9}> */}
+      <AspectRatio ratio={4 / 3} width="100%">
         <Image
           title="project_website"
           src={project.images[0] + '.png'}
-          alt="project_website"
+          alt={project.title}
           objectFit="cover"
+          fallbackSrc="/images/project_placeholder.png"
         />
       </AspectRatio>
       <Box flex="1" overflowY="auto" height={'100%'}>

@@ -18,9 +18,7 @@ const HeaderCreator = (type, props = {}) => {
     case 'experiences':
       return <ReusableHeader {...props} headerText="Experience" />;
     case 'techSkills':
-      return (
-        <ReusableHeader {...props} headerText="Tech Skills" />
-      );
+      return <ReusableHeader {...props} headerText="Tech Skills" />;
     case 'techSkillsWithSub':
       return (
         <ReusableHeaderWithSubHeader {...props} headerText="Tech Skills" />
