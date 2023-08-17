@@ -30,6 +30,20 @@ const logoVariants = {
   exit: { opacity: 0, scale: 0, transition: { duration: 0.5 } },
 };
 
+const ellipsisVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: [0, 1, 1, 1, 0], // This makes the ellipsis fade in and out
+    x: ['0%', '5%', '10%', '15%', '20%'], // Move the ellipsis to the right
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: 'loop',
+    },
+  },
+  exit: { opacity: 0, transition: { duration: 0.5 } },
+};
+
 const textVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -67,21 +81,37 @@ function AnimatedSplash() {
       ></motion.div>
       {Particle && <Particle />}
 
-      <motion.p
-        className="loading_text"
-        variants={textVariants}
-        style={{
-          rotateX: [0, 10, -10, 0],
-          transition: {
-            repeat: Infinity,
-            repeatType: 'mirror',
-            duration: 4,
-          },
-          color: theme.colors.quaternary[500],
-        }}
-      >
-        Loading...
-      </motion.p>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        {' '}
+        {/* Wrap the text and ellipsis in a flex container */}
+        <motion.p
+          className="loading_text"
+          variants={textVariants}
+          style={{
+            rotateX: [0, 10, -10, 0],
+            transition: {
+              repeat: Infinity,
+              repeatType: 'mirror',
+              duration: 4,
+            },
+            color: theme.colors.quaternary[500],
+          }}
+        >
+          Loading
+        </motion.p>
+        <motion.span
+          className="loading_ellipsis"
+          variants={ellipsisVariants}
+          style={{
+            fontSize: 'inherit',
+            marginLeft: '5px', // Add some space between the text and the ellipsis
+          }}
+        >
+          <motion.span>.</motion.span>
+          <motion.span>.</motion.span>
+          <motion.span>.</motion.span>
+        </motion.span>
+      </div>
     </motion.div>
   );
 }

@@ -37,7 +37,7 @@ const ProjectsHomePageSection = (props) => {
   }, []);
 
   return (
-    <SectionContainer>
+    <SectionContainer id="projects-home-page-section">
       {HeaderCreator('projects')}
       {loading ? (
         <CenteredSpinner />

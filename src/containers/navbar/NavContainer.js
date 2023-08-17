@@ -41,10 +41,10 @@ export function NavContainer({ children }) {
       fontSize="1.2rem"
       alignItems={'center'}
       color={textColor}
-      backgroundColor={`rgba(0, 31, 34, ${navOpacity})`} // Adjust if you don't want the background to change
+      backgroundColor={`rgba(0, 31, 34, ${navOpacity})`}
       transition="all 0.3s ease-out 0s"
       position="sticky"
-      minWidth={'100vw'}
+      // width="100%"
       height="10vh"
       top="0"
       zIndex="500"

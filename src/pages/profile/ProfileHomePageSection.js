@@ -1,31 +1,34 @@
-// ProfileHomePageSection.js
 import React from 'react';
 import ProfileDescription from '../../components/paragraph/ProfileDescription';
 import TechStackSection from '../../containers/profile/techstack-section/TechStackSection';
 import SectionContainer from '../utils/SectionContainer';
-import HeaderCreator from '../utils/HeaderCreator';
-import { Box, Divider } from '@chakra-ui/react';
+import ReusableHeaderWithSubHeader from '../utils/ReusableHeaderWithSubHeader';
+import { Box, VStack, useTheme } from '@chakra-ui/react';
 
 const ProfileHomePageSection = () => {
+  const theme = useTheme();
+
   return (
-    <SectionContainer>
-      {HeaderCreator('profile')}
+    <SectionContainer id={'profile-home-page'}>
       <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        flexDirection="column"
-        // maxW={{ base: '90%' }}
+        borderWidth={{ base: '0px', [theme.breakpoints.md]: '2px' }}
+        borderRadius="md"
+        p={{ base: '0', [theme.breakpoints.md]: 4 }}
       >
-        <ProfileDescription />
-        <Divider
-          borderColor={'quaternary.50'}
-          maxW={{ base: '90%' }}
-          borderBottomWidth={'3px'}
-        />
-      </Box>
-      <Box>
-        <TechStackSection />
+        <VStack
+          id={'profile-home-page-vstack'}
+          spacing={8}
+          align="stretch"
+          width="100%"
+          alignItems={'center'}
+          justifyContent={'center'}
+        >
+          <ReusableHeaderWithSubHeader
+            headerText="Profile"
+            subHeaderComponent={ProfileDescription}
+          />
+          <TechStackSection />
+        </VStack>
       </Box>
     </SectionContainer>
   );

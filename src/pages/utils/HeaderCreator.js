@@ -1,20 +1,30 @@
+import React from 'react';
 import ReusableHeader from './ReusableHeader';
+import ReusableHeaderWithSubHeader from './ReusableHeaderWithSubHeader';
 
 /* eslint-disable */
-const HeaderCreator = (type) => {
+const HeaderCreator = (type, props = {}) => {
   switch (type) {
-    case 'profile':
-      return <ReusableHeader headerText="Profile" height={'5vh'} />;
+    // case 'profile':
+    //   return <ReusableHeader {...props} headerText="Profile" />;
+    case 'profileWithSub':
+      return <ReusableHeaderWithSubHeader {...props} headerText="Profile" />;
     case 'about':
-      return <ReusableHeader headerText="About Me" height={'5vh'} />;
+      return <ReusableHeader {...props} headerText="About Me" />;
     case 'projects':
-      return <ReusableHeader headerText="Projects" color="white" />;
+      return <ReusableHeader {...props} headerText="Projects" />;
     case 'resume':
-      return <ReusableHeader headerText="Resume" />;
-    case 'techSkills':
-      return <ReusableHeader headerText="Tech Skills" color="white" />;
+      return <ReusableHeader {...props} headerText="Resume" />;
     case 'experiences':
-      return <ReusableHeader headerText="Experience" color="white" />;
+      return <ReusableHeader {...props} headerText="Experience" />;
+    case 'techSkills':
+      return (
+        <ReusableHeader {...props} headerText="Tech Skills" />
+      );
+    case 'techSkillsWithSub':
+      return (
+        <ReusableHeaderWithSubHeader {...props} headerText="Tech Skills" />
+      );
     default:
       return null;
   }

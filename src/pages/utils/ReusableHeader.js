@@ -1,27 +1,23 @@
 import { Box, Heading, Divider } from '@chakra-ui/react';
 
-const ReusableHeader = ({ headerText, color = 'white' }) => (
+const ReusableHeader = ({ headerText, color = 'white', ...props }) => (
   <Box
-    id="reusable-header"
+    id={`reusable-header-${headerText}`} // Added
+    margin={'auto'}
     width="90%"
     minH="2vh"
     maxH="5vh"
     flexGrow={1}
-    // display="flex"
-    // flexDirection="column"
-    // justifyContent="space-between"
     height="100%"
+    mb={4}
+    // pb={2}
     alignItems={'center'}
+    {...props}
   >
-    <Heading as="h2" size="xl" textAlign="center" color={color} mt={2} mb={2}>
+    <Heading as="h2" size="xl" textAlign="center" color={color} mt={2}>
       {headerText}
     </Heading>
-    <Divider
-      borderColor={'quaternary.50'}
-      borderBottomWidth={'3px'}
-      // mt={8}
-      // mb={8}
-    />
+    <Divider borderColor={'quaternary.50'} borderBottomWidth={'3px'} mb={2} />
   </Box>
 );
 

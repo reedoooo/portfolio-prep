@@ -5,7 +5,7 @@ import './assets/styles/App.scss';
 import Main from './containers/Main';
 
 function App() {
-  return <Main />;
+  return <Main w={'100%'} />;
 }
 
 export default App;

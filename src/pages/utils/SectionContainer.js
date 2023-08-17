@@ -1,22 +1,28 @@
 import React from 'react';
-import { Flex, useMediaQuery } from '@chakra-ui/react';
+import { Flex, useMediaQuery, useTheme } from '@chakra-ui/react';
 
-const SectionContainer = ({ children }) => {
-  const [isLargerThanMd] = useMediaQuery('(min-width: 768px)');
+const SectionContainer = ({ children, id }) => {
+  // Accessing the theme's breakpoints
+  const theme = useTheme();
+  const breakpointMd = theme.breakpoints.md;
 
-  const primaryBg = 'rgba(49, 151, 149, 0.4)'; // translucentQuaternary50
+  // Using the theme's breakpoint for medium devices
+  const [isLargerThanMd] = useMediaQuery(`(min-width: ${breakpointMd})`);
+
+  const primaryBg = theme.colors.customColors.translucentQuaternary50;
   const secondaryBg = isLargerThanMd
-    ? 'rgba(0, 31, 34, 0.6)' // translucentQuaternary901
+    ? theme.colors.customColors.translucentQuaternary901
     : 'base';
   const color = isLargerThanMd ? 'white' : 'black';
 
   return (
     <Flex
+      id={`section-container-${id}`}
       alignItems="center"
       justifyContent="center"
-      minHeight="60vh"
+      minHeight="80vh"
       width="100%"
-      p={4} // Added padding for spacing
+      p={4}
       flexDirection="column"
       background={primaryBg}
       color={color}
@@ -24,12 +30,12 @@ const SectionContainer = ({ children }) => {
       <Flex
         alignItems="center"
         justifyContent="center"
+        minHeight="80vh"
         width="100%"
-        // width="auto" // Adjusted to auto for a snug fit
-        p={4} // Added padding for spacing
+        p={4}
         flexDirection="column"
         background={secondaryBg}
-        borderRadius="lg" // Added for rounded appearance
+        borderRadius="lg"
       >
         {children}
       </Flex>
@@ -38,3 +44,60 @@ const SectionContainer = ({ children }) => {
 };
 
 export default SectionContainer;
+// import React from 'react';
+// import { Flex, useMediaQuery, useTheme } from '@chakra-ui/react';
+
+// const SectionContainer = ({ children, id }) => {
+//   // Accessing the theme's breakpoints
+//   const theme = useTheme();
+//   const breakpointMd = theme.breakpoints.md;
+//   const breakpointSm = theme.breakpoints.sm;
+//   const breakpointLg = theme.breakpoints.lg;
+//   const breakpointXl = theme.breakpoints.xl;
+
+//   // Using the theme's breakpoints
+//   const [isLargerThanMd] = useMediaQuery(`(min-width: ${breakpointMd})`);
+//   const [isLargerThanSm] = useMediaQuery(`(min-width: ${breakpointSm})`);
+//   const [isLargerThanLg] = useMediaQuery(`(min-width: ${breakpointLg})`);
+//   const [isLargerThanXl] = useMediaQuery(`(min-width: ${breakpointXl})`);
+
+//   let minHeight = '60vh';
+//   if (isLargerThanSm) minHeight = '65vh';
+//   if (isLargerThanMd) minHeight = '70vh';
+//   if (isLargerThanLg) minHeight = '75vh';
+//   if (isLargerThanXl) minHeight = '80vh';
+
+//   const primaryBg = theme.colors.customColors.translucentQuaternary50;
+//   const secondaryBg = isLargerThanMd
+//     ? theme.colors.customColors.translucentQuaternary901
+//     : 'base';
+//   const color = isLargerThanMd ? 'white' : 'black';
+
+//   return (
+//     <Flex
+//       id={`section-container-${id}`}
+//       alignItems="center"
+//       justifyContent="center"
+//       minHeight={minHeight}
+//       width="100%"
+//       p={4}
+//       flexDirection="column"
+//       background={primaryBg}
+//       color={color}
+//     >
+//       <Flex
+//         alignItems="center"
+//         justifyContent="center"
+//         width="100%"
+//         p={4}
+//         flexDirection="column"
+//         background={secondaryBg}
+//         borderRadius="lg"
+//       >
+//         {children}
+//       </Flex>
+//     </Flex>
+//   );
+// };
+
+// export default SectionContainer;

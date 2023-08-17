@@ -1,11 +1,11 @@
-import { Grid, GridItem, Box } from '@chakra-ui/react';
+import { Grid, Box } from '@chakra-ui/react';
 import React from 'react';
 import TechIcon from './TechIcon';
-import { useResumeContext } from '../../context/ResumeContext'; // <-- Already imported
+import { useResumeContext } from '../../context/ResumeContext';
 import HeaderCreator from '../../pages/utils/HeaderCreator';
 
 const TechSkills = () => {
-  const { homeIcons, resumeIcons } = useResumeContext(); // <-- Using the hook
+  const { homeIcons, resumeIcons } = useResumeContext();
 
   const currentURL = `${window.location.href}`;
   const resumeURL = `${window.location.origin}/resume`;
@@ -18,9 +18,24 @@ const TechSkills = () => {
   const isResumePage = currentURL === resumeURL;
 
   return (
-    <GridItem className="techskills-griditem">
-      <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-        {HeaderCreator('techSkills')}
+    <Box
+      width="100%" // Explicitly set the width to 100%
+      height="100%"
+      display={'flex'}
+      justifyContent={'center'}
+      flexGrow={1}
+      flexDirection="column"
+      // alignItems={'center'}
+    >
+      <Box
+        display={'flex'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        w={'50%'}
+        ml={'auto'}
+        mr={'auto'}
+      >
+        {HeaderCreator('techSkills')} {/* Modified this line */}
       </Box>
       <Grid
         className="techskills-griditem-grid"
@@ -32,7 +47,7 @@ const TechSkills = () => {
           <TechIcon key={index} icon={Icon} />
         ))}
       </Grid>
-    </GridItem>
+    </Box>
   );
 };
 
