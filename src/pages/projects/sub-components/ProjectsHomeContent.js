@@ -1,6 +1,6 @@
 // ProjectsHomePageContent.js
 import React from 'react';
-import { Box, ScaleFade } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import ProjectHomeList from './ProjectHomeList';
 import ProjectDetailsModal from '../../../components/modals/Modal_ProjectDetails';
 

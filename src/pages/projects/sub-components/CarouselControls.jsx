@@ -1,30 +1,21 @@
 import React from 'react';
-import { HStack, Button, useColorModeValue } from '@chakra-ui/react';
+import { HStack, Button, useColorModeValue, Box } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const CarouselControls = ({ prevSlide, nextSlide }) => {
   const buttonStyles = {
-    bg: useColorModeValue(
-      'translucentQuaternary300',
-      'translucentQuaternary700',
-    ),
+    bg: 'rgba(0, 0, 0, 0.3)',
     _hover: {
-      bg: useColorModeValue(
-        'translucentQuaternary500',
-        'translucentQuaternary900',
-      ),
       opacity: 1,
       transform: 'scale(1.05)',
       boxShadow: 'md',
     },
     _active: {
-      bg: 'quaternary.50',
+      bg: 'rgba(0, 0, 0, 0.8)',
     },
     transition: 'all 0.3s',
-    color: 'quaternary.50',
-    fontWeight: 'bold',
-    fontSize: 'lg',
     opacity: 1,
+    p: '16px 4px', // Increased vertical padding while keeping horizontal padding at 4px
   };
 
   return (
@@ -35,23 +26,23 @@ const CarouselControls = ({ prevSlide, nextSlide }) => {
       transform="translateX(-50%)"
       zIndex="2"
       spacing={8}
-      width="50%"
+      width="80%"
       px={4}
       justifyContent="space-between"
     >
       <Button
         {...buttonStyles}
         onClick={prevSlide}
-        leftIcon={<ChevronLeftIcon />}
+        leftIcon={<Box as={ChevronLeftIcon} boxSize="48px" color="white" />}
       >
-        Prev
+        {/* Prev */}
       </Button>
       <Button
         {...buttonStyles}
         onClick={nextSlide}
-        rightIcon={<ChevronRightIcon />}
+        rightIcon={<Box as={ChevronRightIcon} boxSize="48px" color="white" />}
       >
-        Next
+        {/* Next */}
       </Button>
     </HStack>
   );

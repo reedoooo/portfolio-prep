@@ -12,19 +12,31 @@ import { motion } from 'framer-motion';
 const MotionBox = motion(Box);
 
 const ProjectHomeItem = ({ project, onDetails }) => {
+  const displayDescription = () => {
+    const maxCharsPerLine = 60; // This is an estimate. You might have to adjust this.
+    const maxLines = 3;
+
+    if (project.description.length > maxCharsPerLine * maxLines) {
+      return project.description.substr(0, maxCharsPerLine * maxLines) + '...';
+    }
+    return project.description;
+  };
+
+  // const estimatedMaxHeight = `${16 + 2 * maxLines}vh`; // 16vh for the AspectRatio, and 2vh for each line of text.
+
   return (
     <MotionBox
       p="6"
       d="flex"
       flexDirection="column"
-      // height="100%"
       bg={useColorModeValue(
         'rgba(17, 16, 16, 0.582)',
         'rgba(12, 8, 24, 0.904)',
       )}
       boxShadow="2xl"
+      // maxHeight={estimatedMaxHeight}
+      maxHeight="65vh"
       rounded="lg"
-      // overflow="hidden"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5 }}
     >
@@ -41,7 +53,7 @@ const ProjectHomeItem = ({ project, onDetails }) => {
           {project.title}
         </Text>
         <Text fontSize="md" color="secondary.200" mb="4">
-          {project.description}
+          {displayDescription()}
         </Text>
         <Flex mt="auto" justifyContent="space-between" width="100%">
           <Text fontWeight="bold" color="tertiary.600">
