@@ -1,7 +1,7 @@
 **/*.test.js
 **/*.spec.js
 **/*.scss
-# **/*.css
+**/*.css
 **/*.html
 **/*.json
 **/*.md

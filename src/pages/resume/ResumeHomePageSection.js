@@ -1,7 +1,7 @@
 // ResumeHomePageSection.js
 import React from 'react';
 import { Box, useBreakpointValue } from '@chakra-ui/react';
-import Particle from './Particle';
+import Particle from '../utils/Particle';
 import PDFViewer from '../../components/PDFViewer';
 import ButtonContainer from '../../components/buttons/ButtonContainer';
 import { pdfjs } from 'react-pdf';
@@ -17,7 +17,7 @@ function ResumeHomePageSection() {
   const scale = useBreakpointValue({ base: 0.6, md: 1.7 });
 
   return (
-    <SectionContainer>
+    <SectionContainer id="resume-home-page-section">
       <Box>
         {HeaderCreator('resume')}
         {Particle && <Particle />}

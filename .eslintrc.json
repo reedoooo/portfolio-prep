@@ -17,20 +17,27 @@
   "globals": {
     "fail": true
   },
-  "parser": "@babel",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
     "sourceType": "module",
-    "ecmaVersion": 2018
+    "requireConfigFile": false
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "no-console": "off",
-    "indent": "off", 
+    "indent": "off",
     "@typescript-eslint/indent": "off",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "always"],
-    "@typescript-eslint/no-unused-vars": [1, { "vars": "local", "args": "none" }],
+    "@typescript-eslint/no-unused-vars": [
+      1,
+      { "vars": "local", "args": "none" }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "prettier/prettier": [

@@ -6,10 +6,10 @@ import Loading from '../../components/Loader/Loading';
 import Error from '../../components/utils/Error';
 import { ProfileContext } from '../../context/ProfileContext';
 
-import Search from './Search';
-import Select from './Select';
-import ProjectList from './ProjectList';
-import ProjectsLandingSpace from './ProjectsLandingSpace';
+import Search from './sub-components/Search';
+import Select from './sub-components/Select';
+import ProjectList from './sub-components/ProjectList';
+import ProjectsLandingSpace from './sub-components/ProjectsLandingSpace';
 
 import './Project.css';
 
@@ -43,14 +43,16 @@ const ProjectContainer = (props) => {
             borderRadius="md"
             boxShadow="base"
           >
-            <Search value={searchInput} onChange={handleChange} />
-            <Box mt={4}>
-              <Select
-                value={value}
-                onChange={handleSelectChange}
-                options={['All', 'Option1', 'Option2']}
-              />
-            </Box>
+            <div id={'projectcontainer-search-input-group'}>
+              <Search value={searchInput} onChange={handleChange} />
+              <Box mt={4}>
+                <Select
+                  value={value}
+                  onChange={handleSelectChange}
+                  options={['All', 'Option1', 'Option2']}
+                />
+              </Box>
+            </div>
             <ProjectList
               projects={filteredProjects}
               onDetails={detailsModalShowHandler}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
-import ProjectItem from './ProjectItem';
+import ProjectItem from '../../containers/projects/sub-components/ProjectItem';
 
 const ProjectsGrid = ({
   filteredProjects,

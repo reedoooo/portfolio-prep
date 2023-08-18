@@ -10,17 +10,12 @@ const ProjectsHomeContent = ({ projects, onDetails, showDetails, onHide }) => (
     id="projects-home-content"
     p={'1rem'}
     display={'flex'}
-    // flexDirection={'column'}
     flexGrow={'1'}
-    // alignItems={'flex-start'}
-    // justifyContent={'flex-start'}
     height={'100%'}
     width={'100%'}
   >
-    {/* <ScaleFade initialScale={0.9} in={true}> */}
     <ProjectHomeList projects={projects} onDetails={onDetails} />
     <ProjectDetailsModal show={showDetails} onHide={onHide} />
-    {/* </ScaleFade> */}
   </Box>
 );
 

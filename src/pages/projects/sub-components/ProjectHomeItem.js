@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Text,
   Box,
@@ -11,10 +12,10 @@ import { motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
 
-const ProjectHomeItem = ({ project, onDetails, isMd, isLg }) => {
+const ProjectHomeItem = ({ project, onDetails, isMd, isLg, isSm }) => {
   const displayDescription = () => {
-    const maxCharsPerLine = 60; // This is an estimate. You might have to adjust this.
-    const maxLines = 3;
+    const maxCharsPerLine = 60;
+    let maxLines = isSm ? 2 : 3;
 
     if (project.description.length > maxCharsPerLine * maxLines) {
       return project.description.substr(0, maxCharsPerLine * maxLines) + '...';
@@ -22,28 +23,31 @@ const ProjectHomeItem = ({ project, onDetails, isMd, isLg }) => {
     return project.description;
   };
 
-  // const estimatedMaxHeight = `${16 + 2 * maxLines}vh`; // 16vh for the AspectRatio, and 2vh for each line of text.
+  const getBoxStyles = () => {
+    if (isLg) return { overflow: 'hidden' };
+    return { overflow: 'visible' };
+  };
 
   return (
     <MotionBox
-      p="20px"
-      width="100%"
-      height="100%"
+      p="25px"
+      height={isSm ? '100%' : '70vh'}
+      width={isSm ? '100%' : 'none'}
       d="flex"
       flexDirection="column"
       bg={useColorModeValue(
         'rgba(17, 16, 16, 0.582)',
         'rgba(12, 8, 24, 0.904)',
       )}
+      mx={isSm ? 'auto' : '0'}
       boxShadow="2xl"
-      // maxHeight={isMd ? '45vh' : '65vh'}
-      overflow={isLg ? 'hidden' : 'visible'}
+      {...getBoxStyles()}
       rounded="lg"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5 }}
+      className="projecthomeitem-motionbox-container"
     >
-      {/* <AspectRatio ratio={16 / 9}> */}
-      <AspectRatio ratio={4 / 3} width="100%">
+      <AspectRatio ratio={4 / 3}>
         <Image
           title="project_website"
           src={project.images[0] + '.png'}
@@ -52,14 +56,19 @@ const ProjectHomeItem = ({ project, onDetails, isMd, isLg }) => {
           fallbackSrc="/images/project_placeholder.png"
         />
       </AspectRatio>
-      <Box flex="1" overflowY="auto" height={'100%'}>
+      <Box
+        className="projecthomeitem-title-description-date-container"
+        flex="1"
+        overflowY="auto"
+        pb={'25px'}
+      >
         <Text fontWeight="bold" fontSize="xl" mb="2" color="tertiary.600">
           {project.title}
         </Text>
         <Text fontSize="md" color="secondary.200" mb="4">
           {displayDescription()}
         </Text>
-        <Flex mt="auto" justifyContent="space-between" width="100%">
+        <Flex mt="auto" justifyContent="space-between" height="100%">
           <Text fontWeight="bold" color="tertiary.600">
             {project.startDate}
           </Text>

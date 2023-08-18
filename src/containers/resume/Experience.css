@@ -1,63 +1,66 @@
 .react-vertical-timeline--animate .vertical-timeline-element-content,
 .react-vertical-timeline .vertical-timeline-element-content {
-    width: 100% !important; /* Use !important to override any conflicting styles */
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box;
+  width: 100% !important; /* Use !important to override any conflicting styles */
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 .vertical-timeline::before {
-    left: calc(50% - 2px) !important;
+  left: calc(50% - 2px) !important;
 }
 
 .tech-icons2 {
-    font-size: 2.5em !important;
-    margin: 15px !important;
-    padding: 10px !important;
-    opacity: 0.93 !important;
-    border: 1.7px solid rgba(49, 151, 149, 0.673) !important;
-    vertical-align: middle !important;
-    text-align: center !important;
-    border-radius: 50% !important;
-    display: table !important;
-    box-shadow: 4px 5px 4px 3px rgba(49, 151, 149, 0.173) !important;
-    overflow: hidden !important;
-    transition: all 0.4s ease 0s !important;
+  font-size: 2.5em !important;
+  margin: 15px !important;
+  padding: 10px !important;
+  opacity: 0.93 !important;
+  border: 1.7px solid rgba(49, 151, 149, 0.673) !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-radius: 50% !important;
+  display: table !important;
+  box-shadow: 4px 5px 4px 3px rgba(49, 151, 149, 0.173) !important;
+  overflow: hidden !important;
+  transition: all 0.4s ease 0s !important;
+}
+
+@media (max-width: 767px) {
+  .tech-icons2 {
+    margin: 10px !important;
   }
-  
-  @media (max-width: 767px) {
-    .tech-icons2 {
-      margin: 10px !important;
-    }
+}
+
+.tech-icons2:hover {
+  transform: scale(1.05) !important;
+  overflow: hidden !important;
+  border: 1.7px solid rgba(79, 183, 179, 0.673) !important;
+  box-shadow:
+    0 0 15px rgba(79, 183, 179, 0.8),
+    0 0 25px rgba(79, 183, 179, 0.8),
+    0 0 35px rgba(79, 183, 179, 0.8),
+    0 0 45px rgba(79, 183, 179, 1);
+}
+
+.tech-icon-images {
+  padding: 20px !important;
+  line-height: 1.6 !important;
+}
+
+.quote-card-view {
+  border: none !important;
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.about-activity {
+  list-style: none !important;
+  text-align: left !important;
+  padding-left: 1px !important;
+}
+
+@media (max-width: 767px) {
+  .about-img {
+    padding-top: 0 !important;
   }
-  
-  .tech-icons2:hover {
-    transform: scale(1.05) !important;
-    overflow: hidden !important;
-    border: 1.7px solid rgba(79, 183, 179, 0.673) !important;
-    box-shadow: 0 0 15px rgba(79, 183, 179, 0.8), 0 0 25px rgba(79, 183, 179, 0.8),
-      0 0 35px rgba(79, 183, 179, 0.8), 0 0 45px rgba(79, 183, 179, 1);
-  }
-  
-  .tech-icon-images {
-    padding: 20px !important;
-    line-height: 1.6 !important;
-  }
-  
-  .quote-card-view {
-    border: none !important;
-    color: white !important;
-    background-color: transparent !important;
-  }
-  
-  .about-activity {
-    list-style: none !important;
-    text-align: left !important;
-    padding-left: 1px !important;
-  }
-  
-  @media (max-width: 767px) {
-    .about-img {
-      padding-top: 0 !important;
-    }
-  }
+}

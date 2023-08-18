@@ -20,21 +20,19 @@
   letter-spacing: 1.5px;
 }
 
-
-
 .splash_wrapper {
-  background: linear-gradient(45deg, 
-    #305270,  /* Adjusted Midnight green */
-    #284b60,  /* Adjusted Indigo dye */
-    #20444f,  /* Adjusted Berkeley blue */
-    #173d3e,  /* Adjusted Oxford blue */
-    #0e362e,  /* Adjusted Penn blue */
-    #052f1d   /* Very dark greenish-blue */
+  background: linear-gradient(
+    45deg,
+    #305270,
+    /* Adjusted Midnight green */ #284b60,
+    /* Adjusted Indigo dye */ #20444f,
+    /* Adjusted Berkeley blue */ #173d3e,
+    /* Adjusted Oxford blue */ #0e362e,
+    /* Adjusted Penn blue */ #052f1d /* Very dark greenish-blue */
   );
   background-size: 600% 600%;
   animation: Gradient 16s ease infinite;
 }
-
 
 @keyframes Gradient {
   0% {

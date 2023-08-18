@@ -1,9 +1,10 @@
 import { Grid, GridItem, Box } from '@chakra-ui/react';
-import ProjectItem from '../../components/projects/ProjectItem';
+import ProjectItem from './ProjectItem';
 
 const ProjectList = ({ projects, onDetails }) => (
   <Box
     mt={6}
+    id={'projectcontainer-project-list-container'}
     bg="customColors.translucentQuaternary901"
     p={4}
     borderRadius="md"
@@ -17,10 +18,7 @@ const ProjectList = ({ projects, onDetails }) => (
       gap={6}
     >
       {projects.map((project, index) => (
-        <GridItem
-          key={index}
-          // style={{ minHeight: '100vh', maxHeight: '110vh' }}
-        >
+        <GridItem key={index}>
           <ProjectItem project={project} onDetails={onDetails} />
         </GridItem>
       ))}
