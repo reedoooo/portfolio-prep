@@ -78,40 +78,108 @@ main {
   z-index: -1;
 }
 .star-field .layer {
-  box-shadow: -411px -476px #cccccc, 777px -407px #d4d4d4, -387px -477px #fcfcfc,
-    -91px -235px #d4d4d4, 491px -460px #f7f7f7, 892px -128px #f7f7f7,
-    758px -277px #ededed, 596px 378px #cccccc, 647px 423px whitesmoke,
-    183px 389px #c7c7c7, 524px -237px #f0f0f0, 679px -535px #e3e3e3,
-    158px 399px #ededed, 157px 249px #ededed, 81px -450px #ebebeb,
-    719px -360px #c2c2c2, -499px 473px #e8e8e8, -158px -349px #d4d4d4,
-    870px -134px #cfcfcf, 446px 404px #c2c2c2, 440px 490px #d4d4d4,
-    414px 507px #e6e6e6, -12px 246px #fcfcfc, -384px 369px #e3e3e3,
-    641px -413px #fcfcfc, 822px 516px #dbdbdb, 449px 132px #c2c2c2,
-    727px 146px #f7f7f7, -315px -488px #e6e6e6, 952px -70px #e3e3e3,
-    -869px -29px #dbdbdb, 502px 80px #dedede, 764px 342px #e0e0e0,
-    -150px -380px #dbdbdb, 654px -426px #e3e3e3, -325px -263px #c2c2c2,
-    755px -447px #c7c7c7, 729px -177px #c2c2c2, -682px -391px #e6e6e6,
-    554px -176px #ededed, -85px -428px #d9d9d9, 714px 55px #e8e8e8,
-    359px -285px #cfcfcf, -362px -508px #dedede, 468px -265px #fcfcfc,
-    74px -500px #c7c7c7, -514px 383px #dbdbdb, 730px -92px #cfcfcf,
-    -112px 287px #c9c9c9, -853px 79px #d6d6d6, 828px 475px #d6d6d6,
-    -681px 13px #fafafa, -176px 209px #f0f0f0, 758px 457px #fafafa,
-    -383px -454px #ededed, 813px 179px #d1d1d1, 608px 98px whitesmoke,
-    -860px -65px #c4c4c4, -572px 272px #f7f7f7, 459px 533px #fcfcfc,
-    624px -481px #e6e6e6, 790px 477px #dedede, 731px -403px #ededed,
-    70px -534px #cccccc, -23px 510px #cfcfcf, -652px -237px whitesmoke,
-    -690px 367px #d1d1d1, 810px 536px #d1d1d1, 774px 293px #c9c9c9,
-    -362px 97px #c2c2c2, 563px 47px #dedede, 313px 475px #e0e0e0,
-    839px -491px #e3e3e3, -217px 377px #d4d4d4, -581px 239px #c2c2c2,
-    -857px 72px #cccccc, -23px 340px #dedede, -837px 246px white,
-    170px -502px #cfcfcf, 822px -443px #e0e0e0, 795px 497px #e0e0e0,
-    -814px -337px #cfcfcf, 206px -339px #f2f2f2, -779px 108px #e6e6e6,
-    808px 2px #d4d4d4, 665px 41px #d4d4d4, -564px 64px #cccccc,
-    -380px 74px #cfcfcf, -369px -60px #f7f7f7, 47px -495px #e3e3e3,
-    -383px 368px #f7f7f7, 419px 288px #d1d1d1, -598px -50px #c2c2c2,
-    -833px 187px #c4c4c4, 378px 325px whitesmoke, -703px 375px #d6d6d6,
-    392px 520px #d9d9d9, -492px -60px #c4c4c4, 759px 288px #ebebeb,
-    98px -412px #c4c4c4, -911px -277px #c9c9c9;
+  box-shadow:
+    -411px -476px #cccccc,
+    777px -407px #d4d4d4,
+    -387px -477px #fcfcfc,
+    -91px -235px #d4d4d4,
+    491px -460px #f7f7f7,
+    892px -128px #f7f7f7,
+    758px -277px #ededed,
+    596px 378px #cccccc,
+    647px 423px whitesmoke,
+    183px 389px #c7c7c7,
+    524px -237px #f0f0f0,
+    679px -535px #e3e3e3,
+    158px 399px #ededed,
+    157px 249px #ededed,
+    81px -450px #ebebeb,
+    719px -360px #c2c2c2,
+    -499px 473px #e8e8e8,
+    -158px -349px #d4d4d4,
+    870px -134px #cfcfcf,
+    446px 404px #c2c2c2,
+    440px 490px #d4d4d4,
+    414px 507px #e6e6e6,
+    -12px 246px #fcfcfc,
+    -384px 369px #e3e3e3,
+    641px -413px #fcfcfc,
+    822px 516px #dbdbdb,
+    449px 132px #c2c2c2,
+    727px 146px #f7f7f7,
+    -315px -488px #e6e6e6,
+    952px -70px #e3e3e3,
+    -869px -29px #dbdbdb,
+    502px 80px #dedede,
+    764px 342px #e0e0e0,
+    -150px -380px #dbdbdb,
+    654px -426px #e3e3e3,
+    -325px -263px #c2c2c2,
+    755px -447px #c7c7c7,
+    729px -177px #c2c2c2,
+    -682px -391px #e6e6e6,
+    554px -176px #ededed,
+    -85px -428px #d9d9d9,
+    714px 55px #e8e8e8,
+    359px -285px #cfcfcf,
+    -362px -508px #dedede,
+    468px -265px #fcfcfc,
+    74px -500px #c7c7c7,
+    -514px 383px #dbdbdb,
+    730px -92px #cfcfcf,
+    -112px 287px #c9c9c9,
+    -853px 79px #d6d6d6,
+    828px 475px #d6d6d6,
+    -681px 13px #fafafa,
+    -176px 209px #f0f0f0,
+    758px 457px #fafafa,
+    -383px -454px #ededed,
+    813px 179px #d1d1d1,
+    608px 98px whitesmoke,
+    -860px -65px #c4c4c4,
+    -572px 272px #f7f7f7,
+    459px 533px #fcfcfc,
+    624px -481px #e6e6e6,
+    790px 477px #dedede,
+    731px -403px #ededed,
+    70px -534px #cccccc,
+    -23px 510px #cfcfcf,
+    -652px -237px whitesmoke,
+    -690px 367px #d1d1d1,
+    810px 536px #d1d1d1,
+    774px 293px #c9c9c9,
+    -362px 97px #c2c2c2,
+    563px 47px #dedede,
+    313px 475px #e0e0e0,
+    839px -491px #e3e3e3,
+    -217px 377px #d4d4d4,
+    -581px 239px #c2c2c2,
+    -857px 72px #cccccc,
+    -23px 340px #dedede,
+    -837px 246px white,
+    170px -502px #cfcfcf,
+    822px -443px #e0e0e0,
+    795px 497px #e0e0e0,
+    -814px -337px #cfcfcf,
+    206px -339px #f2f2f2,
+    -779px 108px #e6e6e6,
+    808px 2px #d4d4d4,
+    665px 41px #d4d4d4,
+    -564px 64px #cccccc,
+    -380px 74px #cfcfcf,
+    -369px -60px #f7f7f7,
+    47px -495px #e3e3e3,
+    -383px 368px #f7f7f7,
+    419px 288px #d1d1d1,
+    -598px -50px #c2c2c2,
+    -833px 187px #c4c4c4,
+    378px 325px whitesmoke,
+    -703px 375px #d6d6d6,
+    392px 520px #d9d9d9,
+    -492px -60px #c4c4c4,
+    759px 288px #ebebeb,
+    98px -412px #c4c4c4,
+    -911px -277px #c9c9c9;
   transform-style: preserve-3d;
   position: absolute;
   top: 50%;
@@ -252,12 +320,12 @@ html {
     rgba(12, 10, 22, 0.863)
   );
 
-  --imp-text-color: #c770f0;
+  --imp-text-color: #319795;
 }
 
-// .purple {
-//   color: var(--imp-text-color) !important;
-// }
+.cyan {
+  color: var(--imp-text-color) !important;
+}
 
 button:focus {
   box-shadow: none !important;
@@ -317,15 +385,13 @@ button:focus {
 /* Navbar Section  */
 /* --------- */
 
-/* --------- */
-/* Navbar Section  */
-/* --------- */
-
 #home {
   justify-content: center;
   margin: auto;
   width: 100%;
-  font: 12px/18px 'opensans-bold', sans-serif;
+  font:
+    12px/18px 'opensans-bold',
+    sans-serif;
   color: white;
   text-transform: uppercase;
   z-index: 5;
@@ -383,7 +449,7 @@ button:focus {
 
 .navbar-toggler span {
   display: block;
-  background-color: #be50f4;
+  background-color: #319795;
   height: 4px;
   width: 27px;
   margin: 5px 0;
@@ -450,7 +516,7 @@ button:focus {
   position: relative;
   width: 0;
   border-radius: 16px;
-  background: #c95bf5;
+  background: #319795;
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -471,13 +537,12 @@ button:focus {
 
 .navbar-nav .nav-link:hover svg,
 .navbar-nav .nav-link.active svg {
-  fill: #c95bf5;
+  fill: #319795;
 }
 
 .navbar-nav .nav-link.active svg {
   fill: #ff5a5f;
 }
-
 
 /* --------- */
 /* Home section */
@@ -501,7 +566,9 @@ button:focus {
   justify-content: center;
   margin: auto;
   width: 100%;
-  font: 12px/18px 'opensans-bold', sans-serif;
+  font:
+    12px/18px 'opensans-bold',
+    sans-serif;
   color: white;
   text-transform: uppercase;
   z-index: 5;
@@ -582,17 +649,17 @@ button:focus {
 }
 
 .main-name {
-  color: #cd5ff8;
+  color: #319795;
 }
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #be6adf !important;
+  color: #319795 !important;
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #b562d6 !important;
+  color: #319795 !important;
 }
 
 @media (max-width: 767px) {
@@ -672,7 +739,7 @@ button:focus {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #68187a;
+  background: #3f818f;
   transition: 0.5s;
   transform: scale(0.9);
   z-index: -1;
@@ -680,13 +747,13 @@ button:focus {
 
 .home-social-icons:hover::before {
   transform: scale(1.1);
-  box-shadow: 0 0 15px #801f95;
+  box-shadow: 0 0 15px #3f818f;
 }
 
 .home-social-icons:hover {
-  color: #87209e;
-  box-shadow: 0 0 5px #87209e;
-  text-shadow: 0 0 2px #87209e;
+  color: #3f818f;
+  box-shadow: 0 0 5px #3f818f;
+  text-shadow: 0 0 2px #3f818f;
 }
 
 .social-icons {
@@ -696,7 +763,7 @@ button:focus {
 }
 
 .icon-colour {
-  color: #700c86 !important;
+  color: #3f818f !important;
 }
 
 /* --------- */
@@ -740,7 +807,7 @@ button:focus {
 }
 
 .blockquote-footer {
-  color: #a588c0 !important;
+  color: rgba(49, 151, 149, 0.4)!important;
 }
 /* --------- */
 /* Projects */
@@ -762,7 +829,7 @@ button:focus {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  box-shadow: 0 4px 5px 3px rgba(49, 151, 149, 0.4) !important;
   color: white !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
@@ -772,7 +839,7 @@ button:focus {
 .project-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+  box-shadow: 0 4px 4px 5px rgba(49, 151, 149, 0.4) !important;
 }
 
 .blog-card {
@@ -785,7 +852,7 @@ button:focus {
 
 .blog-card-view {
   background-color: transparent !important;
-  box-shadow: 0 3px 3px 2px rgba(145, 77, 161, 0.459) !important;
+  box-shadow: 0 3px 3px 2px rgba(49, 151, 149, 0.4) !important;
   color: white !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
@@ -803,7 +870,7 @@ button:focus {
 .blog-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 3px 3px 5px rgba(155, 88, 173, 0.65) !important;
+  box-shadow: 0 3px 3px 5px rgba(49, 151, 149, 0.4) !important;
 }
 
 .card-img-top {
@@ -820,14 +887,14 @@ button:focus {
 
 .btn-primary {
   color: #fff !important;
-  background-color: #623686 !important;
-  border-color: #623686 !important;
+  background-color: #3f818f !important;
+  border-color: #3f818f !important;
 }
 
 .btn-primary:hover {
   color: #fff !important;
-  background-color: #6d20c5d7 !important;
-  border-color: #6d20c5d7 !important;
+  background-color: #3f818f!important;
+  border-color: #3f818f !important;
 }
 .btn:focus {
   outline: none !important;
@@ -877,8 +944,11 @@ button:focus {
   transform: scale(1.05) !important;
   overflow: hidden !important;
   border: 1.7px solid rgba(79, 183, 179, 0.673) !important;
-  box-shadow: 0 0 15px rgba(79, 183, 179, 0.8), 0 0 25px rgba(79, 183, 179, 0.8),
-    0 0 35px rgba(79, 183, 179, 0.8), 0 0 45px rgba(79, 183, 179, 1);
+  box-shadow:
+    0 0 15px rgba(79, 183, 179, 0.8),
+    0 0 25px rgba(79, 183, 179, 0.8),
+    0 0 35px rgba(79, 183, 179, 0.8),
+    0 0 45px rgba(79, 183, 179, 1);
 }
 
 .tech-icon-images {

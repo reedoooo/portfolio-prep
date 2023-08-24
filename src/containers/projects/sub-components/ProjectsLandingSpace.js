@@ -9,9 +9,9 @@ import {
 import { FaArrowDown } from 'react-icons/fa';
 import { Link as ScrollLink } from 'react-scroll';
 
-const ResumeLandingSpace = () => {
+const ProjectsLandingSpace = () => {
   const headingSize = useBreakpointValue({ base: 'xl', md: '2xl', sm: 'lg' });
-  const textSize = useBreakpointValue({ base: 'md', md: 'lg', lg: 'xl' });
+  const textSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
   return (
     <Box
@@ -35,15 +35,14 @@ const ResumeLandingSpace = () => {
         zIndex="-1"
       ></Box>
 
-      <Heading mb={4} size={headingSize}>
-        My Professional Journey
+      <Heading mb={4} size={headingSize} mx={'auto'}>
+        Crafting Digital Solutions
       </Heading>
       <Text fontSize={textSize} mb={8} px={4} textAlign="center">
-        Dive into my experiences, skills, and the milestones that have shaped my
-        career.
+        Discover a collection of projects where innovation meets excellence.
       </Text>
       <Flex align="center" direction="column">
-        <Text fontSize="sm">Scroll to View Resume</Text>
+        <Text fontSize="sm">Scroll to Explore</Text>
         <ScrollLink to="contentSection" smooth={true} duration={500}>
           <Icon as={FaArrowDown} w={6} h={6} mt={2} cursor="pointer" />
         </ScrollLink>
@@ -52,4 +51,4 @@ const ResumeLandingSpace = () => {
   );
 };
 
-export default ResumeLandingSpace;
+export default ProjectsLandingSpace;

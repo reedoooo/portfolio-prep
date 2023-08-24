@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Text, Flex, Button, AspectRatio, Image } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { ProjectContext } from '../../context/ProjectContext';
+import { ProjectContext } from '../../../context/ProjectContext';
 
 const MotionBox = motion(Box);
 

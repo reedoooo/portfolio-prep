@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Text,
   Box,
@@ -11,39 +12,63 @@ import { motion } from 'framer-motion';
 
 const MotionBox = motion(Box);
 
-const ProjectHomeItem = ({ project, onDetails }) => {
+const ProjectHomeItem = ({ project, onDetails, isMd, isLg, isSm }) => {
+  const displayDescription = () => {
+    const maxCharsPerLine = 60;
+    let maxLines = isSm ? 2 : 3;
+
+    if (project.description.length > maxCharsPerLine * maxLines) {
+      return project.description.substr(0, maxCharsPerLine * maxLines) + '...';
+    }
+    return project.description;
+  };
+
+  const getBoxStyles = () => {
+    if (isLg) return { overflow: 'hidden' };
+    return { overflow: 'visible' };
+  };
+
   return (
     <MotionBox
-      p="6"
+      p="25px"
+      height={isSm ? '100%' : '70vh'}
+      width={isSm ? '100%' : 'none'}
       d="flex"
       flexDirection="column"
-      // height="100%"
       bg={useColorModeValue(
         'rgba(17, 16, 16, 0.582)',
         'rgba(12, 8, 24, 0.904)',
       )}
+      mx={isSm ? 'auto' : '0'}
       boxShadow="2xl"
+      {...getBoxStyles()}
       rounded="lg"
-      // overflow="hidden"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5 }}
+      className="projecthomeitem-motionbox-container"
     >
-      <AspectRatio ratio={16 / 9}>
+      <AspectRatio ratio={4 / 3}>
         <Image
           title="project_website"
           src={project.images[0] + '.png'}
-          alt="project_website"
+          alt={project.title}
           objectFit="cover"
+          fallbackSrc="/images/project_placeholder.png"
         />
       </AspectRatio>
-      <Box flex="1" overflowY="auto" height={'100%'}>
+      <Box
+        className="projecthomeitem-title-description-date-container"
+        flex="1"
+        overflowY="auto"
+        pb={'25px'}
+      >
         <Text fontWeight="bold" fontSize="xl" mb="2" color="tertiary.600">
           {project.title}
         </Text>
         <Text fontSize="md" color="secondary.200" mb="4">
-          {project.description}
+          {displayDescription()}
         </Text>
-        <Flex mt="auto" justifyContent="space-between" width="100%">
+        <Flex mt="auto" justifyContent="space-between" height="100%">
           <Text fontWeight="bold" color="tertiary.600">
             {project.startDate}
           </Text>

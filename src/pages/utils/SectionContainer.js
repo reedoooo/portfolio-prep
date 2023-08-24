@@ -20,7 +20,7 @@ const SectionContainer = ({ children, id }) => {
       id={`section-container-${id}`}
       alignItems="center"
       justifyContent="center"
-      minHeight="80vh"
+      minHeight="85vh"
       width="100%"
       p={4}
       flexDirection="column"
@@ -30,7 +30,7 @@ const SectionContainer = ({ children, id }) => {
       <Flex
         alignItems="center"
         justifyContent="center"
-        minHeight="80vh"
+        minHeight="85vh"
         width="100%"
         p={4}
         flexDirection="column"

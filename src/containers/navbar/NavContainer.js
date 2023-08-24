@@ -19,7 +19,6 @@ export function NavContainer({ children }) {
     };
   }, []);
 
-  // Starting color is RGB(49, 151, 149)
   const originalRed = 49;
   const originalGreen = 151;
   const originalBlue = 149;
@@ -37,17 +36,22 @@ export function NavContainer({ children }) {
     <Box
       as="nav"
       display="flex"
-      padding="0.3rem 2rem"
+      p="0.3rem 2rem"
       fontSize="1.2rem"
-      alignItems={'center'}
+      alignItems="center"
       color={textColor}
-      backgroundColor={`rgba(0, 31, 34, ${navOpacity})`}
+      bg={`rgba(0, 31, 34, ${navOpacity})`}
       transition="all 0.3s ease-out 0s"
       position="sticky"
-      // width="100%"
       height="10vh"
       top="0"
       zIndex="500"
+      maxWidth="100%"
+      flexDirection="row"
+      justifyContent="space-between"
+      boxShadow={
+        navOpacity > 0.5 ? '0px 10px 10px 0px rgba(9, 5, 29, 0.171)' : 'none'
+      }
     >
       {React.cloneElement(children, { textColor })}
     </Box>

@@ -2,6 +2,7 @@ import { Select as ChakraSelect } from '@chakra-ui/react';
 
 const Select = ({ value, onChange, options }) => (
   <ChakraSelect
+    id="projectcontainer-select-input"
     value={value}
     onChange={onChange}
     bg="quaternary.900"

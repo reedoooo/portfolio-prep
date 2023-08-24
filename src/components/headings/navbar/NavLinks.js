@@ -4,7 +4,6 @@ import {
   Link,
   Button,
   useMediaQuery,
-  Text,
   Flex,
   useTheme,
 } from '@chakra-ui/react';
@@ -26,9 +25,25 @@ function NavLinks({ textColor }) {
         as={RouterLink}
         to="/home"
         fontSize="lg"
-        fontWeight="bold"
-        color={textColor}
-        _hover={{ color: 'secondary.50', transition: 'color 0.3s' }}
+        fontWeight="400"
+        position="relative"
+        zIndex="1"
+        _after={{
+          content: "''",
+          position: 'absolute',
+          width: '0',
+          borderRadius: '16px',
+          background: '#319795',
+          bottom: '1px',
+          left: '0',
+          zIndex: '-1',
+          transition: 'all 0.3s ease-out',
+        }}
+        _hover={{
+          _after: {
+            width: '100%',
+          },
+        }}
       >
         Home
       </Link>
@@ -79,34 +94,22 @@ function NavLinks({ textColor }) {
       align="center"
       justify="space-between"
       width="100%"
-      maxWidth={isMobile ? '768px' : '100%'}
       top="0"
       height="10vh"
       color={textColor}
       id="navlinks-container"
+      justifyContent="space-between"
+      p="0.3rem 2rem"
+      _hover={{ textDecoration: 'none' }}
     >
       {isMobile ? (
-        <SideBar>
-          <Text fontSize="lg" fontWeight="bold" color="secondary.50">
-            ReedVogt.com
-          </Text>
-          {links}
-        </SideBar>
+        <SideBar>{links}</SideBar>
       ) : (
         <>
           <Stack spacing={4} direction="row" align="center">
             <NavLogoComponent textColor={textColor} />
           </Stack>
-          <Stack
-            spacing={20}
-            direction="row"
-            justifyContent="right"
-            align="center"
-            width="100%"
-            flexGrow={'1'}
-          >
-            {links}
-          </Stack>
+          {links}
         </>
       )}
     </Flex>

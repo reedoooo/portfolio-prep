@@ -3,31 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import './Splash.css';
 import { motion } from 'framer-motion';
 import { theme } from '../../assets/theme';
-import Particle from '../resume/Particle';
+import Particle from '../utils/Particle';
+import logo from '../../assets/logo.png'; // Import the logo
 
 const logoVariants = {
-  hidden: { opacity: 0, scale: 0 },
+  hidden: { opacity: 0 },
   visible: {
-    opacity: [0, 1, 0.8, 1],
-    scale: [1, 1.3, 1.1, 1.4, 1.2, 1],
-    rotateX: [0, 20, -20, 10, -10, 0],
-    rotateY: [0, -20, 20, -10, 10, 0],
-    boxShadow: [
-      '0px 0px',
-      '10px 10px',
-      '15px 15px',
-      '20px 20px',
-      '10px 10px',
-      '0px 0px',
-    ],
+    opacity: 1,
+    rotate: [0, 360], // Add rotation animation
     transition: {
       duration: 4,
       repeat: Infinity,
-      repeatType: 'mirror',
-      ease: 'easeInOut',
+      ease: 'linear',
     },
   },
-  exit: { opacity: 0, scale: 0, transition: { duration: 0.5 } },
+  exit: { opacity: 0, transition: { duration: 0.5 } },
 };
 
 const ellipsisVariants = {
@@ -73,17 +63,39 @@ function AnimatedSplash() {
       initial="hidden"
       animate="visible"
       exit="exit"
-      style={{ backgroundColor: theme.colors.quaternary[100] }}
+      style={{
+        backgroundColor: theme.colors.quaternary[100],
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }} // center the contents
     >
       <motion.div
         className="logo_container"
         variants={logoVariants}
-      ></motion.div>
+        style={{ marginRight: '20px' }}
+      >
+        {' '}
+        {/* Add a margin to separate the logo and text */}
+        <img src={logo} alt="Logo" width="150px" height="150px" />{' '}
+        {/* Adjust the logo size here */}
+      </motion.div>
+
+      <motion.div>
+        <h1
+          style={{
+            fontSize: '5rem',
+            color: theme.colors.quaternary[900],
+            fontWeight: 'bold',
+          }}
+        >
+          ReedVogt.com
+        </h1>
+      </motion.div>
+
       {Particle && <Particle />}
 
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        {' '}
-        {/* Wrap the text and ellipsis in a flex container */}
         <motion.p
           className="loading_text"
           variants={textVariants}
@@ -104,7 +116,7 @@ function AnimatedSplash() {
           variants={ellipsisVariants}
           style={{
             fontSize: 'inherit',
-            marginLeft: '5px', // Add some space between the text and the ellipsis
+            marginLeft: '5px',
           }}
         >
           <motion.span>.</motion.span>
