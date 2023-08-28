@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ProjectContext } from './ProjectContext';
 
+// Implement the provider for the context
 export const ProjectsContextProvider = ({ children }) => {
   const [detailsModalData, setDetailsModalData] = useState({});
   const [detailsModalShow, setDetailsModalShow] = useState(false);
@@ -9,8 +10,6 @@ export const ProjectsContextProvider = ({ children }) => {
     setDetailsModalShow(true);
     setDetailsModalData(project);
   };
-
-  console.log('detailsModalData:', detailsModalData);
 
   const closeDetailsModal = () => {
     setDetailsModalShow(false);
