@@ -43,7 +43,7 @@ const Carousel = ({ items, onDetails, size, itemHeight, isLg, isMd, isSm }) => {
       perspective="1000px"
     >
       {items.map((item, index) => (
-        <>
+        <React.Fragment key={index}>
           <Box
             ref={index === 2 ? middleRef : null}
             position="absolute"
@@ -74,7 +74,7 @@ const Carousel = ({ items, onDetails, size, itemHeight, isLg, isMd, isSm }) => {
               isLg={size === 'lg'}
             />
           </Box>
-        </>
+        </React.Fragment>
       ))}
       <CarouselControls
         prevSlide={prevSlide}

@@ -241,7 +241,7 @@ const HomeComponent = () => {
             borderWidth={2}
             borderStyle="double"
           >
-            Scroll
+            About Me
           </ScrollButton>
         </Box>
       </ScaleFade>

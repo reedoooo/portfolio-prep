@@ -25,7 +25,7 @@ function NavLinks({ textColor }) {
         as={RouterLink}
         to="/home"
         fontSize="lg"
-        fontWeight="400"
+        fontWeight="bold"
         position="relative"
         zIndex="1"
         _after={{
