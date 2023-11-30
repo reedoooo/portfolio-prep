@@ -92,6 +92,7 @@ function NavLinks({ textColor }) {
     <Flex
       direction="row"
       align="center"
+      position={'sticky'}
       justify="space-between"
       width="100%"
       top="0"

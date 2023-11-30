@@ -8,7 +8,8 @@
       {
         "ignore": [
           "zoom",
-          "backdrop-filter"
+          "backdrop-filter",
+          "-webkit-text-size-adjust"
         ]
       }
     ]

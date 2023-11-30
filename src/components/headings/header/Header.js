@@ -12,9 +12,9 @@ class Header extends Component {
     return (
       // <header id="header" style={{ display: "block", minHeight: "100vh" }}>
       <header id="header" style={{ display: 'block' }}>
-        <Box>
+        <Box height={'100%'}>
           {console.log(this.props)}
-          <NavBar />{' '}
+          <NavBar />
           <div
             className="row aligner"
             style={{
