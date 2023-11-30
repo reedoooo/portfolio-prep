@@ -70,7 +70,7 @@ function AnimatedSplash() {
   useEffect(() => {
     if (calendarRef.current) {
       // Check if the ref is assigned to a DOM element
-      const rect = calendarRef.current.getBoundingClientRect();
+      // const rect = calendarRef.current.getBoundingClientRect();
 
       const breakpoints = {
         xs: 20 * 16,

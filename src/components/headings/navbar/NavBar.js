@@ -4,7 +4,7 @@ import { NavContainer } from '../../../containers/navbar/NavContainer';
 
 function NavBar() {
   return (
-    <NavContainer width="100%">
+    <NavContainer width="100%" height="100%">
       <NavLinks />
     </NavContainer>
   );

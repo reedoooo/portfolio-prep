@@ -93,7 +93,7 @@ export default function Main({ onLogin }) {
         <Splash />
       ) : (
         <>
-          <Header />
+          <Header height="100%" />
           {routing}
         </>
       )}
